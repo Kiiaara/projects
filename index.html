@@ -21,10 +21,21 @@
     }
 
     .modal-main-img {
-        animation: pulse 1.5s infinite;
-        min-height: 250px; 
-        background-color: #051a0d;
-    }
+    animation: pulse 1.5s infinite;
+    background-color: #051a0d;
+    
+    /* Исправление пропорций */
+    width: 100%;
+    height: auto;           /* Высота теперь зависит от картинки, а не тянется */
+    min-height: 200px;      /* Резервируем место под пульсацию */
+    max-height: 70vh;       /* Чтобы на телефоне картинка не была длиннее экрана */
+    object-fit: contain;    /* Главное: картинка вписывается без искажений */
+    
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(181, 242, 161, 0.2);
+    display: block;
+}
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-white); overflow-x: hidden; line-height: 1.6; }
@@ -331,6 +342,7 @@
 </body>
 
 </html>
+
 
 
 

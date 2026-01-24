@@ -58,7 +58,25 @@
         .nav-links a { color: white; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover { color: var(--btn-green); }
 
-        .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero { 
+    height: 60vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;    /* Центрирует элементы по горизонтали */
+    text-align: center;     /* Центрирует текст внутри строк */
+    padding: 20px;
+    margin-bottom: -40px;
+    width: 100%;           /* Занимает всю ширину экрана */
+    box-sizing: border-box; /* Учитывает padding, чтобы не распирать экран */
+}
+
+/* Дополнительная проверка для вложенных элементов */
+.hero h1, .hero p, .hero .btn {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
         .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 10px; line-height: 1.1; }
         .hero p { font-size: 1.3rem; color: var(--accent-light); margin-bottom: 25px; }
 
@@ -357,6 +375,7 @@
 </body>
 
 </html>
+
 
 
 

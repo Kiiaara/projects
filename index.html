@@ -203,7 +203,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+       AOS.init({ duration: 800, once: true });
 
         const links = {
             soonvooshko: "https://www.twitch.tv/soonvooshko",
@@ -245,7 +245,7 @@
 
         const allCases = [
             { 
-                img: "Рисунок7 (2).webp", // Ссылка на картинку
+                img: "Рисунок7 (2).webp",
                 tag: "Tournament", title: "Игры Будущего", mini: "23,5 млн+ просмотров",
                 task: "Международный мультиспортивный турнир нового формата, объединивший технологии виртуальной реальности и традиционные виды спорта. Турнир прошел в феврале 2023 года в Казани и стал крупнейшим событием подобного масштаба в мире.",
                 doing: ["Разработка стратегии привлечения лидеров мнений для участия в проекте", "Организация сотрудничества с более чем 400 инфлюенсерами, включая стримеров, блогеров и спортивных деятелей", "Создание уникального контента и спецпроектов, направленных на привлечение внимания к турниру"],
@@ -331,8 +331,6 @@
 
         function openModal(c) {
             const resultData = Array.isArray(c.result) ? c.result : [c.result];
-            
-            // Если в img есть ссылка, показываем картинку, если нет - пустую рамку
             const imgHtml = c.img ? `<img src="${c.img}" class="modal-main-img" loading="lazy">` : `<div class="modal-img-box">Изображение ожидается</div>`;
             
             document.getElementById('modal-body').innerHTML = `
@@ -341,9 +339,9 @@
                 <h4>Описание:</h4>
                 <p>${linkify(c.task)}</p>
                 <h4>Что сделано:</h4>
-                <ul>${c.doing.map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
+                <ol style="padding-left: 20px;">${c.doing.map(d => `<li style="margin-bottom: 8px; color: #e0e0e0;">${linkify(d)}</li>`).join('')}</ol>
                 <h4>Результат:</h4>
-                <ul>${resultData.map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
+                <ul style="list-style: none;">${resultData.map(r => `<li style="position: relative; padding-left: 18px; margin-bottom: 8px; color: #e0e0e0;">— ${linkify(r)}</li>`).join('')}</ul>
             `;
             document.getElementById('projectModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
@@ -357,56 +355,60 @@
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let width, height, particles;
+
         function initBg() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
             particles = [];
             for (let i = 0; i < 110; i++) particles.push(new Particle());
         }
+
         class Particle {
             constructor() { this.reset(); }
-            reset() { this.x = Math.random() * width; this.y = Math.random() * height; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() - 0.5) * 0.3; this.speedY = (Math.random() - 0.5) * 0.3; this.alpha = Math.random(); this.fade = Math.random() * 0.01 + 0.005; }
-         update() { 
-    this.x += this.speedX; 
-    this.y += this.speedY; 
-
-    // Вместо сброса через reset(), плавно переносим частицу на другую сторону
-    if (this.x < 0) this.x = width;
-    if (this.x > width) this.x = 0;
-    if (this.y < 0) this.y = height;
-    if (this.y > height) this.y = 0;
-
-    this.alpha += this.fade; 
-    if (this.alpha > 0.7 || this.alpha < 0.1) this.fade *= -1; 
-}
-            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; ctx.fill(); }
+            reset() { 
+                this.x = Math.random() * width; 
+                this.y = Math.random() * height; 
+                this.size = Math.random() * 2 + 0.5; 
+                this.speedX = (Math.random() - 0.5) * 0.3; 
+                this.speedY = (Math.random() - 0.5) * 0.3; 
+                this.alpha = Math.random(); 
+                this.fade = Math.random() * 0.01 + 0.005; 
+            }
+            update() { 
+                this.x += this.speedX; 
+                this.y += this.speedY; 
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+                this.alpha += this.fade; 
+                if (this.alpha > 0.7 || this.alpha < 0.1) this.fade *= -1; 
+            }
+            draw() { 
+                ctx.beginPath(); 
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); 
+                ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; 
+                ctx.fill(); 
+            }
         }
-       let lastTime = 0; // Переменная для контроля времени между кадрами
 
-function animate() { 
-    ctx.clearRect(0, 0, width, height); 
-    particles.forEach(p => { 
-        p.update(); 
-        p.draw(); 
-    }); 
-    requestAnimationFrame(animate); 
-}
-    
-    lastTime = time;
+        function animate() { 
+            ctx.clearRect(0, 0, width, height); 
+            particles.forEach(p => { 
+                p.update(); 
+                p.draw(); 
+            }); 
+            requestAnimationFrame(animate); 
+        }
 
-    ctx.clearRect(0, 0, width, height);
-    particles.forEach(p => { 
-        p.update(); 
-        p.draw(); 
-    });
-    
-    requestAnimationFrame(animate); 
-}
-        initBg(); animate(); window.addEventListener('resize', initBg);
+        initBg(); 
+        animate(); 
+        window.addEventListener('resize', initBg);
     </script>
 </body>
 
 </html>
+
 
 
 

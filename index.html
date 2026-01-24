@@ -339,9 +339,13 @@
                 <h4>Описание:</h4>
                 <p>${linkify(c.task)}</p>
                 <h4>Что сделано:</h4>
-                <ol style="padding-left: 20px;">${c.doing.map(d => `<li style="margin-bottom: 8px; color: #e0e0e0;">${linkify(d)}</li>`).join('')}</ol>
+                <ul style="list-style: none;">
+                    ${c.doing.map(d => `<li style="position: relative; padding-left: 18px; margin-bottom: 8px; color: #e0e0e0;">${linkify(d)}</li>`).join('')}
+                </ul>
                 <h4>Результат:</h4>
-                <ul style="list-style: none;">${resultData.map(r => `<li style="position: relative; padding-left: 18px; margin-bottom: 8px; color: #e0e0e0;">— ${linkify(r)}</li>`).join('')}</ul>
+                <ul style="list-style: none;">
+                    ${resultData.map(r => `<li style="position: relative; padding-left: 18px; margin-bottom: 8px; color: #e0e0e0;">${linkify(r)}</li>`).join('')}
+                </ul>
             `;
             document.getElementById('projectModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
@@ -408,6 +412,7 @@
 </body>
 
 </html>
+
 
 
 

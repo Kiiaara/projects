@@ -58,10 +58,29 @@
         .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--accent-light); text-transform: uppercase; }
 
-        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-        .info-card { background: var(--bg-card); padding: 35px; border-radius: 25px; border: 1px solid rgba(181, 242, 161, 0.1); backdrop-filter: blur(10px); }
-        
-        .profile-img { width: 100%; height: auto; border-radius: 25px; border: 1px solid var(--btn-green); object-fit: cover; background: #051a0d; display: block; }
+        /* 1. Убираем align-items: start, чтобы колонки растягивались на одну высоту */
+.about-layout { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    align-items: stretch; /* Важно: теперь колонки всегда одной высоты */
+}
+
+/* 2. Добавляем класс для контейнера картинки (чтобы он тянулся) */
+.profile-card {
+    height: 100%;
+}
+
+/* 3. Заставляем картинку заполнять 100% высоты контейнера */
+.profile-img { 
+    width: 100%; 
+    height: 100%; /* Картинка теперь тянется по высоте */
+    border-radius: 25px; 
+    border: 1px solid var(--btn-green); 
+    object-fit: cover; /* Это не даст картинке сплющиться, она аккуратно подрежется под размер */
+    background: #051a0d; 
+    display: block; 
+}
 
         .modal-main-img { 
             width: 100%; 
@@ -565,14 +584,14 @@
                 img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games", title: "Crimson Desert", mini: "53к+ просмотров", 
                 task: "Демонстрация новой игры",
                 doing: [
-                    "Проведение спецстримов по игре на каналах Mixazver, 404t4ga, Bezbash, Redpandash, adm1tr1pow, Vsevkusno, lubricum, mad6996_"
+                    "Проведение спецстримов по игре на каналах Mixazver, 404t4ga, Bezbash, Redpandash, Adm1tr1pow, Vsevkusno, Lubricum, Mad6996_"
                 ], 
                 result: [
                     "Более 16 тыс. просмотров трансляции Mixazver", 
                     "Более 33 тыс. просмотров трансляции 404t4ga", 
                     "Более 40 тыс. просмотров трансляции Bezbash", 
                     "Более 53 тыс. просмотров трансляции Redpandash", 
-                    "Более 30 тыс. просмотров трансляции adm1tr1pow", 
+                    "Более 30 тыс. просмотров трансляции Adm1tr1pow", 
                     "Более 28 тыс. просмотров трансляции Vsevkusno"
                 ] 
             },

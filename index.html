@@ -58,26 +58,36 @@
         .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--accent-light); text-transform: uppercase; }
 
-        /* 1. Убираем align-items: start, чтобы колонки растягивались на одну высоту */
+        /* Контейнер сетки: заставляет обе колонки быть одной высоты */
 .about-layout { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
     gap: 40px; 
-    align-items: stretch; /* Важно: теперь колонки всегда одной высоты */
+    align-items: stretch; 
 }
 
-/* 2. Добавляем класс для контейнера картинки (чтобы он тянулся) */
+/* Стили левой плашки (важно вернуть этот блок) */
+.info-card { 
+    background: var(--bg-card); 
+    padding: 35px; 
+    border-radius: 25px; 
+    border: 1px solid rgba(181, 242, 161, 0.1); 
+    backdrop-filter: blur(10px); 
+    height: 100%; /* Чтобы плашка занимала всю высоту колонки */
+}
+
+/* Правый контейнер для картинки */
 .profile-card {
     height: 100%;
 }
 
-/* 3. Заставляем картинку заполнять 100% высоты контейнера */
+/* Сама картинка */
 .profile-img { 
     width: 100%; 
-    height: 100%; /* Картинка теперь тянется по высоте */
+    height: 100%; 
     border-radius: 25px; 
     border: 1px solid var(--btn-green); 
-    object-fit: cover; /* Это не даст картинке сплющиться, она аккуратно подрежется под размер */
+    object-fit: cover; 
     background: #051a0d; 
     display: block; 
 }

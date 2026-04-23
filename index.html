@@ -104,7 +104,17 @@
             border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.3s; 
             cursor: pointer; display: flex; flex-direction: column; min-height: 160px;
         }
-        .case-card:hover { transform: translateY(-5px); border-color: var(--btn-green); }
+        .case-card:hover {
+    transform: translateY(-8px); /* Сделаем подъем чуть выше для динамики */
+    border-color: var(--btn-green);
+    
+    /* Двойное свечение: мягкое зеленое вокруг и плотная тень внизу */
+    box-shadow: 0 0 30px rgba(46, 204, 113, 0.3), 
+                0 15px 40px rgba(0, 0, 0, 0.6);
+    
+    /* Немного подсветим фон самой карточки при наведении */
+    background: rgba(15, 55, 30, 0.95);
+}
         .case-tag { color: var(--btn-green); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 8px; }
         .case-result-mini { margin-top: auto; padding-top: 10px; font-weight: 700; color: var(--accent-light); font-size: 0.8rem; }
 

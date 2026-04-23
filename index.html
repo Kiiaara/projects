@@ -35,114 +35,112 @@
 
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-        /* УВЕЛИЧЕННЫЙ ХЕДЕР */
+        /* ХЕДЕР */
         header { 
             position: fixed; top: 0; width: 100%; 
             background: rgba(2, 13, 6, 0.98); backdrop-filter: blur(15px); 
             z-index: 1000; border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
         }
         nav { 
-            max-width: 1400px; margin: 0 auto; 
-            padding: 22px 30px; 
+            max-width: 1300px; margin: 0 auto; 
+            padding: 20px 25px; 
             display: flex; justify-content: space-between; align-items: center; 
         }
         
         .logo { 
             font-weight: 800; background: linear-gradient(90deg, var(--accent-light), #2ecc71);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-transform: uppercase; letter-spacing: 3px; font-size: 1.5rem;
+            text-transform: uppercase; letter-spacing: 2px; font-size: 1.3rem;
             filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.3));
         }
-        .nav-links { display: flex; gap: 35px; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--btn-green); }
 
-        .lang-switch { display: flex; gap: 10px; margin-left: 30px; }
+        .lang-switch { display: flex; gap: 8px; margin-left: 20px; }
         .lang-btn {
-            background: none; border: 2px solid rgba(181, 242, 161, 0.3);
-            color: white; cursor: pointer; font-size: 0.9rem; font-weight: 800; 
-            padding: 6px 14px; border-radius: 8px; transition: 0.3s;
+            background: none; border: 1px solid rgba(181, 242, 161, 0.2);
+            color: white; cursor: pointer; font-size: 0.75rem; font-weight: 800; 
+            padding: 4px 10px; border-radius: 5px; transition: 0.3s;
         }
         .lang-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); }
 
         /* HERO */
-        .hero { min-height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; margin-top: 110px; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
-        .hero p { font-size: 1.4rem; color: var(--accent-light); margin-bottom: 30px; }
+        .hero { min-height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; margin-top: 100px; }
+        .hero h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 800; margin-bottom: 5px; text-transform: uppercase; }
+        .hero p { font-size: 1.25rem; color: var(--accent-light); margin-bottom: 25px; }
 
-        /* БЕГУЩАЯ СТРОКА */
-        .brands-section { padding: 30px 0; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(181, 242, 161, 0.1); border-bottom: 1px solid rgba(181, 242, 161, 0.1); overflow: hidden; display: flex; }
-        .brands-track { display: flex; width: max-content; animation: scroll 40s linear infinite; }
-        .brands-container { display: flex; align-items: center; gap: 100px; padding-right: 100px; }
+        /* БЕГУЩАЯ СТРОКА - 60 СЕКУНД */
+        .brands-section { padding: 25px 0; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(181, 242, 161, 0.1); border-bottom: 1px solid rgba(181, 242, 161, 0.1); overflow: hidden; display: flex; }
+        .brands-track { display: flex; width: max-content; animation: scroll 60s linear infinite; }
+        .brands-container { display: flex; align-items: center; gap: 80px; padding-right: 80px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .brand-item { font-weight: 800; color: white; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; white-space: nowrap; }
+        .brand-item { font-weight: 700; color: white; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.35; white-space: nowrap; }
 
-        /* ОБО МНЕ */
-        .section { max-width: 1300px; margin: 0 auto; padding: 70px 20px; }
-        h2 { font-size: 2.8rem; margin-bottom: 40px; color: var(--accent-light); text-transform: uppercase; font-weight: 800; }
+        /* СЕКЦИИ */
+        .section { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+        h2 { font-size: 2.5rem; margin-bottom: 35px; color: var(--accent-light); text-transform: uppercase; font-weight: 800; }
         
-        .about-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: stretch; }
-        .info-card { background: var(--bg-card); padding: 50px; border-radius: 40px; border: 1px solid rgba(181, 242, 161, 0.1); height: 100%; backdrop-filter: blur(15px); }
-        .info-card p { font-size: 1.2rem; margin-bottom: 25px; line-height: 1.7; }
+        /* КОМПАКТНЫЙ БЛОК ОБО МНЕ */
+        .about-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: stretch; }
+        .info-card { background: var(--bg-card); padding: 35px; border-radius: 30px; border: 1px solid rgba(181, 242, 161, 0.1); height: 100%; backdrop-filter: blur(10px); }
+        .info-card p, .info-card li { font-size: 1rem; margin-bottom: 15px; line-height: 1.6; color: #f0f0f0; }
 
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 35px 0; }
-        .stat-card { background: rgba(255,255,255,0.04); padding: 25px; border-radius: 25px; text-align: center; border: 1px solid rgba(46, 204, 113, 0.2); }
-        .stat-number { display: block; font-size: 2.6rem; font-weight: 800; color: var(--btn-green); line-height: 1.2; }
-        .stat-desc { font-size: 0.85rem; text-transform: uppercase; color: var(--accent-light); font-weight: 700; letter-spacing: 1px; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
+        .stat-card { background: rgba(255,255,255,0.03); padding: 18px; border-radius: 18px; text-align: center; border: 1px solid rgba(46, 204, 113, 0.1); }
+        .stat-number { display: block; font-size: 2rem; font-weight: 800; color: var(--btn-green); line-height: 1.2; }
+        .stat-desc { font-size: 0.7rem; text-transform: uppercase; color: var(--accent-light); font-weight: 700; letter-spacing: 1px; }
 
-        .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px; }
-        .vm-item { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 25px; border-left: 6px solid var(--btn-green); }
-        .vm-item h3 { color: var(--btn-green); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 12px; font-weight: 800; }
+        .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .vm-item { background: rgba(255,255,255,0.02); padding: 22px; border-radius: 20px; border-left: 5px solid var(--btn-green); }
+        .vm-item h3 { color: var(--btn-green); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
+        .vm-item p { font-size: 0.9rem; margin-bottom: 0; line-height: 1.5; }
 
         .profile-card { height: 100%; }
-        .profile-img { width: 100%; height: 100%; border-radius: 40px; border: 1px solid var(--btn-green); object-fit: cover; display: block; }
+        .profile-img { width: 100%; height: 100%; border-radius: 30px; border: 1px solid var(--btn-green); object-fit: cover; display: block; }
 
         /* КЕЙСЫ */
-        .filter-container { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 50px; justify-content: center; }
-        .filter-btn { background: rgba(255,255,255,0.05); border: 2px solid rgba(181, 242, 161, 0.2); color: white; padding: 12px 28px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 800; transition: 0.3s; }
+        .filter-container { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; justify-content: center; }
+        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(181, 242, 161, 0.15); color: white; padding: 10px 22px; border-radius: 50px; cursor: pointer; font-size: 0.9rem; font-weight: 700; transition: 0.3s; }
         .filter-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); }
 
-        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        .case-card { background: var(--bg-card); padding: 35px; border-radius: 30px; border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; display: flex; flex-direction: column; }
-        .case-card:hover { transform: translateY(-12px); border-color: var(--btn-green); box-shadow: 0 0 60px rgba(46, 204, 113, 0.3); background: rgba(15, 55, 30, 0.98); }
+        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+        .case-card { background: var(--bg-card); padding: 30px; border-radius: 25px; border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; }
+        .case-card:hover { transform: translateY(-10px); border-color: var(--btn-green); box-shadow: 0 0 50px rgba(46, 204, 113, 0.25); background: rgba(15, 55, 30, 0.95); }
         
-        .case-tag { color: var(--btn-green); font-weight: 900; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1.5px; }
-        .case-card h3 { font-size: 1.35rem; font-weight: 800; }
-        .case-result-mini { margin-top: auto; padding-top: 20px; font-weight: 800; color: var(--accent-light); font-size: 1rem; }
+        .case-tag { color: var(--btn-green); font-weight: 900; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
+        .case-card h3 { font-size: 1.25rem; font-weight: 800; }
+        .case-result-mini { margin-top: auto; padding-top: 15px; font-weight: 800; color: var(--accent-light); font-size: 0.95rem; }
 
         @media (max-width: 900px) {
-            nav { flex-direction: column; gap: 20px; padding: 25px; }
-            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            .hero { margin-top: 220px; }
+            nav { flex-direction: column; gap: 15px; padding: 20px; }
+            .hero { margin-top: 160px; }
             .about-layout { grid-template-columns: 1fr; }
-            .cases-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
-            .case-card { padding: 25px 20px; }
-            .case-card h3 { font-size: 1.1rem; }
+            .cases-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .case-card { padding: 20px 15px; }
+            .case-card h3 { font-size: 1rem; }
+            h2 { font-size: 2rem; text-align: center; }
         }
 
         /* МОДАЛКА */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-content { background: #071a0f; padding: 50px; border-radius: 40px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
-        .close-modal { position: absolute; top: 25px; right: 30px; font-size: 3.5rem; color: white; cursor: pointer; transition: 0.3s; z-index: 100; }
-        
-        .modal-main-img { width: 100%; border-radius: 25px; margin-bottom: 35px; border: 1px solid rgba(181, 242, 161, 0.2); }
-        
-        .modal-body h2 { font-size: 2.6rem; margin-bottom: 25px; font-weight: 800; color: var(--accent-light); }
-        .modal-body h4 { color: var(--btn-green); margin: 35px 0 15px 0; text-transform: uppercase; font-size: 1.1rem; font-weight: 900; letter-spacing: 1.5px; }
-        .modal-body p, .modal-body li { font-size: 1.2rem; color: #f5f5f5; margin-bottom: 15px; line-height: 1.8; }
-        .modal-body ul { list-style: none; padding-left: 0; }
-        .modal-body li { position: relative; padding-left: 30px; }
-        .modal-body li::before { content: '—'; position: absolute; left: 0; color: var(--btn-green); font-weight: 900; }
-        
+        .modal-content { background: #071a0f; padding: 40px; border-radius: 30px; max-width: 850px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
+        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 3rem; color: white; cursor: pointer; }
+        .modal-main-img { width: 100%; border-radius: 20px; margin-bottom: 30px; border: 1px solid rgba(181, 242, 161, 0.2); }
+        .modal-body h2 { font-size: 2.4rem; margin-bottom: 20px; color: var(--accent-light); font-weight: 800; }
+        .modal-body h4 { color: var(--btn-green); margin: 30px 0 12px 0; text-transform: uppercase; font-size: 1rem; font-weight: 900; }
+        .modal-body p, .modal-body li { font-size: 1.15rem; line-height: 1.8; color: #f5f5f5; }
+        .modal-body li { position: relative; padding-left: 30px; margin-bottom: 12px; }
+        .modal-body li::before { content: '-'; position: absolute; left: 0; color: var(--btn-green); font-weight: 900; }
         .modal-body a { color: var(--btn-green); font-weight: 900; text-decoration: none; border-bottom: 2px solid rgba(46, 204, 113, 0.3); transition: 0.2s; }
-        .modal-body a:hover { background: rgba(46, 204, 113, 0.1); border-bottom-color: var(--btn-green); }
+        .modal-body a:hover { background: rgba(46, 204, 113, 0.15); border-bottom-color: var(--btn-green); }
 
-        .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 18px 45px; border-radius: 100px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 1.1rem; transition: 0.3s; cursor: pointer; border: none; }
-        .btn:hover { background: var(--accent-light); transform: scale(1.05); box-shadow: 0 0 30px rgba(46, 204, 113, 0.5); }
+        .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 15px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 1rem; transition: 0.3s; cursor: pointer; border: none; }
+        .btn:hover { background: var(--accent-light); transform: scale(1.05); box-shadow: 0 0 25px rgba(46, 204, 113, 0.4); }
         
-        .quote-box { max-width: 1000px; margin: 80px auto 40px auto; font-style: italic; color: var(--accent-light); font-size: 1.6rem; border-left: 6px solid var(--btn-green); padding: 35px 50px; text-align: center; line-height: 1.6; background: rgba(255,255,255,0.02); }
+        .quote-box { max-width: 900px; margin: 60px auto; font-style: italic; color: var(--accent-light); font-size: 1.4rem; border-left: 5px solid var(--btn-green); padding: 30px 40px; text-align: center; background: rgba(255,255,255,0.015); line-height: 1.5; }
 
-        footer { text-align: center; padding: 60px; background: #010803; border-top: 1px solid rgba(181, 242, 161, 0.1); font-size: 1.1rem; font-weight: 700; opacity: 0.6; }
+        footer { text-align: center; padding: 50px; background: #010803; border-top: 1px solid rgba(181, 242, 161, 0.1); font-size: 0.9rem; font-weight: 700; opacity: 0.6; }
     </style>
 </head>
 <body>
@@ -171,17 +169,27 @@
         <a href="#cases" class="btn" data-aos="zoom-in" data-i18n="hero_btn">Смотреть все проекты</a>
     </section>
 
-    <div class="brands-section" data-aos="fade-up">
+   <div class="brands-section" data-aos="fade-up">
         <div class="brands-track">
             <div class="brands-container">
-                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР</span><span class="brand-item">PUBG MOBILE</span>
+                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР и SMP</span><span class="brand-item">PUBG MOBILE</span>
                 <span class="brand-item">SKILLFACTORY</span><span class="brand-item">ИГРЫ БУДУЩЕГО</span><span class="brand-item">NIMO.TV</span>
                 <span class="brand-item">SIRUS WOW</span><span class="brand-item">TOTAL FOOTBALL</span><span class="brand-item">ARENA BREAKOUT</span>
+                <span class="brand-item">ZENLESS ZONE ZERO</span><span class="brand-item">ARKNIGHTS</span><span class="brand-item">TARISLAND</span>
+                <span class="brand-item">GRAN SAGA</span><span class="brand-item">STALCRAFT: X</span><span class="brand-item">LDSHOP</span>
+                <span class="brand-item">DXRACER</span><span class="brand-item">АЛАБУГА ПОЛИТЕХ</span><span class="brand-item">ДРОНКОН</span>
+                <span class="brand-item">ARCHEAGE</span><span class="brand-item">EXOBORNE</span><span class="brand-item">NTE</span>
+                <span class="brand-item">CRIMSON DESERT</span>
             </div>
             <div class="brands-container">
-                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР</span><span class="brand-item">PUBG MOBILE</span>
+                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР и SMP</span><span class="brand-item">PUBG MOBILE</span>
                 <span class="brand-item">SKILLFACTORY</span><span class="brand-item">ИГРЫ БУДУЩЕГО</span><span class="brand-item">NIMO.TV</span>
                 <span class="brand-item">SIRUS WOW</span><span class="brand-item">TOTAL FOOTBALL</span><span class="brand-item">ARENA BREAKOUT</span>
+                <span class="brand-item">ZENLESS ZONE ZERO</span><span class="brand-item">ARKNIGHTS</span><span class="brand-item">TARISLAND</span>
+                <span class="brand-item">GRAN SAGA</span><span class="brand-item">STALCRAFT: X</span><span class="brand-item">LDSHOP</span>
+                <span class="brand-item">DXRACER</span><span class="brand-item">АЛАБУГА ПОЛИТЕХ</span><span class="brand-item">ДРОНКОН</span>
+                <span class="brand-item">ARCHEAGE</span><span class="brand-item">EXOBORNE</span><span class="brand-item">NTE</span>
+                <span class="brand-item">CRIMSON DESERT</span>
             </div>
         </div>
     </div>
@@ -190,7 +198,7 @@
         <div class="about-layout">
             <div class="info-card" data-aos="fade-right">
                 <h2 data-i18n="nav_about">Обо мне</h2>
-                <p data-i18n="about_text_1">Специалист по работе с популярными стримерами и блогерами. Более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организацией масштабных мероприятий.</p>
+                <p data-i18n="about_text_1">Специалист по работе с популярными стримерами и блогерами. Уже более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организации масштабных мероприятий</p>
                 
                 <div class="stats-grid">
                     <div class="stat-card"><span class="stat-number">70М+</span><span class="stat-desc" data-i18n="stats_views">Просмотров</span></div>
@@ -199,16 +207,15 @@
                     <div class="stat-card"><span class="stat-number">100%</span><span class="stat-desc" data-i18n="stats_kpi">KPI выполнен</span></div>
                 </div>
 
-                <ul style="list-style: none; margin: 30px 0;">
-                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0; font-size: 1.5rem;">•</span> <span data-i18n="about_li_1">Реализация комплексных рекламных кампаний</span></li>
-                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0; font-size: 1.5rem;">•</span> <span data-i18n="about_li_2">Проведение мероприятий с топовыми инфлюенсерами</span></li>
-                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0; font-size: 1.5rem;">•</span> <span data-i18n="about_li_3">Тесные связи с ведущими мировыми рекламодателями</span></li>
-                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0; font-size: 1.5rem;">•</span> <span data-i18n="about_li_4">Создание уникальных креативных концепций продвижения</span></li>
+                <ul style="list-style: none; margin: 20px 0;">
+                    <li style="padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> <span data-i18n="about_li_1">Реализация комплексных рекламных кампаний</span></li>
+                    <li style="padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> <span data-i18n="about_li_2">Проведение мероприятий с топовыми инфлюенсерами</span></li>
+                    <li style="padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> <span data-i18n="about_li_3">Тесные связи с ведущими рекламодателями</span></li>
                 </ul>
 
                 <div class="vm-grid">
-                    <div class="vm-item"><h3 data-i18n="v_title">Видение</h3><p data-i18n="v_text">Мир, где каждый бренд находит свою историю через таланты.</p></div>
-                    <div class="vm-item"><h3 data-i18n="m_title">Миссия</h3><p data-i18n="m_text">Эффективное взаимодействие брендов с аудиторией через KOL.</p></div>
+                    <div class="vm-item"><h3 data-i18n="v_title">Видение</h3><p data-i18n="v_text">Мир, где каждый бренд находит свою уникальную историю</p></div>
+                    <div class="vm-item"><h3 data-i18n="m_title">Миссия</h3><p data-i18n="m_text">Превращать сотрудничество с инфлюенсерами в эффективный инструмент маркетинга</p></div>
                 </div>
             </div>
             <div class="profile-card" data-aos="fade-left">
@@ -239,8 +246,8 @@
         <div class="quote-box" data-aos="fade-up" data-i18n="quote">
             "Настоящий успех бренда начинается там, где заканчивается боязнь выйти за рамки привычных соцсетей"
         </div>
-        <h2 data-aos="zoom-in" data-i18n="nav_contact" style="margin-top: 40px;">Связаться</h2>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <h2 data-aos="zoom-in" data-i18n="nav_contact" style="margin-top: 30px;">Связаться</h2>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
             <a href="https://t.me/Ki1aragg" target="_blank" class="btn" style="background: #24A1DE; color: white;">Telegram</a>
             <a href="https://vk.com/kiiarabg" target="_blank" class="btn" style="background: #0077FF; color: white;">VK</a>
             <a href="https://discordapp.com/users/307205951503728661" target="_blank" class="btn" style="background: #7289DA; color: white;">Discord</a>
@@ -261,12 +268,12 @@
                 hero_p: "Influence Marketing Manager", hero_btn: "Смотреть все проекты",
                 stats_views: "Просмотров", stats_bloggers: "Блогеров", stats_cases: "Кейсов", stats_kpi: "KPI выполнен",
                 filter_all: "Все", filter_games: "Игры", filter_tour: "Турниры", filter_spec: "Спецпроекты",
-                about_text_1: "Специалист по работе с популярными стримерами и блогерами. Более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организацией масштабных мероприятий.",
+                about_text_1: "Специалист по работе с популярными стримерами и блогерами. Уже более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организации масштабных мероприятий.",
                 about_li_1: "Реализация комплексных рекламных кампаний", about_li_2: "Проведение мероприятий с топовыми инфлюенсерами",
-                about_li_3: "Тесные связи с ведущими мировыми рекламодателями", about_li_4: "Создание уникальных креативных концепций продвижения",
-                v_title: "Видение", v_text: "Мир, где каждый бренд находит свою историю через таланты.",
-                m_title: "Миссия", m_text: "Эффективное взаимодействие брендов с аудиторией через KOL.",
-                quote: "Настоящий успех бренда начинается там, где заканчивается боязнь выйти за рамки привычных соцсетей и начинается работа со стримерами",
+                about_li_3: "Тесные связи с ведущими рекламодателями",
+                v_title: "Видение", v_text: "Мир, где каждый бренд находит свою уникальную историю",
+                m_title: "Миссия", m_text: "Превращать сотрудничество с инфлюенсерами в эффективный инструмент маркетинга",
+                quote: "Настоящий успех бренда начинается там, где заканчивается боязнь выйти за рамки привычных соцсетей",
                 desc: "Описание:", tasks: "Что сделано:", results: "Результат:"
             },
             en: {
@@ -274,11 +281,11 @@
                 hero_p: "Influence Marketing Manager", hero_btn: "View All Projects",
                 stats_views: "Views", stats_bloggers: "Influencers", stats_cases: "Cases", stats_kpi: "KPI Achieved",
                 filter_all: "All", filter_games: "Games", filter_tour: "Tournaments", filter_spec: "Specials",
-                about_text_1: "Influence Marketing expert specializing in streamers and content creators. Over 2 years of experience in brand growth and large-scale event management.",
+                about_text_1: "Influence Marketing expert specializing in streamers and content creators. For over two years, I have been successfully promoting brands in iGaming and organizing large-scale events.",
                 about_li_1: "Execution of complex advertising campaigns", about_li_2: "Management of events with top-tier influencers",
-                about_li_3: "Strategic partnerships with global advertisers", about_li_4: "Development of unique creative concepts",
-                v_title: "Vision", v_text: "A world where every brand builds its story through talent.",
-                m_title: "Mission", m_text: "Effective brand-audience interaction through KOLs.",
+                about_li_3: "Strategic partnerships with global advertisers",
+                v_title: "Vision", v_text: "A world where every brand builds its unique story",
+                m_title: "Mission", m_text: "Turning influencer collaborations into an effective marketing tool",
                 quote: "True brand success begins where the fear of going beyond traditional social media ends",
                 desc: "Description:", tasks: "Execution:", results: "Result:"
             },
@@ -289,10 +296,10 @@
                 filter_all: "全部", filter_games: "游戏", filter_tour: "锦标赛", filter_spec: "特别项目",
                 about_text_1: "专注于博主营销的专家。在 iGaming 推广和活动策划领域拥有超过两年的成功经验。",
                 about_li_1: "执行复杂的多渠道广告活动", about_li_2: "组织顶级 KOL 参与的大型活动",
-                about_li_3: "与全球领先的广告商保持密切联系", about_li_4: "制定独特的创意营销概念",
-                v_title: "愿景", v_text: "让每个品牌都能通过创意人才讲述自己的故事。",
-                m_title: "使命", m_text: "通过 KOL 实现品牌与受众之间的高效互动。",
-                quote: "品牌的真正成功始于打破对传统社交媒体的依赖。",
+                about_li_3: "与全球领先的广告商保持密切联系",
+                v_title: "愿景", v_text: "让每个品牌都能找到自己独特故事的世界",
+                m_title: "使命", m_text: "将博主合作转化为有效的营销工具",
+                quote: "品牌的真正成功始于打破对传统社交媒体的依赖",
                 desc: "项目描述:", tasks: "执行内容:", results: "项目成果:"
             }
         };
@@ -329,8 +336,8 @@
 
         const allCases = [
             { img: "Рисунок7 (2).webp", tag: "Tournament", title: {ru:"Игры Будущего",en:"Games of the Future",zh:"未来之战"}, mini:{ru:"23,5 млн+ просмотров",en:"23.5M+ views",zh:"2350万+ 观看"}, task:{ru:"Международный турнир в Казани.",en:"International tournament in Kazan.",zh:"喀山国际锦标赛。"}, doing:{ru:["Стратегия KOL","Работа с 400+ инфлюенсерами"],en:["KOL Strategy","400+ influencers"],zh:["KOL 战略","400 多名博主"]}, result:{ru:["23,5 млн. просмотров"],en:["23.5M views"],zh:["2350 万次观看"]} },
-            { img: "photo_2026-01-24_20-50-19.webp", tag: "Special Project", title: {ru:"неСКУФный лагерь",en:"Non-SKUF Camp",zh:"非宅男夏令营"}, mini:{ru:"6,8 млн+ просмотров",en:"6.8M+ views",zh:"680万+ 观看"}, task:{ru:"Офлайн-проект со стримерами.",en:"Offline project with streamers.",zh:"主播线下项目。"}, doing:{ru:["Трансляции стримеров","Посевы нарезки"],en:["Live streams","Content seeding"],zh:["博主直播","内容分发"]}, result:{ru:["6,8 млн. просмотров"],en:["6.8M views"],zh:["680 万次观看"]} },
-            { img: "photo_2025-12-14_01-22-28.webp", tag: "Tournament", title: {ru:"СберСеллер и SMP",en:"SberSeller & SMP",zh:"SberSeller 与 SMP"}, mini:{ru:"371к+ просмотров",en:"371k+ views",zh:"37.1万+ 观看"}, task:{ru:"Популяризация CS2 и Dota 2.",en:"CS2 and Dota 2 promotion.",zh:"推广 CS2 和 Dota 2。"}, doing:{ru:["Координация трансляций mixazver"],en:["Broadcasts for mixazver"],zh:["协调 mixazver 的直播"]}, result:{ru:["371к+ просмотров"],en:["371k+ views"],zh:["37.1 万次观看"]} },
+            { img: "photo_2026-01-24_20-50-19.webp", tag: "Special Project", title: {ru:"неСКУФный лагерь",en:"Non-SKUF Camp",zh:"非宅男营"}, mini:{ru:"6,8 млн+ просмотров",en:"6.8M+ views",zh:"680万+ 观看"}, task:{ru:"Офлайн-проект со стримерами.",en:"Offline project with streamers.",zh:"主播线下项目。"}, doing:{ru:["Трансляции стримеров","Посевы нарезки"],en:["Live streams","Content seeding"],zh:["博主直播","内容分发"]}, result:{ru:["6,8 млн. просмотров"],en:["6.8M views"],zh:["680 万次观看"]} },
+            { img: "photo_2025-12-14_01-22-28.webp", tag: "Tournament", title: {ru:"СберСеллер и SMP",en:"SberSeller & SMP",zh:"SberSeller 与 SMP"}, mini:{ru:"371к+ просмотров",en:"371k+ views",zh:"37万+ 观看"}, task:{ru:"Популяризация CS2 и Dota 2.",en:"CS2 and Dota 2 promotion.",zh:"推广 CS2 和 Dota 2。"}, doing:{ru:["Координация трансляций mixazver"],en:["Broadcasts for mixazver"],zh:["协调 mixazver 的直播"]}, result:{ru:["371к+ просмотров"],en:["371k+ views"],zh:["37 万次观看"]} },
             { img: "photo_2024-12-20_19-14-28.webp", tag: "Special Project", title: {ru:"Гигачат",en:"GigaChat",zh:"GigaChat"}, mini:{ru:"1,9 млн+ просмотров",en:"1.9M+ views",zh:"190万+ 观看"}, task:{ru:"AI спецстрим GigaChat.",en:"AI stream GigaChat.",zh:"AI 直播 GigaChat。"}, doing:{ru:["Интеграция открыток","soonvooshko печать"],en:["Postcard integration","soonvooshko printing"],zh:["明信片集成","soonvooshko 打印"]}, result:{ru:["1,9 млн. просмотров"],en:["1.9M views"],zh:["190 万次观看"]} },
             { img: "Рисунок9.webp", tag: "Games", title: {ru:"Arena Breakout",en:"Arena Breakout",zh:"暗区突围"}, mini:{ru:"20 млн+ просмотров",en:"20M+ views",zh:"2000万+ 观看"}, task:{ru:"Запуск нового шутера.",en:"New shooter launch.",zh:"射击游戏首发。"}, doing:{ru:["Стримы на запуске","Контроль KPI"],en:["Launch streams","KPI control"],zh:["首发直播","KPI 控制"]}, result:{ru:["Почти 20 млн. просмотров"],en:["Nearly 20M views"],zh:["近 2000 万次观看"]} },
             { img: "photo_2024-10-18_20-08-15.webp", tag: "Games", title: {ru:"Zenless Zone Zero",en:"Zenless Zone Zero",zh:"绝区零"}, mini:{ru:"Top Nimo.tv",en:"Top Nimo.tv",zh:"Nimo.tv 热度"}, task:{ru:"Спецстрим и челлендж.",en:"Special stream & challenge.",zh:"专题直播与挑战。"}, doing:{ru:["Координация 7 крупных стримеров"],en:["7 major streamers coordination"],zh:["协调 7 位大主播"]}, result:{ru:["Топ Nimo.tv"],en:["Ranked in Nimo.tv top"],zh:["登上 Nimo.tv 热榜"]} },
@@ -343,16 +350,16 @@
             { img: "photo_2024-08-01_19-05-00.webp", tag: "Games", title: {ru:"Tarisland",en:"Tarisland",zh:"塔瑞斯世界"}, mini:{ru:"50к+ просмотров",en:"50k+ views",zh:"5万+ 观看"}, task:{ru:"Запуск MMORPG.",en:"MMORPG launch.",zh:"MMORPG 发布。"}, doing:{ru:["soonvooshko развитие персонажа"],en:["soonvooshko leveling"],zh:["soonvooshko 角色养成"]}, result:{ru:["50 тыс. просмотров"],en:["50k views"],zh:["5 万次观看"]} },
             { img: "photo_2024-10-09_13-25-52.webp", tag: "Games", title: {ru:"Sirus (WoW)",en:"Sirus (WoW)",zh:"Sirus (魔兽世界)"}, mini:{ru:"3,3 млн+ просмотров",en:"3.3M+ views",zh:"330万+ 观看"}, task:{ru:"Новый сервер Sirus.",en:"New Sirus server.",zh:"Sirus 新服务器。"}, doing:{ru:["soonvooshko цикл стримов"],en:["soonvooshko stream series"],zh:["soonvooshko 系列直播"]}, result:{ru:["3,3 млн. просмотров"],en:["3.3M views"],zh:["330 万次观看"]} },
             { img: "Рисунок17.webp", tag: "Games", title: {ru:"Gran Saga",en:"Gran Saga",zh:"格兰骑士团"}, mini:{ru:"38к+ просмотров",en:"38k+ views",zh:"3.8万+ 观看"}, task:{ru:"Проведение стрима.",en:"Live stream.",zh:"专题直播。"}, doing:{ru:["soonvooshko стрим"],en:["soonvooshko stream"],zh:["soonvooshko 直播"]}, result:{ru:["38 тыс. просмотров"],en:["38k views"],zh:["3.8 万次观看"]} },
-            { img: "Снимок экрана 2026-01-24 205359.webp", tag: "Special Project", title: {ru:"SkillFactory",en:"SkillFactory",zh:"SkillFactory"}, mini:{ru:"1,7 млн+ просмотров",en:"1.7M+ views",zh:"170万+ 观看"}, task:{ru:"Профессия Белый хакер.",en:"Ethical Hacker career.",zh:"推广“白帽黑客”职业。"}, doing:{ru:["voitovichdm, vsevkusno"],en:["voitovichdm, vsevkusno"],zh:["voitovichdm, vsevkusno"]}, result:{ru:["1,7 млн. просмотров"],en:["1.7M views"],zh:["170 万次观看"]} },
+            { img: "Снимок экрана 2026-01-24 205359.webp", tag: "Special Project", title: {ru:"SkillFactory",en:"SkillFactory",zh:"SkillFactory"}, mini:{ru:"1,7 млн+ просмотров",en:"1.7M+ views",zh:"170万+ 观看"}, task:{ru:"Профессия хакер.",en:"Ethical Hacker promo.",zh:"黑客职业推广。"}, doing:{ru:["voitovichdm, vsevkusno"],en:["voitovichdm, vsevkusno"],zh:["voitovichdm, vsevkusno"]}, result:{ru:["1,7 млн. просмотров"],en:["1.7M views"],zh:["170 万次观看"]} },
             { img: "Рисунок18.webp", tag: "Games", title: {ru:"STALCRAFT: X",en:"STALCRAFT: X",zh:"潜行者"}, mini:{ru:"200к просмотров",en:"200k views",zh:"20万 观看"}, task:{ru:"Популяризация игры.",en:"Game promo.",zh:"游戏推广。"}, doing:{ru:["soonvooshko стрим"],en:["soonvooshko stream"],zh:["soonvooshko 直播"]}, result:{ru:["200 тыс. просмотров"],en:["200k views"],zh:["20 万次观看"]} },
             { img: "photo_2026-01-15_15-23-08.webp", tag: "Special Project", title: {ru:"LdShop",en:"LdShop",zh:"LdShop"}, mini:{ru:"205к+ просмотров",en:"205k+ views",zh:"20万+ 观看"}, task:{ru:"Магазин валюты.",en:"Currency shop.",zh:"充值商店。"}, doing:{ru:["soonvooshko интеграция"],en:["soonvooshko integration"],zh:["soonvooshko 植入"]}, result:{ru:["184к+ просмотров"],en:["184k+ views"],zh:["18.4 万次观看"]} },
             { img: "Снимок-экрана-2026-02-08-144004.webp", tag: "Games", title: {ru:"NTE",en:"NTE",zh:"NTE"}, mini:{ru:"138к+ просмотров",en:"138k+ views",zh:"13万+ 观看"}, task:{ru:"Патч-презентация.",en:"Patch showcase.",zh:"补丁展示。"}, doing:{ru:["soonvooshko стримы"],en:["soonvooshko streams"],zh:["soonvooshko 直播"]}, result:{ru:["138к+ просмотров"],en:["138k+ views"],zh:["13.8 万次观看"]} },
-            { img: "photo_2026-02-19_18-06-00.webp", tag: "Special Project", title: {ru:"PUBGm Это не игра",en:"PUBGm: Not a Game",zh:"和平精英短剧"}, mini:{ru:"280к+ просмотров",en:"280k+ views",zh:"28万+ 观看"}, task:{ru:"Реакции на сериал.",en:"Series reaction.",zh:"短剧观看互动。"}, doing:{ru:["Morphe_ya, bezbash"],en:["Morphe_ya, bezbash"],zh:["Morphe_ya, bezbash"]}, result:{ru:["280к+ просмотров"],en:["280k+ views"],zh:["28 万次观看"]} },
-            { img: "Снимок экрана 2026-02-24 164720.webp", tag: "Tournament", title: {ru:"ДронКон",en:"DroneCon",zh:"无人机大会"}, mini:{ru:"487к+ просмотров",en:"487k+ views",zh:"48万+ 观看"}, task:{ru:"Турнир дронов.",en:"Drone tournament.",zh:"无人机锦标赛。"}, doing:{ru:["8 каналов, Tpabomah"],en:["8 channels, Tpabomah"],zh:["8 个频道, Tpabomah"]}, result:{ru:["Охват 487к+"],en:["Reach 487k+"],zh:["触达 48.7 万+"]} },
-            { img: "Снимок экрана 2026-04-23 123235.webp", tag: "Special Project", title: {ru:"Алабуга политех",en:"Alabuga Poly",zh:"阿拉布加"}, mini:{ru:"53к+ просмотров",en:"53k+ views",zh:"5万+ 观看"}, task:{ru:"Ролики Алабуги.",en:"Alabuga content.",zh:"阿拉布加内容。"}, doing:{ru:["RedPandaSH, Tupa_chil"],en:["RedPandaSH, Tupa_chil"],zh:["RedPandaSH, Tupa_chil"]}, result:{ru:["53к+ просмотров"],en:["53k+ views"],zh:["5.3 万次观看"]} },
-            { img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games", title: {ru:"Crimson Desert",en:"Crimson Desert",zh:"赤色沙漠"}, mini:{ru:"53к+ просмотров",en:"53k+ views",zh:"5万+ 观看"}, task:{ru:"Демонстрация игры.",en:"Game showcase.",zh:"游戏展示。"}, doing:{ru:["Mixazver, 404t4ga"],en:["Mixazver, 404t4ga"],zh:["Mixazver, 404t4ga"]}, result:{ru:["Высокая вовлеченность"],en:["High engagement"],zh:["极高互动率"]} },
-            { img: "photo_2026-04-22_19-56-15.webp", tag: "Games", title: {ru:"NTE (Launch)",en:"NTE (Launch)",zh:"NTE (发布)"}, mini:{ru:"57к+ просмотров",en:"57k+ views",zh:"5.7万+ 观看"}, task:{ru:"Трейлер к запуску.",en:"Launch trailer.",zh:"发布预告。"}, doing:{ru:["soonvooshko, Vikiblade"],en:["soonvooshko, Vikiblade"],zh:["soonvooshko, Vikiblade"]}, result:{ru:["57к+ просмотров"],en:["57k+ views"],zh:["5.7 万次观看"]} },
-            { img: "_________________", tag: "Special Project", title: {ru:"DXracer",en:"DXracer",zh:"DXracer"}, mini:{ru:"Интеграция",en:"Integration",zh:"内容植入"}, task:{ru:"Кресло в стриме.",en:"Chair in stream.",zh:"电竞椅植入。"}, doing:{ru:["TpaBoMaH рефералка"],en:["TpaBoMaH referral"],zh:["TpaBoMaH 推荐活动"]}, result:{ru:["Нативный показ"],en:["Native display"],zh:["原生展示"]} }
+            { img: "photo_2026-02-19_18-06-00.webp", tag: "Special Project", title: {ru:"PUBGm Это не игра",en:"PUBGm: Not a Game",zh:"和平精英短剧"}, mini:{ru:"280к+ просмотров",en:"280k+ views",zh:"28万+ 观看"}, task:{ru:"Реакции на сериал.",en:"Series reaction.",zh:"短剧观看互动。"}, doing:{ru:["morphe_ya, bezbash"],en:["morphe_ya, bezbash"],zh:["morphe_ya, bezbash"]}, result:{ru:["280к+ просмотров"],en:["280k+ views"],zh:["28 万次观看"]} },
+            { img: "Снимок экрана 2026-02-24 164720.webp", tag: "Tournament", title: {ru:"ДронКон",en:"DroneCon",zh:"无人机大会"}, mini:{ru:"487к+ просмотров",en:"487k+ views",zh:"48万+ 观看"}, task:{ru:"Турнир дронов.",en:"Drone tournament.",zh:"无人机锦标赛。"}, doing:{ru:["8 каналов, tpabomah"],en:["8 channels, tpabomah"],zh:["8 个频道, tpabomah"]}, result:{ru:["Охват 487к+"],en:["Reach 487k+"],zh:["触达 48.7 万+"]} },
+            { img: "Снимок экрана 2026-04-23 123235.webp", tag: "Special Project", title: {ru:"Алабуга политех",en:"Alabuga Poly",zh:"阿拉布加"}, mini:{ru:"53к+ просмотров",en:"53k+ views",zh:"5万+ 观看"}, task:{ru:"Ролики Алабуги.",en:"Alabuga content.",zh:"阿拉布加内容。"}, doing:{ru:["redpandash, tupa_chil"],en:["redpandash, tupa_chil"],zh:["redpandash, tupa_chil"]}, result:{ru:["53к+ просмотров"],en:["53k+ views"],zh:["5.3 万次观看"]} },
+            { img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games", title: {ru:"Crimson Desert",en:"Crimson Desert",zh:"赤色沙漠"}, mini:{ru:"53к+ просмотров",en:"53k+ views",zh:"5万+ 观看"}, task:{ru:"Демонстрация игры.",en:"Game showcase.",zh:"游戏展示。"}, doing:{ru:["mixazver, 404t4ga"],en:["mixazver, 404t4ga"],zh:["mixazver, 404t4ga"]}, result:{ru:["Высокая вовлеченность"],en:["High engagement"],zh:["极高互动率"]} },
+            { img: "photo_2026-04-22_19-56-15.webp", tag: "Games", title: {ru:"NTE (Launch)",en:"NTE (Launch)",zh:"NTE (发布)"}, mini:{ru:"57к+ просмотров",en:"57k+ views",zh:"5万+ 观看"}, task:{ru:"Трейлер к запуску.",en:"Launch trailer.",zh:"发布预告。"}, doing:{ru:["soonvooshko, vikiblade"],en:["soonvooshko, vikiblade"],zh:["soonvooshko, vikiblade"]}, result:{ru:["57к+ просмотров"],en:["57k+ views"],zh:["5.7 万次观看"]} },
+            { img: "_________________", tag: "Special Project", title: {ru:"DXracer",en:"DXracer",zh:"DXracer"}, mini:{ru:"Интеграция",en:"Integration",zh:"植入"}, task:{ru:"Кресло в стриме.",en:"Chair in stream.",zh:"电竞椅植入。"}, doing:{ru:["tpabomah рефералка"],en:["tpabomah referral"],zh:["tpabomah 推广"]}, result:{ru:["Нативный показ"],en:["Native display"],zh:["原生展示"]} }
         ];
 
         function changeLang(lang) {

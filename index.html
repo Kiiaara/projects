@@ -35,7 +35,7 @@
 
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-        /* ХЕДЕР И КРАСИВЫЙ ЛОГОТИП */
+        /* ХЕДЕР И ЛОГОТИП */
         header { 
             position: fixed; top: 0; width: 100%; 
             background: rgba(2, 13, 6, 0.95); 
@@ -55,17 +55,15 @@
             letter-spacing: 3px; 
             font-size: 1.2rem;
             filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.3));
-            cursor: default;
         }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a { 
             color: white; text-decoration: none; font-weight: 600; 
             font-size: 0.8rem; transition: 0.3s; text-transform: uppercase; 
-            white-space: nowrap;
         }
         .nav-links a:hover { color: var(--btn-green); }
 
-        /* ГЛАВНЫЙ БЛОК (HERO) */
+        /* HERO */
         .hero { 
             min-height: 35vh; 
             display: flex; flex-direction: column; 
@@ -76,99 +74,70 @@
         .hero h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
         .hero p { font-size: 1.1rem; color: var(--accent-light); margin-bottom: 20px; }
 
+        /* БЛОК БРЕНДОВ */
+        .brands-section { padding: 30px 0; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(181, 242, 161, 0.05); border-bottom: 1px solid rgba(181, 242, 161, 0.05); }
+        .brands-container { display: flex; justify-content: space-around; align-items: center; gap: 20px; flex-wrap: wrap; opacity: 0.5; filter: grayscale(1); transition: 0.5s; }
+        .brands-container:hover { opacity: 1; filter: grayscale(0); }
+        .brand-item { font-weight: 700; color: white; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* ЦИФРЫ ДОСТИЖЕНИЙ */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 30px 0; }
+        .stat-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 20px; text-align: center; border: 1px solid rgba(46, 204, 113, 0.1); }
+        .stat-number { display: block; font-size: 2.2rem; font-weight: 800; color: var(--btn-green); text-shadow: 0 0 15px rgba(46, 204, 113, 0.3); }
+        .stat-desc { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-light); }
+
         /* СЕКЦИИ */
-        .section { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         h2 { font-size: 2.2rem; margin-bottom: 25px; color: var(--accent-light); text-transform: uppercase; }
 
-        /* ОБО МНЕ - СЕТКА */
+        /* ОБО МНЕ */
         .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; }
-        .info-card { 
-            background: var(--bg-card); padding: 30px; border-radius: 25px; 
-            border: 1px solid rgba(181, 242, 161, 0.1); backdrop-filter: blur(10px); height: 100%; 
-        }
+        .info-card { background: var(--bg-card); padding: 35px; border-radius: 25px; border: 1px solid rgba(181, 242, 161, 0.1); backdrop-filter: blur(10px); height: 100%; }
         .profile-card { height: 100%; }
-        .profile-img { 
-            width: 100%; height: 100%; border-radius: 25px; 
-            border: 1px solid var(--btn-green); object-fit: cover; 
-            background: #051a0d; display: block; 
-        }
+        .profile-img { width: 100%; height: 100%; border-radius: 25px; border: 1px solid var(--btn-green); object-fit: cover; background: #051a0d; display: block; }
 
-        .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .vm-item { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 15px; border-left: 3px solid var(--btn-green); }
-        .vm-item h3 { color: var(--btn-green); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; }
+        /* ФИЛЬТРЫ КЕЙСОВ */
+        .filter-container { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; justify-content: center; }
+        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(181, 242, 161, 0.1); color: white; padding: 8px 18px; border-radius: 50px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
+        .filter-btn.active, .filter-btn:hover { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); box-shadow: 0 0 15px rgba(46, 204, 113, 0.4); }
 
         /* КЕЙСЫ */
-        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .case-card { 
-            background: var(--bg-card); padding: 25px; border-radius: 20px; 
-            border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.3s; 
-            cursor: pointer; display: flex; flex-direction: column; min-height: 160px;
+            background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(181, 242, 161, 0.05); 
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; display: flex; flex-direction: column; min-height: 160px;
         }
         .case-card:hover {
-    transform: translateY(-8px); /* Сделаем подъем чуть выше для динамики */
-    border-color: var(--btn-green);
-    
-    /* Двойное свечение: мягкое зеленое вокруг и плотная тень внизу */
-    box-shadow: 0 0 50px rgba(46, 204, 113, 0.3), 
-                0 15px 40px rgba(0, 0, 0, 0.6);
-    
-    /* Немного подсветим фон самой карточки при наведении */
-    background: rgba(15, 55, 30, 0.95);
-}
+            transform: translateY(-8px);
+            border-color: var(--btn-green);
+            box-shadow: 0 0 50px rgba(46, 204, 113, 0.3), 0 15px 40px rgba(0, 0, 0, 0.6);
+            background: rgba(15, 55, 30, 0.95);
+        }
         .case-tag { color: var(--btn-green); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 8px; }
         .case-result-mini { margin-top: auto; padding-top: 10px; font-weight: 700; color: var(--accent-light); font-size: 0.8rem; }
 
-        /* АДАПТИВНОСТЬ */
-       /* АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ */
-@media (max-width: 768px) {
-    nav { flex-direction: column; gap: 12px; padding: 15px; }
-    .nav-links { gap: 12px; justify-content: center; width: 100%; }
-    .nav-links a { font-size: 0.7rem; }
-    .hero { margin-top: 90px; min-height: 30vh; }
-    .hero h1 { font-size: 2.3rem; }
-    .about-layout { grid-template-columns: 1fr; }
-    .vm-grid { grid-template-columns: 1fr; }
-    h2 { font-size: 1.8rem; text-align: center; }
-    .info-card { padding: 20px; }
-
-    /* ДВЕ КОЛОНКИ ДЛЯ КЕЙСОВ */
-    .cases-grid { 
-        grid-template-columns: 1fr 1fr; /* Разделяем экран пополам */
-        gap: 10px; /* Уменьшаем расстояние между карточками */
-    }
-
-    .case-card { 
-        padding: 15px 10px; /* Меньше внутренних отступов */
-        min-height: 120px; /* Уменьшаем минимальную высоту */
-    }
-
-    .case-card h3 { 
-        font-size: 0.85rem; /* Чуть меньше заголовок, чтобы не вылезал */
-        line-height: 1.2;
-    }
-
-    .case-tag { 
-        font-size: 0.6rem; /* Крошечный тег сверху */
-        margin-bottom: 5px;
-    }
-
-    .case-result-mini { 
-        font-size: 0.7rem; /* Компактный результат внизу */
-        padding-top: 5px;
-    }
-}
+        /* МОБИЛКИ */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 12px; padding: 15px; }
+            .nav-links { gap: 12px; justify-content: center; width: 100%; }
+            .hero { margin-top: 90px; }
+            .about-layout { grid-template-columns: 1fr; }
+            .cases-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .case-card { padding: 15px 10px; min-height: 120px; }
+            .case-card h3 { font-size: 0.85rem; }
+            .stat-number { font-size: 1.8rem; }
+        }
 
         /* МОДАЛКА */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
         .modal-content { background: #071a0f; padding: 30px; border-radius: 25px; max-width: 800px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: white; cursor: pointer; z-index: 10; }
         .modal-main-img { width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(181, 242, 161, 0.2); animation: pulse 1.5s infinite; }
-        
         .modal-body h4 { color: var(--btn-green); margin: 20px 0 8px 0; text-transform: uppercase; font-size: 0.8rem; }
         .modal-body p, .modal-body li { font-size: 0.9rem; color: #e0e0e0; }
         .modal-body ul { list-style: none; }
         .modal-body li { position: relative; padding-left: 18px; margin-bottom: 8px; }
-        .modal-body li::before { content: '-'; position: absolute; left: 0; color: var(--btn-green); }
+        .modal-body li::before { content: '—'; position: absolute; left: 0; color: var(--btn-green); }
         .modal-body a { color: var(--btn-green); text-decoration: none; border-bottom: 1px dashed var(--btn-green); font-weight: bold; }
 
         .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 12px 30px; border-radius: 100px; text-decoration: none; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; font-size: 0.85rem; }
@@ -201,26 +170,44 @@
         <a href="#cases" class="btn" data-aos="zoom-in">Смотреть все проекты</a>
     </section>
 
+    <div class="brands-section" data-aos="fade-up">
+        <div class="section" style="padding: 0 20px;">
+            <div class="brands-container">
+                <span class="brand-item">GIGACHAT</span>
+                <span class="brand-item">СБЕРСЕЛЛЕР</span>
+                <span class="brand-item">PUBG MOBILE</span>
+                <span class="brand-item">SKILLFACTORY</span>
+                <span class="brand-item">ИГРЫ БУДУЩЕГО</span>
+            </div>
+        </div>
+    </div>
+
     <section id="about" class="section">
         <div class="about-layout">
             <div class="info-card" data-aos="fade-right">
                 <h2>Обо мне</h2>
-                <p>Специалист по работе с популярными стримерами и блогерами, обладаю глубокими знаниями рынка digital-маркетинга и рекламы. Уже более двух лет активно занимаюсь продвижением брендов в сферах iGaming и организации ярких мероприятий</p>
+                <p>Специалист по работе с популярными стримерами и блогерами. Уже более двух лет активно занимаюсь продвижением брендов в сферах iGaming и организации ярких мероприятий.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">70М+</span>
+                        <span class="stat-desc">Просмотров</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">400+</span>
+                        <span class="stat-desc">Блогеров</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-desc">Выполнение KPI</span>
+                    </div>
+                </div>
+
                 <ul style="list-style: none; margin: 20px 0;">
                     <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> Успешный опыт реализации комплексных рекламных кампаний</li>
                     <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> Проведение крупных специализированных мероприятий</li>
                     <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> Поддерживаю тесные связи с ведущими рекламодателями</li>
                 </ul>
-                <div class="vm-grid">
-                    <div class="vm-item">
-                        <h3>Видение</h3>
-                        <p>Мир, где каждый бренд находит свою уникальную историю</p>
-                    </div>
-                    <div class="vm-item">
-                        <h3>Миссия</h3>
-                        <p>Превращать сотрудничество с инфлюенсерами в эффективный инструмент маркетинга</p>
-                    </div>
-                </div>
             </div>
             <div class="profile-card" data-aos="fade-left">
                 <img src="Рисунок1.webp" alt="Валерия Ткачева" class="profile-img">
@@ -230,6 +217,13 @@
 
     <section id="cases" class="section">
         <h2>Кейсы</h2>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterCases('all')">Все</button>
+            <button class="filter-btn" onclick="filterCases('iGaming')">iGaming</button>
+            <button class="filter-btn" onclick="filterCases('Games')">Игры</button>
+            <button class="filter-btn" onclick="filterCases('Tournament')">Турниры</button>
+            <button class="filter-btn" onclick="filterCases('Special Project')">Спецпроекты</button>
+        </div>
         <div class="cases-grid" id="cases-container"></div>
     </section>
 
@@ -280,8 +274,8 @@
             telkastrimera: "https://www.twitch.tv/telkastrimera",
             off_kuka358: "https://www.twitch.tv/off_kuka358",
             derzko: "https://www.twitch.tv/derzko69",
-            "шерманс": "https://www.youtube.com/@Shermans",
-            "babatumba": "https://www.youtube.com/@Babatumba",
+            шерманс: "https://www.youtube.com/@Shermans",
+            babatumba: "https://www.youtube.com/@Babatumba",
             "abdujabborov__7 - unwanted boys": "https://www.youtube.com/@abdujabborov_7",
             morphe_ya: "https://www.twitch.tv/morphe_ya",
             bezbash: "https://www.twitch.tv/bezbash",
@@ -311,187 +305,115 @@
                 img: "Рисунок7 (2).webp",
                 tag: "Tournament", title: "Игры Будущего", mini: "23,5 млн+ просмотров",
                 task: "Международный мультиспортивный турнир нового формата, объединивший технологии виртуальной реальности и традиционные виды спорта. Турнир прошел в феврале 2023 года в Казани и стал крупнейшим событием подобного масштаба в мире.",
-                doing: [
-                    "Разработка стратегии привлечения лидеров мнений для участия в проекте", 
-                    "Организация сотрудничества с более чем 400 инфлюенсерами, включая стримеров, блогеров и спортивных деятелей", 
-                    "Создание уникального контента и спецпроектов, направленных на привлечение внимания к турниру"
-                ],
-                result: [
-                    "Повышение уровня осведомленности общественности о фестивале", 
-                    "Значительное увеличение охвата и количества подписчиков официальных аккаунтов фестиваля", 
-                    "Активное вовлечение целевой аудитории в события мероприятия", 
-                    "Более 23,5 млн. просмотров турнира через инфлюенс-каналы"
-                ]
+                doing: ["Разработка стратегии привлечения лидеров мнений для участия в проекте", "Организация сотрудничества с более чем 400 инфлюенсерами", "Создание уникального контента и спецпроектов"],
+                result: ["Более 23,5 млн. просмотров турнира через инфлюенс-каналы"]
             },
             { 
                 img: "photo_2026-01-24_20-50-19.webp",
                 tag: "Special Project", title: "неСКУФный лагерь", mini: "6,8 млн+ просмотров",
                 task: "Проведение офлайн-проекта со стримерами, который погружает инфлюенсеров в ностальгический вайб пионерии: проведение 3-х дневного спецпроекта в действующем лагере.",
-                doing: [
-                    "Проведены трансляции стримеров и агентства", 
-                    "Получены органичные посевы нарезок со стримеров на YT и в TG", 
-                    "Проведены анонсы в СМИ, тематических сообществах и на каналах стримеров"
-                ],
-                result: [
-                    "Проведено успешное оффлайн-мероприятие с участием крупных стримеров", 
-                    "Мероприятие собрало много положительных отзывов от участников и зрителей", 
-                    "Успешное вовлечение партнеров через уникальные механики и застройки + создание эксклюзивного контента", 
-                    "Более 6,8 млн. просмотров мероприятия"
-                ]
+                doing: ["Проведены трансляции стримеров и агентства", "Получены органичные посевы нарезок со стримеров на YT и в TG"],
+                result: ["Проведено успешное оффлайн-мероприятие", "Более 6,8 млн. просмотров мероприятия"]
             },
             { 
                 img: "photo_2025-12-14_01-22-28.webp",
-                tag: "Esports", title: "СберСеллер и SMP", mini: "371к+ просмотров",
+                tag: "Tournament", title: "СберСеллер и SMP", mini: "371к+ просмотров",
                 task: "Популяризация кибер- и фиджитал-дисциплин в регионе. Рост вовлеченности в ключевых дисциплинах: CS2 и Dota 2. Привлечение целевой аудитории. KPI — минимум 3 тыс. посетителей.",
-                doing: [
-                    "Организация присутствия инфлюенсеров", 
-                    "Координация трансляций фестиваля"
-                ],
-                result: [
-                    "Фестиваль посетили около 3,2 тыс. человек", 
-                    "Трансляции с участием MixaZver собрали более 371 тыс. просмотров", 
-                    "Выросло количество участников турниров по CS2 и Dota 2"
-                ]
+                doing: ["Организация присутствия инфлюенсеров", "Координация трансляций фестиваля"],
+                result: ["Фестиваль посетили около 3,2 тыс. человек", "Трансляции собрали более 371 тыс. просмотров"]
             },
             { 
                 img: "photo_2024-12-20_19-14-28.webp",
-                tag: "AI Tech", title: "Гигачат", mini: "1,9 млн+ просмотров",
-                task: "Задача 1: Рассказывать на стримах про приложение GIGA, призывать аудиторию создавать персонажей и добавлять их в виртуальный город в приложении Telegram.<br><br>Задача 2: Проведение спецстрима с нейросетью GigaChat.",
-                doing: [
-                    "Интеграция механики: зрители присылали открытки в телеграм-бота, созданные в нейросети GigaChat", 
-                    "Каждые 5-10 минут одна открытка выбиралась случайным образом и автоматически распечатывалась на принтере у стримера во время трансляции"
-                ],
-                result: [
-                    "Проведены интерактивные стримы с участием стримера и чата", 
-                    "На рандомайзер поступило более 80 открыток, распечатано более 30", 
-                    "Более 1,9 млн. просмотров рекламной кампании на канале SoonVooshko", 
-                    "Более 350 участников чата вовлечено в Страну Стримеров"
-                ]
+                tag: "Special Project", title: "Гигачат", mini: "1,9 млн+ просмотров",
+                task: "Задача 1: Рассказывать на стримах про приложение GIGA, призывать аудиторию создавать персонажей. Задача 2: Проведение спецстрима с нейросетью GigaChat.",
+                doing: ["Интеграция механики: зрители присылали открытки, созданные в нейросети GigaChat", "Автоматическая печать открыток у стримера во время трансляции"],
+                result: ["Более 1,9 млн. просмотров рекламной кампании на канале SoonVooshko"]
             },
             { 
                 img: "Рисунок9.webp",
-                tag: "Shooter", title: "Arena Breakout", mini: "20 млн+ просмотров",
+                tag: "Games", title: "Arena Breakout", mini: "20 млн+ просмотров",
                 task: "Демонстрация запуска нового шутера. Популяризация игры среди комьюнити. Участие во внутриигровых турнирах. Участие в реферальной программе пополнения баланса Buff-Buff.",
-                doing: [
-                    "Организация стримов на запуске", 
-                    "Контроль KPI по просмотрам и рефералам"
-                ],
-                result: [
-                    "Почти 13 млн. просмотров трансляции SoonVooshko", 
-                    "Более 7 млн. просмотров трансляции MixaZver"
-                ]
+                doing: ["Организация стримов на запуске", "Контроль KPI по просмотрам и рефералам"],
+                result: ["Почти 13 млн. просмотров трансляции SoonVooshko", "Более 7 млн. просмотров трансляции MixaZver"]
             },
             { 
                 img: "photo_2024-10-18_20-08-15.webp",
-                tag: "Action", title: "Zenless Zone Zero", mini: "Top Nimo.tv",
+                tag: "Games", title: "Zenless Zone Zero", mini: "Top Nimo.tv",
                 task: "Проведение спецстрима. Прохождение челленджа внутри игры с другими стримерами.",
-                doing: [
-                    "Координация стримов: SoonVooshko, Chopo_kaify, Didishkatv, DiniceTea, TennkaMLG, Pudgaero, Jenova"
-                ],
-                result: [
-                    "Более 60к просмотров трансляции SoonVooshko", 
-                    "Более 23к просмотров трансляции Chopo_kaify", 
-                    "Более 22к просмотров трансляции Didishka", 
-                    "Более 21к просмотров трансляции DiniceTea", 
-                    "Более 14к просмотров трансляции TennkaMLG", 
-                    "Более 23к просмотров трансляции Pudgaero", 
-                    "Более 16к просмотров трансляции Jenova", 
-                    "Трансляция SoonVooshko попала на главную Nimo.tv"
-                ]
+                doing: ["Координация стримов: SoonVooshko, Chopo_kaify, Didishkatv, DiniceTea, TennkaMLG, Pudgaero, Jenova"],
+                result: ["Более 60к просмотров трансляции SoonVooshko", "Трансляция SoonVooshko попала на главную Nimo.tv"]
             },
             { 
                 img: "Рисунок11.webp",
                 tag: "Games", title: "Total Football", mini: "450к+ просмотров",
                 task: "Демонстрация выхода нового футбольного симулятора. Проведение спецстримов на каналах стримеров. Выпуск роликов на YT у профильных блогеров.",
-                doing: [
-                    "Координация стримов: TelkaStrimera, Tpabomah, di_rubens, off_kuka358",
-                    "Работа с блогерами: Шерманс (ролик 1, ролик 2)",
-                    "Ролик abdujabborov__7 - unwanted boys",
-                    "Ролик babatumba"
-                ],
-                result: [
-                    "Более 60к просмотров (TelkaStrimera и Tpabomah)", 
-                    "112к просмотров (di_rubens и off_kuka358)", 
-                    "243к+ просмотров ролика блогера abdujabborov__7 - unwanted boys", 
-                    "20к+ просмотров (Шерманс)", 
-                    "2к+ просмотров (Babatumba)"
-                ]
+                doing: ["Координация стримов: TelkaStrimera, Tpabomah, di_rubens, off_kuka358", "Работа с блогерами: Шерманс (ролик 1, ролик 2)", "Ролик abdujabborov__7 - unwanted boys", "Ролик babatumba"],
+                result: ["Более 60к просмотров (TelkaStrimera и Tpabomah)", "243к+ просмотров ролика блогера abdujabborov__7"]
             },
             { 
                 img: "Рисунок12.webp",
-                tag: "Mobile", title: "PUBG Mobile", mini: "709к+ просмотров",
+                tag: "Games", title: "PUBG Mobile", mini: "709к+ просмотров",
                 task: "Размещение нарезок на канале YT Recrent`a по PUBGM. Популяризация игры.",
-                doing: [
-                    "Размещение ролика 1 на канале Recrent",
-                    "Размещение ролика 2 на канале Recrent"
-                ],
-                result: [
-                    "Более 709 тыс. просмотров роликов на канале YT Recrent`a"
-                ]
+                doing: ["Размещение ролика 1 на канале Recrent", "Размещение ролика 2 на канале Recrent"],
+                result: ["Более 709 тыс. просмотров роликов на канале YT Recrent`a"]
             },
-            { img: "Рисунок13.webp", tag: "MMORPG", title: "ArcheAge", mini: "60к+ просмотров", task: "Демонстрация обновления игры ArcheAge.", doing: ["Показ обновления (класс Феи)", "Призыв забирать подарки", "Стрим SoonVooshko"], result: ["Более 60 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "Рисунок14.webp", tag: "Show", title: "Геймерские сердца", mini: "650к+ просмотров", task: "Спецстримы с просмотром шоу на каналах стримерш Twitch.", doing: ["Эфиры на канале Trixie_vox", "Эфиры на канале By_owl", "Эфиры на канале Ekatze007"], result: ["179 тыс. просмотров (Trixie_vox)", "Более 265 тыс. просмотров (By_owl)", "Более 207 тыс. просмотров (Ekatze007)"] },
+            { img: "Рисунок13.webp", tag: "Games", title: "ArcheAge", mini: "60к+ просмотров", task: "Демонстрация обновления игры ArcheAge.", doing: ["Показ обновления (класс Феи)", "Призыв забирать подарки", "Стрим SoonVooshko"], result: ["Более 60 тыс. просмотров трансляции SoonVooshko"] },
+            { img: "Рисунок14.webp", tag: "Games", title: "Геймерские сердца", mini: "650к+ просмотров", task: "Спецстримы с просмотром шоу на каналах стримерш Twitch.", doing: ["Эфиры на канале Trixie_vox", "Эфиры на канале By_owl", "Эфиры на канале Ekatze007"], result: ["179 тыс. просмотров (Trixie_vox)", "Более 265 тыс. просмотров (By_owl)", "Более 207 тыс. просмотров (Ekatze007)"] },
             { img: "Рисунок15.webp", tag: "Games", title: "Arknights: Endfield", mini: "135к+ просмотров", task: "Демонстрация новой игры. Популяризация игры среди комьюнити.", doing: ["Стрим SoonVooshko"], result: ["Более 213 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "Рисунок16.webp", tag: "Action", title: "Exoborne", mini: "180к+ просмотров", task: "Демонстрация запуска новой игры. Популяризация игры среди комьюнити.", doing: ["Стримы на канале Derzko", "Стримы на канале off_kuka358"], result: ["Более 134 тыс. просмотров трансляции Derzko", "Более 53 тыс. просмотров трансляции off_kuka358"] },
-            { img: "photo_2024-08-01_19-05-00.webp", tag: "MMORPG", title: "Tarisland", mini: "50к+ просмотров", task: "Демонстрация запуска новой MMORPG. Популяризация игры среди комьюнити.", doing: ["Проведение спецстрима на канале SoonVooshko", "Развитие персонажей совместно с чатом"], result: ["Более 50 тыс. просмотров трансляции SoonVooshko"] },
+            { img: "Рисунок16.webp", tag: "Games", title: "Exoborne", mini: "180к+ просмотров", task: "Демонстрация запуска новой игры. Популяризация игры среди комьюнити.", doing: ["Стримы на канале Derzko", "Стримы на канале off_kuka358"], result: ["Более 134 тыс. просмотров трансляции Derzko", "Более 53 тыс. просмотров трансляции off_kuka358"] },
+            { img: "photo_2024-08-01_19-05-00.webp", tag: "Games", title: "Tarisland", mini: "50к+ просмотров", task: "Демонстрация запуска новой MMORPG. Популяризация игры среди комьюнити.", doing: ["Проведение спецстрима на канале SoonVooshko", "Развитие персонажей совместно с чатом"], result: ["Более 50 тыс. просмотров трансляции SoonVooshko"] },
             { img: "photo_2024-10-09_13-25-52.webp", tag: "iGaming", title: "Sirus (WoW)", mini: "3,3 млн+ просмотров", task: "Проведение спецстримов на новом сервере WoW Sirus. Коммуникация с комьюнити игры. Развитие персонажей внутри игры.", doing: ["Проведение спецстримов на канале SoonVooshko"], result: ["Более 3,3 млн. просмотров трансляций SoonVooshko"] },
             { img: "Рисунок17.webp", tag: "Games", title: "Gran Saga", mini: "38к+ просмотров", task: "Проведение спецстрима. Коммуникация с комьюнити. Популяризация игры.", doing: ["Проведение спецстрима на канале SoonVooshko"], result: ["Более 38 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "Снимок экрана 2026-01-24 205359.webp", tag: "EdTech", title: "SkillFactory", mini: "1,7 млн+ просмотров", task: "Интеграции на стримах до 10 минут с рассказом про новую профессию «Белый хакер». Продвижение новой профессии среди своей аудитории.", doing: ["Интеграции на стримах Voitovichdm", "Интеграции на стримах VseVkusno"], result: ["Более 1,7 млн. просмотров трансляций Voitovichdm и VseVkusno"] },
-            { img: "Рисунок18.webp", tag: "Action", title: "STALCRAFT: X", mini: "200к просмотров", task: "Проведение спецстримов. Коммуникация с комьюнити. Популяризация игры.", doing: ["Стрим SoonVooshko"], result: ["200 тыс. просмотров трансляций SoonVooshko"] },
-            { img: "photo_2026-01-15_15-23-08.webp", tag: "Service", title: "LdShop", mini: "205к+ просмотров", task: "Размещение реферальных ссылок на канале стримера Soonvooshko. Продвижение и популяризация магазина пополнения.", doing: ["Размещение реферальных ссылок", "Проведение интеграций на канале SoonVooshko"], result: ["Более 184 тыс. просмотров трансляции SoonVooshko"] },
+            { img: "Снимок экрана 2026-01-24 205359.webp", tag: "Special Project", title: "SkillFactory", mini: "1,7 млн+ просмотров", task: "Интеграции на стримах до 10 минут с рассказом про новую профессию «Белый хакер». Продвижение новой профессии среди своей аудитории.", doing: ["Интеграции на стримах Voitovichdm", "Интеграции на стримах VseVkusno"], result: ["Более 1,7 млн. просмотров трансляций Voitovichdm и VseVkusno"] },
+            { img: "Рисунок18.webp", tag: "Games", title: "STALCRAFT: X", mini: "200к просмотров", task: "Проведение спецстримов. Коммуникация с комьюнити. Популяризация игры.", doing: ["Стрим SoonVooshko"], result: ["200 тыс. просмотров трансляций SoonVooshko"] },
+            { img: "photo_2026-01-15_15-23-08.webp", tag: "Special Project", title: "LdShop", mini: "205к+ просмотров", task: "Размещение реферальных ссылок на канале стримера Soonvooshko. Продвижение и популяризация магазина пополнения.", doing: ["Размещение реферальных ссылок", "Проведение интеграций на канале SoonVooshko"], result: ["Более 184 тыс. просмотров трансляции SoonVooshko"] },
             { img: "Снимок-экрана-2026-02-08-144004.webp", tag: "Games", title: "NTE", mini: "138к+ просмотров", task: "Проведение спецстримов, популяризация игры среди комьюнити, демонстрация новых патчей.", doing: ["Размещение реферальных ссылок", "Проведение спецстримов на канале SoonVooshko"], result: ["Более 138 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "photo_2026-02-19_18-06-00.webp", tag: "Show", title: "PUBGm Это не игра", mini: "280к+ просмотров", task: "Проведение спецстримов с просмотром мини-сериала.", doing: ["Просмотр мини-сериала от PUBG на каналах SoonVooshko, Morphe_ya, Di_Rubens, Bezbash, MixaZver"], result: ["Более 130 тыс. просмотров трансляции Morphe_ya", "Более 80 тыс. просмотров трансляции Mixazver", "Более 30 тыс. просмотров трансляции Bezbash", "Более 17 тыс. просмотров трансляции Di_Rubens", "Более 27 тыс. просмотров трансляции SoonVooshko"] },
+            { img: "photo_2026-02-19_18-06-00.webp", tag: "Special Project", title: "PUBGm Это не игра", mini: "280к+ просмотров", task: "Проведение спецстримов с просмотром мини-сериала.", doing: ["Просмотр мини-сериала от PUBG на каналах SoonVooshko, Morphe_ya, Di_Rubens, Bezbash, MixaZver"], result: ["Более 130 тыс. просмотров трансляции Morphe_ya", "Более 80 тыс. просмотров трансляции Mixazver"] },
             { img: "Снимок экрана 2026-02-24 164720.webp", tag: "Tournament", title: "ДронКон", mini: "487к+ просмотров", task: "Проведение интеграций на каналах с целью освещения турнира.", doing: ["Интеграции на каналах Tpabomah, SoonVooshko, MixaZver, Redpandash, Vsevkusno, Tupa_chil, Vikiblade, MR_JiJiK"], result: ["Охват более 487 тыс. просмотров на 8 каналах"] },
-            { img: "Снимок экрана 2026-04-23 123235.webp", tag: "Job", title: "Алабуга политех", mini: "53к+ просмотров", task: "Проведение интеграций с просмотром роликов Алабуги", doing: ["Интеграция Алабуги на каналах RedPandaSH", "Интеграция Алабуги на канале Tupa_chil"], result: ["Более 16 тыс. просмотров (RedPandaSH)", "Более 37 тыс. просмотров (Tupa_chil)"] },
-            { img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games", title: "Crimson Desert", mini: "53к+ просмотров", task: "Демонстрация новой игры", doing: ["Проведение спецстримов по игре на каналах Mixazver, 404t4ga, Bezbash, Redpandash, Adm1tr1pow, Vsevkusno, Lubricum, Mad6996_"], result: ["Более 16 тыс. просмотров (Mixazver)", "Более 33 тыс. просмотров (404t4ga)", "Более 40 тыс. просмотров (Bezbash)", "Более 53 тыс. просмотров (Redpandash)"] },
-            { img: "photo_2026-04-22_19-56-15.webp", tag: "Games", title: "NTE", mini: "57к+ просмотров", task: "Просмотр официального трейлера к запуску игры", doing: ["Реферальные ссылки и проведение спецстримов на каналах SoonVooshko, Tupa_chil, RedPandaSH, MixaZver, Vikiblade, Didishkatv, 404T4GA"], result: ["Более 22 тыс. просмотров (SoonVooshko)", "Более 16 тыс. просмотров (Tupa_chil)", "Более 14 тыс. просмотров (MixaZver)"] },
-            { img: "_________________", tag: "PC", title: "DXracer", mini: "___к+ просмотров", task: "Интеграция в стрим с игровым креслом", doing: ["Размещение реферальных ссылок", "Интеграция на канале TpaBoMaH"], result: ["Данные по просмотрам уточняются"] }
+            { img: "Снимок экрана 2026-04-23 123235.webp", tag: "Special Project", title: "Алабуга политех", mini: "53к+ просмотров", task: "Проведение интеграций с просмотром роликов Алабуги", doing: ["Интеграция Алабуги на каналах RedPandaSH", "Интеграция Алабуги на канале Tupa_chil"], result: ["Более 16 тыс. просмотров (RedPandaSH)", "Более 37 тыс. просмотров (Tupa_chil)"] },
+            { img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games", title: "Crimson Desert", mini: "53к+ просмотров", task: "Демонстрация новой игры", doing: ["Проведение спецстримов по игре на каналах Mixazver, 404t4ga, Bezbash, Redpandash, Adm1tr1pow, Vsevkusno, Lubricum, Mad6996_"], result: ["Более 16 тыс. просмотров (Mixazver)", "Более 33 тыс. просмотров (404t4ga)"] },
+            { img: "photo_2026-04-22_19-56-15.webp", tag: "Games", title: "NTE", mini: "57к+ просмотров", task: "Просмотр официального трейлера к запуску игры", doing: ["Реферальные ссылки и проведение спецстримов на каналах SoonVooshko, Tupa_chil, RedPandaSH, MixaZver, Vikiblade, Didishkatv, 404T4GA"], result: ["Более 22 тыс. просмотров (SoonVooshko)", "Более 16 тыс. просмотров (Tupa_chil)"] },
+            { img: "_________________", tag: "Special Project", title: "DXracer", mini: "___к+ просмотров", task: "Интеграция в стрим с игровым креслом", doing: ["Размещение реферальных ссылок", "Интеграция на канале TpaBoMaH"], result: ["Данные по просмотрам уточняются"] }
         ];
 
         const container = document.getElementById('cases-container');
-        allCases.forEach((c) => {
-            const card = document.createElement('div');
-            card.className = 'case-card';
-            card.onclick = () => openModal(c);
-            card.innerHTML = `<div class="case-tag">${c.tag}</div><h3>${c.title}</h3><div class="case-result-mini">${c.mini}</div>`;
-            container.appendChild(card);
-        });
+
+        function renderCases(filter = 'all') {
+            container.innerHTML = '';
+            allCases.forEach((c) => {
+                if (filter !== 'all' && c.tag !== filter) return;
+                const card = document.createElement('div');
+                card.className = 'case-card';
+                card.setAttribute('data-aos', 'zoom-in');
+                card.onclick = () => openModal(c);
+                card.innerHTML = `<div class="case-tag">${c.tag}</div><h3>${c.title}</h3><div class="case-result-mini">${c.mini}</div>`;
+                container.appendChild(card);
+            });
+        }
+
+        function filterCases(tag) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('onclick').includes("'"+tag+"'")) btn.classList.add('active');
+            });
+            renderCases(tag);
+        }
 
         function openModal(c) {
             const resultData = Array.isArray(c.result) ? c.result : [c.result];
-            const imgHtml = c.img && c.img !== "_________________" ? 
-                `<img src="${c.img}" class="modal-main-img" loading="lazy">` : 
-                `<div class="modal-img-box" style="height:200px; background:#051a0d; border-radius:15px; display:flex; align-items:center; justify-content:center; margin-bottom:25px;">Изображение ожидается</div>`;
-            
-            document.getElementById('modal-body').innerHTML = `
-                ${imgHtml}
-                <h2 style="color: var(--accent-light); margin-bottom: 20px;">${c.title}</h2>
-                <h4>Описание:</h4>
-                <p>${linkify(c.task)}</p>
-                <h4>Что сделано:</h4>
-                <ul>
-                    ${c.doing.map(d => `<li>${linkify(d)}</li>`).join('')}
-                </ul>
-                <h4>Результат:</h4>
-                <ul>
-                    ${resultData.map(r => `<li>${linkify(r)}</li>`).join('')}
-                </ul>
-            `;
+            const imgHtml = c.img && c.img !== "_________________" ? `<img src="${c.img}" class="modal-main-img" loading="lazy">` : `<div class="modal-img-box" style="height:200px; background:#051a0d; border-radius:15px; display:flex; align-items:center; justify-content:center; margin-bottom:25px;">Изображение ожидается</div>`;
+            document.getElementById('modal-body').innerHTML = `${imgHtml}<h2 style="color: var(--accent-light); margin-bottom: 20px;">${c.title}</h2><h4>Описание:</h4><p>${linkify(c.task)}</p><h4>Что сделано:</h4><ul>${c.doing.map(d => `<li>${linkify(d)}</li>`).join('')}</ul><h4>Результат:</h4><ul>${resultData.map(r => `<li>${linkify(r)}</li>`).join('')}</ul>`;
             document.getElementById('projectModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            document.getElementById('projectModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        function closeModal() { document.getElementById('projectModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
-        /* --- СКРИПТ ИНТЕРАКТИВНОГО ФОНА --- */
+        /* ИНТЕРАКТИВНЫЙ ФОН */
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let width, height, particles;
         const mouse = { x: null, y: null };
-
         window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
         window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
 
@@ -504,60 +426,27 @@
 
         class Particle {
             constructor() { this.reset(); }
-            reset() { 
-                this.x = Math.random() * width; 
-                this.y = Math.random() * height; 
-                this.size = Math.random() * 3 + 2; 
-                this.speedX = (Math.random() - 0.5) * 0.8; 
-                this.speedY = (Math.random() - 0.5) * 0.8; 
-                this.alpha = Math.random() * 0.5 + 0.2; 
-                this.fade = Math.random() * 0.005 + 0.002; 
-            }
-            update() { 
-                this.x += this.speedX; this.y += this.speedY; 
-                if (this.x < 0 || this.x > width) this.speedX *= -1;
-                if (this.y < 0 || this.y > height) this.speedY *= -1;
-                this.alpha += this.fade; 
-                if (this.alpha > 0.8 || this.alpha < 0.2) this.fade *= -1; 
-            }
-            draw() { 
-                ctx.beginPath(); 
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); 
-                ctx.shadowBlur = 10; 
-                ctx.shadowColor = `rgba(181, 242, 161, ${this.alpha})`;
-                ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; 
-                ctx.fill(); 
-                ctx.shadowBlur = 0;
-            }
+            reset() { this.x = Math.random() * width; this.y = Math.random() * height; this.size = Math.random() * 3 + 2; this.speedX = (Math.random() - 0.5) * 0.8; this.speedY = (Math.random() - 0.5) * 0.8; this.alpha = Math.random() * 0.5 + 0.2; this.fade = Math.random() * 0.005 + 0.002; }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > width) this.speedX *= -1; if (this.y < 0 || this.y > height) this.speedY *= -1; this.alpha += this.fade; if (this.alpha > 0.8 || this.alpha < 0.2) this.fade *= -1; }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.shadowBlur = 10; ctx.shadowColor = `rgba(181, 242, 161, ${this.alpha})`; ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; ctx.fill(); ctx.shadowBlur = 0; }
         }
 
         function connect() {
             for (let a = 0; a < particles.length; a++) {
                 for (let b = a; b < particles.length; b++) {
                     let distance = Math.sqrt((particles[a].x - particles[b].x)**2 + (particles[a].y - particles[b].y)**2);
-                    if (distance < 150) {
-                        ctx.strokeStyle = `rgba(46, 204, 113, ${(1 - distance/150) * 0.2})`;
-                        ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke();
-                    }
+                    if (distance < 150) { ctx.strokeStyle = `rgba(46, 204, 113, ${(1 - distance/150) * 0.2})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke(); }
                 }
                 if (mouse.x !== null) {
                     let mDistance = Math.sqrt((particles[a].x - mouse.x)**2 + (particles[a].y - mouse.y)**2);
-                    if (mDistance < 200) {
-                        ctx.strokeStyle = `rgba(181, 242, 161, ${(1 - mDistance/200) * 0.4})`;
-                        ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
-                    }
+                    if (mDistance < 200) { ctx.strokeStyle = `rgba(181, 242, 161, ${(1 - mDistance/200) * 0.4})`; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
                 }
             }
         }
 
-        function animate() { 
-            ctx.clearRect(0, 0, width, height); 
-            particles.forEach(p => { p.update(); p.draw(); }); 
-            connect(); 
-            requestAnimationFrame(animate); 
-        }
+        function animate() { ctx.clearRect(0, 0, width, height); particles.forEach(p => { p.update(); p.draw(); }); connect(); requestAnimationFrame(animate); }
 
-        initBg(); animate(); window.addEventListener('resize', initBg);
+        initBg(); renderCases(); animate(); window.addEventListener('resize', initBg);
     </script>
 </body>
 </html>

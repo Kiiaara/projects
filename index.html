@@ -7,214 +7,136 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #020d06;
-            --bg-card: rgba(13, 45, 27, 0.9);
-            --accent-light: #b5f2a1;
-            --btn-green: #2ecc71;
-            --text-white: #ffffff;
-        }
-
-        @keyframes pulse {
-            0% { background-color: #051a0d; }
-            50% { background-color: #0a2d18; }
-            100% { background-color: #051a0d; }
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-white); 
-            line-height: 1.6;
-            overflow-x: hidden; 
-            width: 100%; 
-            position: relative;
-        }
-
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-
-       /* --- Обновленные стили для адаптивности --- */
-
-header { 
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
-    background: rgba(2, 13, 6, 0.95); 
-    backdrop-filter: blur(15px); 
-    z-index: 1000; 
-    border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
-}
-
-nav { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 12px 20px; /* Немного уменьшили отступы */
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-
-/* Ссылки теперь более гибкие */
-.nav-links {
-    display: flex;
-    gap: 15px; /* Вместо жесткого margin-left используем gap */
-}
-
-.nav-links a { 
-    color: white; 
-    text-decoration: none; 
-    font-weight: 600; 
-    font-size: 0.75rem; /* Чуть меньше шрифт для мобилок */
-    transition: 0.3s; 
-    text-transform: uppercase; 
-    white-space: nowrap; /* Чтобы ссылки не переносились по словам */
-}
-
-/* Адаптация под планшеты и телефоны */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column; /* Логотип сверху, ссылки снизу */
-        gap: 10px;
-        padding: 10px;
+    :root {
+        --bg-dark: #020d06;
+        --bg-card: rgba(13, 45, 27, 0.9);
+        --accent-light: #b5f2a1;
+        --btn-green: #2ecc71;
+        --text-white: #ffffff;
     }
+
+    @keyframes pulse {
+        0% { background-color: #051a0d; }
+        50% { background-color: #0a2d18; }
+        100% { background-color: #051a0d; }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: var(--bg-dark); 
+        color: var(--text-white); 
+        line-height: 1.6;
+        overflow-x: hidden; 
+        width: 100%; 
+        position: relative;
+    }
+
+    #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+    /* ХЕДЕР И КРАСИВЫЙ ЛОГОТИП */
+    header { 
+        position: fixed; top: 0; width: 100%; 
+        background: rgba(2, 13, 6, 0.95); 
+        backdrop-filter: blur(15px); z-index: 1000; 
+        border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
+    }
+    nav { 
+        max-width: 1200px; margin: 0 auto; padding: 12px 20px; 
+        display: flex; justify-content: space-between; align-items: center; 
+    }
+    .logo { 
+        font-weight: 800; 
+        background: linear-gradient(90deg, var(--accent-light), #2ecc71);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase; 
+        letter-spacing: 3px; 
+        font-size: 1.2rem;
+        filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.3));
+    }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { 
+        color: white; text-decoration: none; font-weight: 600; 
+        font-size: 0.8rem; transition: 0.3s; text-transform: uppercase; 
+    }
+    .nav-links a:hover { color: var(--btn-green); }
+
+    /* ГЛАВНЫЙ БЛОК (HERO) - УМЕНЬШИЛИ ПОЛЯ */
+    .hero { 
+        min-height: 35vh; /* Уменьшили высоту */
+        display: flex; flex-direction: column; 
+        justify-content: center; align-items: center; 
+        text-align: center; padding: 20px;
+        margin-top: 60px; /* Отступ под хедер */
+    }
+    .hero h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
+    .hero p { font-size: 1.1rem; color: var(--accent-light); margin-bottom: 20px; }
+
+    /* СЕКЦИИ - УМЕНЬШИЛИ ОТСТУПЫ */
+    .section { max-width: 1200px; margin: 0 auto; padding: 25px 20px; }
+    h2 { font-size: 2.2rem; margin-bottom: 25px; color: var(--accent-light); text-transform: uppercase; }
+
+    /* ОБО МНЕ - СЕТКА */
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; }
+    .info-card { 
+        background: var(--bg-card); padding: 30px; border-radius: 25px; 
+        border: 1px solid rgba(181, 242, 161, 0.1); backdrop-filter: blur(10px); height: 100%; 
+    }
+    .profile-card { height: 100%; } /* Добавили этот класс */
+    .profile-img { 
+        width: 100%; height: 100%; border-radius: 25px; 
+        border: 1px solid var(--btn-green); object-fit: cover; 
+        background: #051a0d; display: block; 
+    }
+
+    .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+    .vm-item { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 15px; border-left: 3px solid var(--btn-green); }
+    .vm-item h3 { color: var(--btn-green); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; }
+
+    /* КЕЙСЫ */
+    .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .case-card { 
+        background: var(--bg-card); padding: 25px; border-radius: 20px; 
+        border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.3s; 
+        cursor: pointer; display: flex; flex-direction: column; min-height: 160px;
+    }
+    .case-card:hover { transform: translateY(-5px); border-color: var(--btn-green); }
+    .case-tag { color: var(--btn-green); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 8px; }
+    .case-result-mini { margin-top: auto; padding-top: 10px; font-weight: 700; color: var(--accent-light); font-size: 0.8rem; }
+
+    /* АДАПТИВНОСТЬ */
+    @media (max-width: 768px) {
+        nav { flex-direction: column; gap: 12px; padding: 15px; }
+        .nav-links { gap: 12px; justify-content: center; width: 100%; }
+        .nav-links a { font-size: 0.7rem; }
+        .hero { margin-top: 90px; min-height: 30vh; }
+        .hero h1 { font-size: 2.3rem; }
+        .about-layout { grid-template-columns: 1fr; } /* На мобилках фото под текст */
+        .vm-grid { grid-template-columns: 1fr; }
+        h2 { font-size: 1.8rem; text-align: center; }
+    }
+
+    /* МОДАЛКА */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+    .modal-content { background: #071a0f; padding: 30px; border-radius: 25px; max-width: 800px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
+    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: white; cursor: pointer; z-index: 10; }
+    .modal-main-img { width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(181, 242, 161, 0.2); animation: pulse 1.5s infinite; }
     
-    .nav-links {
-        gap: 10px;
-        justify-content: center;
-        width: 100%;
-    }
+    .modal-body h4 { color: var(--btn-green); margin: 20px 0 8px 0; text-transform: uppercase; font-size: 0.8rem; }
+    .modal-body p, .modal-body li { font-size: 0.9rem; color: #e0e0e0; }
+    .modal-body ul { list-style: none; }
+    .modal-body li::before { content: '-'; margin-right: 8px; color: var(--btn-green); }
+
+    .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 12px 30px; border-radius: 100px; text-decoration: none; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; font-size: 0.85rem; }
+    .btn:hover { background: var(--accent-light); transform: scale(1.03); }
     
-    .nav-links a {
-        font-size: 0.7rem;
-    }
+    .quote-box { max-width: 850px; margin: 30px auto; font-style: italic; color: var(--accent-light); font-size: 1rem; border-left: 3px solid var(--btn-green); padding: 10px 20px; }
 
-    .hero {
-        margin-top: 80px; /* Увеличили отступ, так как хедер стал выше из-за двух строк */
-        min-height: 35vh;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem; /* Уменьшаем размер имени на мобильных */
-    }
-    
-    .info-card {
-        padding: 20px; /* Меньше пустого места внутри плашки */
-    }
-    
-    h2 {
-        font-size: 1.8rem; /* Уменьшаем заголовки секций */
-    }
-}
-
-/* Совсем маленькие экраны (iPhone SE и т.д.) */
-@media (max-width: 380px) {
-    .nav-links {
-        gap: 8px;
-    }
-    .nav-links a {
-        font-size: 0.65rem;
-    }
-}
-
-        .hero { 
-            height: 40vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 10px; line-height: 1.1; }
-        .hero p { font-size: 1.3rem; color: var(--accent-light); margin-bottom: 25px; }
-
-        .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--accent-light); text-transform: uppercase; }
-
-        /* Контейнер сетки: заставляет обе колонки быть одной высоты */
-.about-layout { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 40px; 
-    align-items: stretch; 
-}
-
-/* Стили левой плашки (важно вернуть этот блок) */
-.info-card { 
-    background: var(--bg-card); 
-    padding: 35px; 
-    border-radius: 25px; 
-    border: 1px solid rgba(181, 242, 161, 0.1); 
-    backdrop-filter: blur(10px); 
-    height: 100%; /* Чтобы плашка занимала всю высоту колонки */
-}
-
-/* Правый контейнер для картинки */
-.profile-card {
-    height: 100%;
-}
-
-/* Сама картинка */
-.profile-img { 
-    width: 100%; 
-    height: 100%; 
-    border-radius: 25px; 
-    border: 1px solid var(--btn-green); 
-    object-fit: cover; 
-    background: #051a0d; 
-    display: block; 
-}
-
-        .modal-main-img { 
-            width: 100%; 
-            height: auto; 
-            min-height: 200px; 
-            max-height: 70vh; 
-            object-fit: contain; 
-            border-radius: 15px; 
-            margin-bottom: 25px; 
-            border: 1px solid rgba(181, 242, 161, 0.2); 
-            display: block;
-            animation: pulse 1.5s infinite;
-        }
-        
-        .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
-        .vm-item { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; border-left: 3px solid var(--btn-green); }
-        .vm-item h3 { color: var(--btn-green); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 8px; }
-
-        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .case-card { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; min-height: 180px; }
-        .case-card:hover { transform: translateY(-5px); border-color: var(--btn-green); }
-        .case-tag { color: var(--btn-green); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 8px; }
-        .case-result-mini { margin-top: auto; padding-top: 15px; font-weight: 700; color: var(--accent-light); font-size: 0.8rem; }
-
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-content { background: #071a0f; padding: 35px; border-radius: 25px; max-width: 800px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: white; cursor: pointer; z-index: 10; }
-        
-        .modal-body h4 { color: var(--btn-green); margin: 25px 0 10px 0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-        .modal-body p, .modal-body li { font-size: 0.95rem; margin-bottom: 10px; color: #e0e0e0; }
-        .modal-body ul { list-style: none; padding-bottom: 10px; }
-        .modal-body li::before { content: '—'; margin-right: 8px; color: var(--btn-green); }
-        .modal-body a { color: var(--btn-green); text-decoration: none; border-bottom: 1px dashed var(--btn-green); font-weight: bold; }
-
-        .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 15px 35px; border-radius: 100px; text-decoration: none; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
-        .btn:hover { background: var(--accent-light); transform: scale(1.03); }
-        
-        .quote-box { max-width: 850px; margin: 40px auto 30px auto; font-style: italic; color: var(--accent-light); font-size: 1.1rem; border-left: 3px solid var(--btn-green); padding: 10px 20px; text-align: center; }
-
-        footer { text-align: center; padding: 40px; background: #010803; border-top: 1px solid rgba(181, 242, 161, 0.1); font-size: 0.8rem; }
-        
-        @media (max-width: 900px) { 
-            .about-layout { grid-template-columns: 1fr; }
-            .vm-grid { grid-template-columns: 1fr; }
-        }
-        h1, h2, p, li { overflow-wrap: break-word; }
-    </style>
+    footer { text-align: center; padding: 30px; background: #010803; border-top: 1px solid rgba(181, 242, 161, 0.1); font-size: 0.75rem; }
+    h1, h2, p, li { overflow-wrap: break-word; }
+</style>
 </head>
 <body>
 

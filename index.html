@@ -35,118 +35,91 @@
 
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-        /* ХЕДЕР И ЛОГОТИП */
+        /* ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА */
+        .lang-switch { display: flex; gap: 8px; margin-left: 20px; }
+        .lang-btn {
+            background: none; border: 1px solid rgba(181, 242, 161, 0.2);
+            color: rgba(255, 255, 255, 0.6); cursor: pointer;
+            font-size: 0.65rem; font-weight: 700; padding: 4px 6px;
+            border-radius: 4px; transition: 0.3s;
+        }
+        .lang-btn.active { color: var(--btn-green); border-color: var(--btn-green); background: rgba(46, 204, 113, 0.1); }
+
+        /* ХЕДЕР */
         header { 
             position: fixed; top: 0; width: 100%; 
-            background: rgba(2, 13, 6, 0.95); 
-            backdrop-filter: blur(15px); z-index: 1000; 
-            border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
+            background: rgba(2, 13, 6, 0.95); backdrop-filter: blur(15px); 
+            z-index: 1000; border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
         }
-        nav { 
-            max-width: 1200px; margin: 0 auto; padding: 12px 20px; 
-            display: flex; justify-content: space-between; align-items: center; 
-        }
+        nav { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        
         .logo { 
-            font-weight: 800; 
-            background: linear-gradient(90deg, var(--accent-light), #2ecc71);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            font-size: 1.2rem;
+            font-weight: 800; background: linear-gradient(90deg, var(--accent-light), #2ecc71);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase; letter-spacing: 3px; font-size: 1.1rem;
             filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.3));
         }
         .nav-links { display: flex; gap: 20px; }
-        .nav-links a { 
-            color: white; text-decoration: none; font-weight: 600; 
-            font-size: 0.8rem; transition: 0.3s; text-transform: uppercase; 
-        }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--btn-green); }
 
         /* HERO */
-        .hero { 
-            min-height: 35vh; 
-            display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; 
-            text-align: center; padding: 20px;
-            margin-top: 60px;
-        }
-        .hero h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 800; margin-bottom: 5px; line-height: 1.1; }
+        .hero { min-height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; margin-top: 60px; }
+        .hero h1 { font-size: clamp(2rem, 7vw, 4rem); font-weight: 800; margin-bottom: 5px; }
         .hero p { font-size: 1.1rem; color: var(--accent-light); margin-bottom: 20px; }
 
-        /* БЛОК БРЕНДОВ */
-        .brands-section { padding: 30px 0; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(181, 242, 161, 0.05); border-bottom: 1px solid rgba(181, 242, 161, 0.05); }
-        .brands-container { display: flex; justify-content: space-around; align-items: center; gap: 20px; flex-wrap: wrap; opacity: 0.5; filter: grayscale(1); transition: 0.5s; }
-        .brands-container:hover { opacity: 1; filter: grayscale(0); }
-        .brand-item { font-weight: 700; color: white; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+        /* БЕГУЩАЯ СТРОКА */
+        .brands-section { padding: 20px 0; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(181, 242, 161, 0.05); border-bottom: 1px solid rgba(181, 242, 161, 0.05); overflow: hidden; display: flex; }
+        .brands-track { display: flex; width: max-content; animation: scroll 40s linear infinite; }
+        .brands-container { display: flex; align-items: center; gap: 60px; padding-right: 60px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .brand-item { font-weight: 700; color: white; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.3; white-space: nowrap; }
 
-        /* ЦИФРЫ ДОСТИЖЕНИЙ */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 30px 0; }
-        .stat-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 20px; text-align: center; border: 1px solid rgba(46, 204, 113, 0.1); }
-        .stat-number { display: block; font-size: 2.2rem; font-weight: 800; color: var(--btn-green); text-shadow: 0 0 15px rgba(46, 204, 113, 0.3); }
-        .stat-desc { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-light); }
-
-        /* СЕКЦИИ */
-        .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        h2 { font-size: 2.2rem; margin-bottom: 25px; color: var(--accent-light); text-transform: uppercase; }
-
-        /* ОБО МНЕ */
-        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; }
-        .info-card { background: var(--bg-card); padding: 35px; border-radius: 25px; border: 1px solid rgba(181, 242, 161, 0.1); backdrop-filter: blur(10px); height: 100%; }
-        .profile-card { height: 100%; }
-        .profile-img { width: 100%; height: 100%; border-radius: 25px; border: 1px solid var(--btn-green); object-fit: cover; background: #051a0d; display: block; }
-
-        /* ФИЛЬТРЫ КЕЙСОВ */
-        .filter-container { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; justify-content: center; }
-        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(181, 242, 161, 0.1); color: white; padding: 8px 18px; border-radius: 50px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
-        .filter-btn.active, .filter-btn:hover { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); box-shadow: 0 0 15px rgba(46, 204, 113, 0.4); }
+        /* СТАТИСТИКА 2x2 */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+        .stat-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid rgba(46, 204, 113, 0.1); }
+        .stat-number { display: block; font-size: 1.8rem; font-weight: 800; color: var(--btn-green); }
+        .stat-desc { font-size: 0.65rem; text-transform: uppercase; color: var(--accent-light); }
 
         /* КЕЙСЫ */
-        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .case-card { 
-            background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(181, 242, 161, 0.05); 
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; display: flex; flex-direction: column; min-height: 160px;
-        }
-        .case-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--btn-green);
-            box-shadow: 0 0 50px rgba(46, 204, 113, 0.3), 0 15px 40px rgba(0, 0, 0, 0.6);
-            background: rgba(15, 55, 30, 0.95);
-        }
-        .case-tag { color: var(--btn-green); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 8px; }
-        .case-result-mini { margin-top: auto; padding-top: 10px; font-weight: 700; color: var(--accent-light); font-size: 0.8rem; }
+        .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        h2 { font-size: 2rem; margin-bottom: 25px; color: var(--accent-light); text-transform: uppercase; }
+        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: stretch; }
+        .info-card { background: var(--bg-card); padding: 30px; border-radius: 25px; border: 1px solid rgba(181, 242, 161, 0.1); height: 100%; }
+        .profile-card { height: 100%; }
+        .profile-img { width: 100%; height: 100%; border-radius: 25px; border: 1px solid var(--btn-green); object-fit: cover; display: block; }
 
-        /* МОБИЛКИ */
+        .filter-container { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px; justify-content: center; }
+        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(181, 242, 161, 0.1); color: white; padding: 6px 14px; border-radius: 50px; cursor: pointer; font-size: 0.75rem; transition: 0.3s; }
+        .filter-btn.active { background: var(--btn-green); color: var(--bg-dark); }
+
+        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .case-card { 
+            background: var(--bg-card); padding: 20px; border-radius: 20px; border: 1px solid rgba(181, 242, 161, 0.05); 
+            transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; 
+        }
+        .case-card:hover { transform: translateY(-5px); border-color: var(--btn-green); box-shadow: 0 0 30px rgba(46, 204, 113, 0.2); }
+
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 12px; padding: 15px; }
-            .nav-links { gap: 12px; justify-content: center; width: 100%; }
-            .hero { margin-top: 90px; }
+            nav { flex-direction: column; gap: 10px; }
+            .nav-links { gap: 12px; }
             .about-layout { grid-template-columns: 1fr; }
             .cases-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .case-card { padding: 15px 10px; min-height: 120px; }
+            .case-card { padding: 15px 10px; }
             .case-card h3 { font-size: 0.85rem; }
-            .stat-number { font-size: 1.8rem; }
         }
 
         /* МОДАЛКА */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-content { background: #071a0f; padding: 30px; border-radius: 25px; max-width: 800px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: white; cursor: pointer; z-index: 10; }
-        .modal-main-img { width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(181, 242, 161, 0.2); animation: pulse 1.5s infinite; }
-        .modal-body h4 { color: var(--btn-green); margin: 20px 0 8px 0; text-transform: uppercase; font-size: 0.8rem; }
-        .modal-body p, .modal-body li { font-size: 0.9rem; color: #e0e0e0; }
-        .modal-body ul { list-style: none; }
-        .modal-body li { position: relative; padding-left: 18px; margin-bottom: 8px; }
-        .modal-body li::before { content: '—'; position: absolute; left: 0; color: var(--btn-green); }
-        .modal-body a { color: var(--btn-green); text-decoration: none; border-bottom: 1px dashed var(--btn-green); font-weight: bold; }
+        .modal-content { background: #071a0f; padding: 25px; border-radius: 25px; max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 2rem; color: white; cursor: pointer; }
+        .modal-main-img { width: 100%; border-radius: 15px; margin-bottom: 15px; border: 1px solid rgba(181, 242, 161, 0.2); }
+        .modal-body h4 { color: var(--btn-green); margin: 15px 0 5px 0; text-transform: uppercase; font-size: 0.75rem; }
+        .modal-body p, .modal-body li { font-size: 0.85rem; color: #e0e0e0; margin-bottom: 5px; }
 
-        .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 12px 30px; border-radius: 100px; text-decoration: none; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; font-size: 0.85rem; }
-        .btn:hover { background: var(--accent-light); transform: scale(1.03); }
-        
-        .quote-box { max-width: 850px; margin: 30px auto; font-style: italic; color: var(--accent-light); font-size: 1rem; border-left: 3px solid var(--btn-green); padding: 10px 20px; text-align: center;}
-
-        footer { text-align: center; padding: 30px; background: #010803; border-top: 1px solid rgba(181, 242, 161, 0.1); font-size: 0.75rem; }
-        h1, h2, p, li { overflow-wrap: break-word; }
+        .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 10px 25px; border-radius: 100px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; cursor: pointer; }
+        .btn:hover { background: var(--accent-light); transform: scale(1.05); }
+        footer { text-align: center; padding: 30px; background: #010803; border-top: 1px solid rgba(181, 242, 161, 0.1); font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -155,29 +128,45 @@
 
     <header>
         <nav>
-            <div class="logo">Проекты</div>
+            <div class="logo" data-i18n="logo">Проекты</div>
             <div class="nav-links">
-                <a href="#about">Обо мне</a>
-                <a href="#cases">Кейсы</a>
-                <a href="#contact">Контакты</a>
+                <a href="#about" data-i18n="nav_about">Обо мне</a>
+                <a href="#cases" data-i18n="nav_cases">Кейсы</a>
+                <a href="#contact" data-i18n="nav_contact">Контакты</a>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
+                <button class="lang-btn" onclick="changeLang('en')">EN</button>
+                <button class="lang-btn" onclick="changeLang('zh')">ZH</button>
             </div>
         </nav>
     </header>
 
     <section class="hero">
         <h1 data-aos="fade-down">ВАЛЕРИЯ ТКАЧЕВА</h1>
-        <p data-aos="fade-up">Influence Marketing Manager</p>
-        <a href="#cases" class="btn" data-aos="zoom-in">Смотреть все проекты</a>
+        <p data-aos="fade-up" data-i18n="hero_p">Influence Marketing Manager</p>
+        <a href="#cases" class="btn" data-aos="zoom-in" data-i18n="hero_btn">Смотреть все проекты</a>
     </section>
 
     <div class="brands-section" data-aos="fade-up">
-        <div class="section" style="padding: 0 20px;">
+        <div class="brands-track">
             <div class="brands-container">
                 <span class="brand-item">GIGACHAT</span>
                 <span class="brand-item">СБЕРСЕЛЛЕР</span>
                 <span class="brand-item">PUBG MOBILE</span>
                 <span class="brand-item">SKILLFACTORY</span>
                 <span class="brand-item">ИГРЫ БУДУЩЕГО</span>
+                <span class="brand-item">NIMO.TV</span>
+                <span class="brand-item">SIRUS WOW</span>
+            </div>
+            <div class="brands-container">
+                <span class="brand-item">GIGACHAT</span>
+                <span class="brand-item">СБЕРСЕЛЛЕР</span>
+                <span class="brand-item">PUBG MOBILE</span>
+                <span class="brand-item">SKILLFACTORY</span>
+                <span class="brand-item">ИГРЫ БУДУЩЕГО</span>
+                <span class="brand-item">NIMO.TV</span>
+                <span class="brand-item">SIRUS WOW</span>
             </div>
         </div>
     </div>
@@ -185,29 +174,15 @@
     <section id="about" class="section">
         <div class="about-layout">
             <div class="info-card" data-aos="fade-right">
-                <h2>Обо мне</h2>
-                <p>Специалист по работе с популярными стримерами и блогерами. Уже более двух лет активно занимаюсь продвижением брендов в сферах iGaming и организации ярких мероприятий.</p>
+                <h2 data-i18n="nav_about">Обо мне</h2>
+                <p data-i18n="about_text">Специалист по работе с популярными стримерами и блогерами. Уже более двух лет активно занимаюсь продвижением брендов в сферах iGaming и организации ярких мероприятий.</p>
                 
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">70М+</span>
-                        <span class="stat-desc">Просмотров</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">400+</span>
-                        <span class="stat-desc">Блогеров</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-desc">Выполнение KPI</span>
-                    </div>
+                    <div class="stat-card"><span class="stat-number">70М+</span><span class="stat-desc" data-i18n="stats_views">Просмотров</span></div>
+                    <div class="stat-card"><span class="stat-number">400+</span><span class="stat-desc" data-i18n="stats_bloggers">Блогеров</span></div>
+                    <div class="stat-card"><span class="stat-number">25+</span><span class="stat-desc" data-i18n="stats_cases">Кейсов</span></div>
+                    <div class="stat-card"><span class="stat-number">100%</span><span class="stat-desc" data-i18n="stats_kpi">KPI выполнен</span></div>
                 </div>
-
-                <ul style="list-style: none; margin: 20px 0;">
-                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> Успешный опыт реализации комплексных рекламных кампаний</li>
-                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> Проведение крупных специализированных мероприятий</li>
-                    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">•</span> Поддерживаю тесные связи с ведущими рекламодателями</li>
-                </ul>
             </div>
             <div class="profile-card" data-aos="fade-left">
                 <img src="Рисунок1.webp" alt="Валерия Ткачева" class="profile-img">
@@ -216,12 +191,13 @@
     </section>
 
     <section id="cases" class="section">
-        <h2>Кейсы</h2>
-        <div class="filter-container">
-            <button class="filter-btn active" onclick="filterCases('all')">Все</button>
-            <button class="filter-btn" onclick="filterCases('Games')">Игры</button>
-            <button class="filter-btn" onclick="filterCases('Tournament')">Турниры</button>
-            <button class="filter-btn" onclick="filterCases('Special Project')">Спецпроекты</button>
+        <h2 data-i18n="nav_cases">Кейсы</h2>
+        <div class="filter-container" id="filter-box">
+            <button class="filter-btn active" onclick="filterCases('all')" data-i18n="filter_all">Все</button>
+            <button class="filter-btn" onclick="filterCases('iGaming')" data-i18n="filter_igaming">iGaming</button>
+            <button class="filter-btn" onclick="filterCases('Games')" data-i18n="filter_games">Игры</button>
+            <button class="filter-btn" onclick="filterCases('Tournament')" data-i18n="filter_tour">Турниры</button>
+            <button class="filter-btn" onclick="filterCases('Special Project')" data-i18n="filter_spec">Спецпроекты</button>
         </div>
         <div class="cases-grid" id="cases-container"></div>
     </section>
@@ -234,10 +210,7 @@
     </div>
 
     <section id="contact" class="section" style="text-align: center;">
-        <div class="quote-box" data-aos="fade-up">
-            "Настоящий успех бренда начинается там, где заканчивается боязнь выйти за рамки привычных соцсетей"
-        </div>
-        <h2 data-aos="zoom-in" style="margin-top: 40px;">Связаться</h2>
+        <h2 data-i18n="nav_contact">Связаться</h2>
         <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
             <a href="https://t.me/Ki1aragg" target="_blank" class="btn" style="background: #24A1DE; color: white;">Telegram</a>
             <a href="https://vk.com/kiiarabg" target="_blank" class="btn" style="background: #0077FF; color: white;">VK</a>
@@ -248,204 +221,434 @@
     <footer>© 2026 Ткачева Валерия. All Rights Reserved.</footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
+<script>
+    AOS.init({ duration: 800, once: true });
 
-        const links = {
-            soonvooshko: "https://www.twitch.tv/soonvooshko",
-            mixazver: "https://www.twitch.tv/mixazver",
-            recrent: "https://www.twitch.tv/recrent",
-            voitovichdm: "https://www.twitch.tv/voitovichdm",
-            vsevkusno: "https://www.twitch.tv/vsevkusno",
-            trixie_vox: "https://www.twitch.tv/trixie_vox",
-            by_owl: "https://www.twitch.tv/by_owl",
-            ekatze007: "https://www.twitch.tv/ekatze007",
-            tpabomah: "https://www.twitch.tv/tpabomah",
-            di_rubens: "https://www.twitch.tv/di_rubens",
-            voodoosh: "https://www.twitch.tv/voodoosh",
-            dread: "https://www.twitch.tv/dreadztv",
-            chopo_kaify: "https://www.twitch.tv/chopo_kaify",
-            Didishkatv: "https://www.twitch.tv/Didishkatv",
-            dinicetea: "https://www.twitch.tv/dinicetea",
-            tennkamlg: "https://www.twitch.tv/tennkamlg",
-            pudgaero: "https://www.twitch.tv/pudgaero",
-            jenova: "https://www.twitch.tv/jenova",
-            telkastrimera: "https://www.twitch.tv/telkastrimera",
-            off_kuka358: "https://www.twitch.tv/off_kuka358",
-            derzko: "https://www.twitch.tv/derzko69",
-            шерманс: "https://www.youtube.com/@Shermans",
-            babatumba: "https://www.youtube.com/@Babatumba",
-            "abdujabborov__7 - unwanted boys": "https://www.youtube.com/@abdujabborov_7",
-            morphe_ya: "https://www.twitch.tv/morphe_ya",
-            bezbash: "https://www.twitch.tv/bezbash",
-            redpandash: "https://www.twitch.tv/redpandash",
-            tupa_chil: "https://www.twitch.tv/tupa_chil",
-            vikiblade: "https://www.twitch.tv/vikiblade",
-            mR_JiJiK: "https://www.twitch.tv/mr_jijik",
-            "404T4GA": "https://www.twitch.tv/404t4ga",
-            adm1tr1pow: "https://www.twitch.tv/adm1tr1pow",
-            lubricum: "https://www.twitch.tv/lubricum",
-            mad6996_: "https://www.twitch.tv/mad6996_"
-        };
+    let currentLang = 'ru';
 
-        function linkify(text) {
-            if (!text) return "";
-            let result = text;
-            const sortedKeys = Object.keys(links).sort((a, b) => b.length - a.length);
-            sortedKeys.forEach(name => {
-                const regex = new RegExp(`(${name})`, 'gi');
-                result = result.replace(regex, `<a href="${links[name]}" target="_blank">$1</a>`);
-            });
-            return result;
+    const i18n = {
+        ru: {
+            logo: "Проекты", nav_about: "Обо мне", nav_cases: "Кейсы", nav_contact: "Контакты",
+            hero_p: "Influence Marketing Manager", hero_btn: "Смотреть все проекты",
+            stats_views: "Просмотров", stats_bloggers: "Блогеров", stats_cases: "Кейсов", stats_kpi: "KPI выполнен",
+            filter_all: "Все", filter_igaming: "iGaming", filter_games: "Игры", filter_tour: "Турниры", filter_spec: "Спецпроекты",
+            about_text: "Специалист по работе с популярными стримерами и блогерами. Уже более двух лет активно занимаюсь продвижением брендов в сферах iGaming и организации ярких мероприятий.",
+            desc: "Описание:", tasks: "Что сделано:", results: "Результат:"
+        },
+        en: {
+            logo: "Projects", nav_about: "About Me", nav_cases: "Cases", nav_contact: "Contacts",
+            hero_p: "Influence Marketing Manager", hero_btn: "View All Projects",
+            stats_views: "Views", stats_bloggers: "Influencers", stats_cases: "Cases", stats_kpi: "KPI Achieved",
+            filter_all: "All", filter_igaming: "iGaming", filter_games: "Games", filter_tour: "Tournaments", filter_spec: "Special Projects",
+            about_text: "Expert in working with popular streamers and bloggers. For over two years, I have been actively promoting brands in iGaming and organizing high-profile events.",
+            desc: "Description:", tasks: "Execution:", results: "Result:"
+        },
+        zh: {
+            logo: "项目", nav_about: "关于我", nav_cases: "案例", nav_contact: "联系方式",
+            hero_p: "影响力营销经理", hero_btn: "查看所有项目",
+            stats_views: "浏览量", stats_bloggers: "博主", stats_cases: "案例", stats_kpi: "KPI 完成",
+            filter_all: "全部", filter_igaming: "iGaming", filter_games: "游戏", filter_tour: "锦标赛", filter_spec: "特别项目",
+            about_text: "博主营销专家。拥有两年以上在iGaming领域推广品牌及组织大型活动的经验，与顶级KOL深度合作。",
+            desc: "项目描述:", tasks: "执行内容:", results: "项目成果:"
         }
+    };
 
-        const allCases = [
-            { 
-                img: "Рисунок7 (2).webp",
-                tag: "Tournament", title: "Игры Будущего", mini: "23,5 млн+ просмотров",
-                task: "Международный мультиспортивный турнир нового формата, объединивший технологии виртуальной реальности и традиционные виды спорта. Турнир прошел в феврале 2023 года в Казани и стал крупнейшим событием подобного масштаба в мире.",
-                doing: ["Разработка стратегии привлечения лидеров мнений для участия в проекте", "Организация сотрудничества с более чем 400 инфлюенсерами", "Создание уникального контента и спецпроектов"],
-                result: ["Более 23,5 млн. просмотров турнира через инфлюенс-каналы"]
-            },
-            { 
-                img: "photo_2026-01-24_20-50-19.webp",
-                tag: "Special Project", title: "неСКУФный лагерь", mini: "6,8 млн+ просмотров",
-                task: "Проведение офлайн-проекта со стримерами, который погружает инфлюенсеров в ностальгический вайб пионерии: проведение 3-х дневного спецпроекта в действующем лагере.",
-                doing: ["Проведены трансляции стримеров и агентства", "Получены органичные посевы нарезок со стримеров на YT и в TG"],
-                result: ["Проведено успешное оффлайн-мероприятие", "Более 6,8 млн. просмотров мероприятия"]
-            },
-            { 
-                img: "photo_2025-12-14_01-22-28.webp",
-                tag: "Tournament", title: "СберСеллер и SMP", mini: "371к+ просмотров",
-                task: "Популяризация кибер- и фиджитал-дисциплин в регионе. Рост вовлеченности в ключевых дисциплинах: CS2 и Dota 2. Привлечение целевой аудитории. KPI — минимум 3 тыс. посетителей.",
-                doing: ["Организация присутствия инфлюенсеров", "Координация трансляций фестиваля"],
-                result: ["Фестиваль посетили около 3,2 тыс. человек", "Трансляции собрали более 371 тыс. просмотров"]
-            },
-            { 
-                img: "photo_2024-12-20_19-14-28.webp",
-                tag: "Special Project", title: "Гигачат", mini: "1,9 млн+ просмотров",
-                task: "Задача 1: Рассказывать на стримах про приложение GIGA, призывать аудиторию создавать персонажей. Задача 2: Проведение спецстрима с нейросетью GigaChat.",
-                doing: ["Интеграция механики: зрители присылали открытки, созданные в нейросети GigaChat", "Автоматическая печать открыток у стримера во время трансляции"],
-                result: ["Более 1,9 млн. просмотров рекламной кампании на канале SoonVooshko"]
-            },
-            { 
-                img: "Рисунок9.webp",
-                tag: "Games", title: "Arena Breakout", mini: "20 млн+ просмотров",
-                task: "Демонстрация запуска нового шутера. Популяризация игры среди комьюнити. Участие во внутриигровых турнирах. Участие в реферальной программе пополнения баланса Buff-Buff.",
-                doing: ["Организация стримов на запуске", "Контроль KPI по просмотрам и рефералам"],
-                result: ["Почти 13 млн. просмотров трансляции SoonVooshko", "Более 7 млн. просмотров трансляции MixaZver"]
-            },
-            { 
-                img: "photo_2024-10-18_20-08-15.webp",
-                tag: "Games", title: "Zenless Zone Zero", mini: "Top Nimo.tv",
-                task: "Проведение спецстрима. Прохождение челленджа внутри игры с другими стримерами.",
-                doing: ["Координация стримов: SoonVooshko, Chopo_kaify, Didishkatv, DiniceTea, TennkaMLG, Pudgaero, Jenova"],
-                result: ["Более 60к просмотров трансляции SoonVooshko", "Трансляция SoonVooshko попала на главную Nimo.tv"]
-            },
-            { 
-                img: "Рисунок11.webp",
-                tag: "Games", title: "Total Football", mini: "450к+ просмотров",
-                task: "Демонстрация выхода нового футбольного симулятора. Проведение спецстримов на каналах стримеров. Выпуск роликов на YT у профильных блогеров.",
-                doing: ["Координация стримов: TelkaStrimera, Tpabomah, di_rubens, off_kuka358", "Работа с блогерами: Шерманс (ролик 1, ролик 2)", "Ролик abdujabborov__7 - unwanted boys", "Ролик babatumba"],
-                result: ["Более 60к просмотров (TelkaStrimera и Tpabomah)", "243к+ просмотров ролика блогера abdujabborov__7"]
-            },
-            { 
-                img: "Рисунок12.webp",
-                tag: "Games", title: "PUBG Mobile", mini: "709к+ просмотров",
-                task: "Размещение нарезок на канале YT Recrent`a по PUBGM. Популяризация игры.",
-                doing: ["Размещение ролика 1 на канале Recrent", "Размещение ролика 2 на канале Recrent"],
-                result: ["Более 709 тыс. просмотров роликов на канале YT Recrent`a"]
-            },
-            { img: "Рисунок13.webp", tag: "Games", title: "ArcheAge", mini: "60к+ просмотров", task: "Демонстрация обновления игры ArcheAge.", doing: ["Показ обновления (класс Феи)", "Призыв забирать подарки", "Стрим SoonVooshko"], result: ["Более 60 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "Рисунок14.webp", tag: "Games", title: "Геймерские сердца", mini: "650к+ просмотров", task: "Спецстримы с просмотром шоу на каналах стримерш Twitch.", doing: ["Эфиры на канале Trixie_vox", "Эфиры на канале By_owl", "Эфиры на канале Ekatze007"], result: ["179 тыс. просмотров (Trixie_vox)", "Более 265 тыс. просмотров (By_owl)", "Более 207 тыс. просмотров (Ekatze007)"] },
-            { img: "Рисунок15.webp", tag: "Games", title: "Arknights: Endfield", mini: "135к+ просмотров", task: "Демонстрация новой игры. Популяризация игры среди комьюнити.", doing: ["Стрим SoonVooshko"], result: ["Более 213 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "Рисунок16.webp", tag: "Games", title: "Exoborne", mini: "180к+ просмотров", task: "Демонстрация запуска новой игры. Популяризация игры среди комьюнити.", doing: ["Стримы на канале Derzko", "Стримы на канале off_kuka358"], result: ["Более 134 тыс. просмотров трансляции Derzko", "Более 53 тыс. просмотров трансляции off_kuka358"] },
-            { img: "photo_2024-08-01_19-05-00.webp", tag: "Games", title: "Tarisland", mini: "50к+ просмотров", task: "Демонстрация запуска новой MMORPG. Популяризация игры среди комьюнити.", doing: ["Проведение спецстрима на канале SoonVooshko", "Развитие персонажей совместно с чатом"], result: ["Более 50 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "photo_2024-10-09_13-25-52.webp", tag: "Games", title: "Sirus (WoW)", mini: "3,3 млн+ просмотров", task: "Проведение спецстримов на новом сервере WoW Sirus. Коммуникация с комьюнити игры. Развитие персонажей внутри игры.", doing: ["Проведение спецстримов на канале SoonVooshko"], result: ["Более 3,3 млн. просмотров трансляций SoonVooshko"] },
-            { img: "Рисунок17.webp", tag: "Games", title: "Gran Saga", mini: "38к+ просмотров", task: "Проведение спецстрима. Коммуникация с комьюнити. Популяризация игры.", doing: ["Проведение спецстрима на канале SoonVooshko"], result: ["Более 38 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "Снимок экрана 2026-01-24 205359.webp", tag: "Special Project", title: "SkillFactory", mini: "1,7 млн+ просмотров", task: "Интеграции на стримах до 10 минут с рассказом про новую профессию «Белый хакер». Продвижение новой профессии среди своей аудитории.", doing: ["Интеграции на стримах Voitovichdm", "Интеграции на стримах VseVkusno"], result: ["Более 1,7 млн. просмотров трансляций Voitovichdm и VseVkusno"] },
-            { img: "Рисунок18.webp", tag: "Games", title: "STALCRAFT: X", mini: "200к просмотров", task: "Проведение спецстримов. Коммуникация с комьюнити. Популяризация игры.", doing: ["Стрим SoonVooshko"], result: ["200 тыс. просмотров трансляций SoonVooshko"] },
-            { img: "photo_2026-01-15_15-23-08.webp", tag: "Special Project", title: "LdShop", mini: "205к+ просмотров", task: "Размещение реферальных ссылок на канале стримера Soonvooshko. Продвижение и популяризация магазина пополнения.", doing: ["Размещение реферальных ссылок", "Проведение интеграций на канале SoonVooshko"], result: ["Более 184 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "Снимок-экрана-2026-02-08-144004.webp", tag: "Games", title: "NTE", mini: "138к+ просмотров", task: "Проведение спецстримов, популяризация игры среди комьюнити, демонстрация новых патчей.", doing: ["Размещение реферальных ссылок", "Проведение спецстримов на канале SoonVooshko"], result: ["Более 138 тыс. просмотров трансляции SoonVooshko"] },
-            { img: "photo_2026-02-19_18-06-00.webp", tag: "Special Project", title: "PUBGm Это не игра", mini: "280к+ просмотров", task: "Проведение спецстримов с просмотром мини-сериала.", doing: ["Просмотр мини-сериала от PUBG на каналах SoonVooshko, Morphe_ya, Di_Rubens, Bezbash, MixaZver"], result: ["Более 130 тыс. просмотров трансляции Morphe_ya", "Более 80 тыс. просмотров трансляции Mixazver"] },
-            { img: "Снимок экрана 2026-02-24 164720.webp", tag: "Tournament", title: "ДронКон", mini: "487к+ просмотров", task: "Проведение интеграций на каналах с целью освещения турнира.", doing: ["Интеграции на каналах Tpabomah, SoonVooshko, MixaZver, Redpandash, Vsevkusno, Tupa_chil, Vikiblade, MR_JiJiK"], result: ["Охват более 487 тыс. просмотров на 8 каналах"] },
-            { img: "Снимок экрана 2026-04-23 123235.webp", tag: "Special Project", title: "Алабуга политех", mini: "53к+ просмотров", task: "Проведение интеграций с просмотром роликов Алабуги", doing: ["Интеграция Алабуги на каналах RedPandaSH", "Интеграция Алабуги на канале Tupa_chil"], result: ["Более 16 тыс. просмотров (RedPandaSH)", "Более 37 тыс. просмотров (Tupa_chil)"] },
-            { img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games", title: "Crimson Desert", mini: "53к+ просмотров", task: "Демонстрация новой игры", doing: ["Проведение спецстримов по игре на каналах Mixazver, 404t4ga, Bezbash, Redpandash, Adm1tr1pow, Vsevkusno, Lubricum, Mad6996_"], result: ["Более 16 тыс. просмотров (Mixazver)", "Более 33 тыс. просмотров (404t4ga)"] },
-            { img: "photo_2026-04-22_19-56-15.webp", tag: "Games", title: "NTE", mini: "57к+ просмотров", task: "Просмотр официального трейлера к запуску игры", doing: ["Реферальные ссылки и проведение спецстримов на каналах SoonVooshko, Tupa_chil, RedPandaSH, MixaZver, Vikiblade, Didishkatv, 404T4GA"], result: ["Более 22 тыс. просмотров (SoonVooshko)", "Более 16 тыс. просмотров (Tupa_chil)"] },
-            { img: "_________________", tag: "Special Project", title: "DXracer", mini: "___к+ просмотров", task: "Интеграция в стрим с игровым креслом", doing: ["Размещение реферальных ссылок", "Интеграция на канале TpaBoMaH"], result: ["Данные по просмотрам уточняются"] }
-        ];
+    const links = {
+        "soonvooshko": "https://www.twitch.tv/soonvooshko",
+        "mixazver": "https://www.twitch.tv/mixazver",
+        "recrent": "https://www.twitch.tv/recrent",
+        "404T4GA": "https://www.twitch.tv/404t4ga"
+    };
 
-        const container = document.getElementById('cases-container');
+    function linkify(text) {
+        if (!text) return "";
+        let result = text;
+        Object.keys(links).forEach(name => {
+            const regex = new RegExp(`(${name})`, 'gi');
+            result = result.replace(regex, `<a href="${links[name]}" target="_blank" style="color:var(--btn-green);text-decoration:none;">$1</a>`);
+        });
+        return result;
+    }
 
-        function renderCases(filter = 'all') {
-            container.innerHTML = '';
-            allCases.forEach((c) => {
-                if (filter !== 'all' && c.tag !== filter) return;
-                const card = document.createElement('div');
-                card.className = 'case-card';
-                card.setAttribute('data-aos', 'zoom-in');
-                card.onclick = () => openModal(c);
-                card.innerHTML = `<div class="case-tag">${c.tag}</div><h3>${c.title}</h3><div class="case-result-mini">${c.mini}</div>`;
-                container.appendChild(card);
-            });
+    const allCases = [
+        { 
+            img: "Рисунок7 (2).webp", tag: "Tournament",
+            title: { ru: "Игры Будущего", en: "Games of the Future", zh: "未来之战" },
+            mini: { ru: "23,5 млн+ просмотров", en: "23.5M+ views", zh: "2350万+ 观看" },
+            task: { 
+                ru: "Международный мультиспортивный турнир нового формата в Казани.", 
+                en: "International multi-sport tournament in Kazan combining VR and traditional sports.", 
+                zh: "在喀山举行的结合虚拟现实和传统体育的新型国际综合性运动会。"
+            },
+            doing: {
+                ru: ["Разработка стратегии привлечения лидеров мнений", "Сотрудничество с 400+ инфлюенсерами"],
+                en: ["Influencer engagement strategy development", "Collaboration with 400+ influencers"],
+                zh: ["制定意见领袖招募战略", "与400多名博主合作"]
+            },
+            result: {
+                ru: ["Более 23,5 млн. просмотров через инфлюенс-каналы"],
+                en: ["Over 23.5 million views via influencer channels"],
+                zh: ["通过博主渠道获得超过2350万次观看"]
+            }
+        },
+        { 
+            img: "photo_2026-01-24_20-50-19.webp", tag: "Special Project",
+            title: { ru: "неСКУФный лагерь", en: "Non-SKUF Camp", zh: "非宅男夏令营" },
+            mini: { ru: "6,8 млн+ просмотров", en: "6.8M+ views", zh: "680万+ 观看" },
+            task: { 
+                ru: "Офлайн-проект со стримерами в ностальгическом вайбе пионерии.", 
+                en: "Offline project with streamers in a nostalgic pioneer camp atmosphere.", 
+                zh: "与博主共同进行的具有怀旧先锋氛围的线下项目。"
+            },
+            doing: {
+                ru: ["Трансляции стримеров", "Органичные посевы нарезок на YT и в TG"],
+                en: ["Streamer broadcasts", "Organic content distribution on YT and TG"],
+                zh: ["博主直播", "在YT和TG上进行内容分发"]
+            },
+            result: {
+                ru: ["Более 6,8 млн. просмотров мероприятия"],
+                en: ["Over 6.8 million views of the event"],
+                zh: ["活动观看次数超过680万次"]
+            }
+        },
+        { 
+            img: "photo_2025-12-14_01-22-28.webp", tag: "Tournament",
+            title: { ru: "СберСеллер и SMP", en: "SberSeller & SMP", zh: "SberSeller 与 SMP" },
+            mini: { ru: "371к+ просмотров", en: "371k+ views", zh: "37.1万+ 观看" },
+            task: { ru: "Популяризация киберспорта: CS2 и Dota 2.", en: "Esports promotion: CS2 and Dota 2.", zh: "电竞推广：CS2 和 Dota 2。" },
+            doing: {
+                ru: ["Координация трансляций", "Привлечение аудитории"],
+                en: ["Broadcast coordination", "Audience engagement"],
+                zh: ["直播协调", "受众招募"]
+            },
+            result: {
+                ru: ["371к+ просмотров трансляций"],
+                en: ["371k+ broadcast views"],
+                zh: ["直播观看次数超过37.1万次"]
+            }
+        },
+        { 
+            img: "photo_2024-12-20_19-14-28.webp", tag: "Special Project",
+            title: { ru: "Гигачат", en: "GigaChat", zh: "GigaChat 智能对话" },
+            mini: { ru: "1,9 млн+ просмотров", en: "1.9M+ views", zh: "190万+ 观看" },
+            task: { ru: "Спецстрим с нейросетью GigaChat.", en: "Special stream featuring GigaChat AI.", zh: "GigaChat 人工智能专题直播。" },
+            doing: {
+                ru: ["Интеграция механики с открытками", "Автоматическая печать у стримера"],
+                en: ["Postcard mechanics integration", "Automatic printing during the stream"],
+                zh: ["明信片互动机制整合", "主播现场自动打印"]
+            },
+            result: {
+                ru: ["Более 1,9 млн. просмотров рекламной кампании"],
+                en: ["Over 1.9 million views for the ad campaign"],
+                zh: ["广告活动观看次数超过190万次"]
+            }
+        },
+        { 
+            img: "Рисунок9.webp", tag: "Games",
+            title: { ru: "Arena Breakout", en: "Arena Breakout", zh: "暗区突围" },
+            mini: { ru: "20 млн+ просмотров", en: "20M+ views", zh: "2000万+ 观看" },
+            task: { ru: "Демонстрация запуска нового шутера.", en: "Showcasing the launch of a new shooter.", zh: "展示新型射击游戏的发布。" },
+            doing: {
+                ru: ["Организация стримов на запуске", "Контроль KPI"],
+                en: ["Launch stream organization", "KPI control"],
+                zh: ["组织发布会直播", "KPI 质量控制"]
+            },
+            result: {
+                ru: ["Почти 20 млн. просмотров суммарно"],
+                en: ["Nearly 20 million views in total"],
+                zh: ["总观看次数近2000万次"]
+            }
+        },
+        { 
+            img: "photo_2024-10-18_20-08-15.webp", tag: "Games",
+            title: { ru: "Zenless Zone Zero", en: "Zenless Zone Zero", zh: "绝区零" },
+            mini: { ru: "Top Nimo.tv", en: "Top Nimo.tv", zh: "Nimo.tv 热榜" },
+            task: { ru: "Проведение спецстрима и челленджа.", en: "Special stream and in-game challenge.", zh: "专题直播和游戏内挑战。" },
+            doing: {
+                ru: ["Координация 7 крупных стримеров"],
+                en: ["Coordination of 7 major streamers"],
+                zh: ["协调7位顶尖主播"]
+            },
+            result: {
+                ru: ["Трансляция попала на главную Nimo.tv"],
+                en: ["The stream hit the Nimo.tv homepage"],
+                zh: ["直播登上 Nimo.tv 首页"]
+            }
+        },
+        { 
+            img: "Рисунок11.webp", tag: "Games",
+            title: { ru: "Total Football", en: "Total Football", zh: "全员足球" },
+            mini: { ru: "450к+ просмотров", en: "450k+ views", zh: "45万+ 观看" },
+            task: { ru: "Выход футбольного симулятора.", en: "Football simulator release.", zh: "足球模拟器发布。" },
+            doing: {
+                ru: ["Работа с блогерами и стримерами"],
+                en: ["Working with bloggers and streamers"],
+                zh: ["与博主和主播合作"]
+            },
+            result: {
+                ru: ["Суммарно более 450к просмотров"],
+                en: ["Over 450k views in total"],
+                zh: ["总观看次数超过45万次"]
+            }
+        },
+        { 
+            img: "Рисунок12.webp", tag: "Games",
+            title: { ru: "PUBG Mobile", en: "PUBG Mobile", zh: "和平精英" },
+            mini: { ru: "709к+ просмотров", en: "709k+ views", zh: "70.9万+ 观看" },
+            task: { ru: "Размещение нарезок у Recrent.", en: "Content placement with Recrent.", zh: "在 Recrent 频道进行内容投放。" },
+            doing: {
+                ru: ["Размещение серии роликов"],
+                en: ["Series of video placements"],
+                zh: ["投放系列视频"]
+            },
+            result: {
+                ru: ["Более 709 тыс. просмотров"],
+                en: ["Over 709k views"],
+                zh: ["观看次数超过70.9万次"]
+            }
+        },
+        { 
+            img: "Рисунок13.webp", tag: "Games",
+            title: { ru: "ArcheAge", en: "ArcheAge", zh: "上古世纪" },
+            mini: { ru: "60к+ просмотров", en: "60k+ views", zh: "6万+ 观看" },
+            task: { ru: "Демонстрация обновления.", en: "Update showcase.", zh: "版本更新展示。" },
+            doing: { ru: ["Стрим SoonVooshko"], en: ["SoonVooshko stream"], zh: ["SoonVooshko 直播"] },
+            result: { ru: ["60 тыс. просмотров"], en: ["60k views"], zh: ["6万次观看"] }
+        },
+        { 
+            img: "Рисунок14.webp", tag: "Games",
+            title: { ru: "Геймерские сердца", en: "Gamer Hearts", zh: "游戏之心" },
+            mini: { ru: "650к+ просмотров", en: "650k+ views", zh: "65万+ 观看" },
+            task: { ru: "Спецстримы с просмотром шоу.", en: "Special stream show reactions.", zh: "综艺节目反应专题直播。" },
+            doing: {
+                ru: ["Эфиры: Trixie_vox, By_owl, Ekatze007"],
+                en: ["Broadcasts by Trixie_vox, By_owl, Ekatze007"],
+                zh: ["Trixie_vox, By_owl, Ekatze007 联合直播"]
+            },
+            result: {
+                ru: ["Суммарно 650к+ просмотров"],
+                en: ["650k+ views in total"],
+                zh: ["总观看次数超过65万次"]
+            }
+        },
+        { 
+            img: "Рисунок15.webp", tag: "Games",
+            title: { ru: "Arknights: Endfield", en: "Arknights: Endfield", zh: "明日方舟：终末地" },
+            mini: { ru: "135к+ просмотров", en: "135k+ views", zh: "13.5万+ 观看" },
+            task: { ru: "Популяризация новой игры.", en: "Promoting a new game.", zh: "推广新游戏。" },
+            doing: { ru: ["Стрим SoonVooshko"], en: ["SoonVooshko stream"], zh: ["SoonVooshko 直播"] },
+            result: { ru: ["Более 213 тыс. просмотров"], en: ["Over 213k views"], zh: ["超过21.3万次观看"] }
+        },
+        { 
+            img: "Рисунок16.webp", tag: "Games",
+            title: { ru: "Exoborne", en: "Exoborne", zh: "Exoborne" },
+            mini: { ru: "180к+ просмотров", en: "180k+ views", zh: "18万+ 观看" },
+            task: { ru: "Запуск новой игры.", en: "New game launch.", zh: "新游戏发布。" },
+            doing: { ru: ["Стримы: Derzko, off_kuka358"], en: ["Streams by Derzko, off_kuka358"], zh: ["Derzko, off_kuka358 直播"] },
+            result: { ru: ["Более 187 тыс. просмотров"], en: ["Over 187k views"], zh: ["超过18.7万次观看"] }
+        },
+        { 
+            img: "photo_2024-08-01_19-05-00.webp", tag: "Games",
+            title: { ru: "Tarisland", en: "Tarisland", zh: "塔瑞斯世界" },
+            mini: { ru: "50к+ просмотров", en: "50k+ views", zh: "5万+ 观看" },
+            task: { ru: "Запуск новой MMORPG.", en: "New MMORPG launch.", zh: "新 MMORPG 发布。" },
+            doing: { ru: ["Стрим и развитие персонажа"], en: ["Stream and character leveling"], zh: ["直播及角色养成"] },
+            result: { ru: ["50 тыс. просмотров"], en: ["50k views"], zh: ["5万次观看"] }
+        },
+        { 
+            img: "photo_2024-10-09_13-25-52.webp", tag: "iGaming",
+            title: { ru: "Sirus (WoW)", en: "Sirus (WoW)", zh: "Sirus (魔兽世界)" },
+            mini: { ru: "3,3 млн+ просмотров", en: "3.3M+ views", zh: "330万+ 观看" },
+            task: { ru: "Спецстримы на новом сервере.", en: "Special streams on a new server.", zh: "新服务器专题直播。" },
+            doing: { ru: ["Серия стримов SoonVooshko"], en: ["SoonVooshko stream series"], zh: ["SoonVooshko 系列直播"] },
+            result: { ru: ["3,3 млн+ просмотров"], en: ["3.3M+ views"], zh: ["超过330万次观看"] }
+        },
+        { 
+            img: "Рисунок17.webp", tag: "Games",
+            title: { ru: "Gran Saga", en: "Gran Saga", zh: "格兰骑士团" },
+            mini: { ru: "38к+ просмотров", en: "38k+ views", zh: "3.8万+ 观看" },
+            task: { ru: "Проведение спецстрима.", en: "Special stream session.", zh: "专题直播活动。" },
+            doing: { ru: ["Стрим SoonVooshko"], en: ["SoonVooshko stream"], zh: ["SoonVooshko 直播"] },
+            result: { ru: ["38 тыс. просмотров"], en: ["38k views"], zh: ["3.8万次观看"] }
+        },
+        { 
+            img: "Снимок экрана 2026-01-24 205359.webp", tag: "Special Project",
+            title: { ru: "SkillFactory", en: "SkillFactory", zh: "SkillFactory" },
+            mini: { ru: "1,7 млн+ просмотров", en: "1.7M+ views", zh: "170万+ 观看" },
+            task: { ru: "Продвижение профессии хакера.", en: "Promoting cyber-security careers.", zh: "推广网络安全职业。" },
+            doing: { ru: ["Интеграции у Voitovichdm и VseVkusno"], en: ["Integrations with Voitovichdm and VseVkusno"], zh: ["Voitovichdm 和 VseVkusno 的内容植入"] },
+            result: { ru: ["Более 1,7 млн. просмотров"], en: ["Over 1.7M views"], zh: ["超过170万次观看"] }
+        },
+        { 
+            img: "Рисунок18.webp", tag: "Games",
+            title: { ru: "STALCRAFT: X", en: "STALCRAFT: X", zh: "STALCRAFT: X" },
+            mini: { ru: "200к просмотров", en: "200k views", zh: "20万 观看" },
+            task: { ru: "Проведение спецстримов.", en: "Special streams.", zh: "专题直播。" },
+            doing: { ru: ["Стрим SoonVooshko"], en: ["SoonVooshko stream"], zh: ["SoonVooshko 直播"] },
+            result: { ru: ["200 тыс. просмотров"], en: ["200k views"], zh: ["20万次观看"] }
+        },
+        { 
+            img: "photo_2026-01-15_15-23-08.webp", tag: "Special Project",
+            title: { ru: "LdShop", en: "LdShop", zh: "LdShop" },
+            mini: { ru: "205к+ просмотров", en: "205k+ views", zh: "20.5万+ 观看" },
+            task: { ru: "Магазин пополнения валюты.", en: "Game currency top-up shop.", zh: "游戏充值商店项目。" },
+            doing: { ru: ["Реферальные ссылки SoonVooshko"], en: ["SoonVooshko referral links"], zh: ["SoonVooshko 推荐链接"] },
+            result: { ru: ["Более 184 тыс. просмотров"], en: ["Over 184k views"], zh: ["超过18.4万次观看"] }
+        },
+        { 
+            img: "Снимок-экрана-2026-02-08-144004.webp", tag: "Games",
+            title: { ru: "NTE", en: "NTE", zh: "NTE" },
+            mini: { ru: "138к+ просмотров", en: "138k+ views", zh: "13.8万+ 观看" },
+            task: { ru: "Демонстрация патчей.", en: "Game patch showcase.", zh: "游戏补丁展示。" },
+            doing: { ru: ["Стримы SoonVooshko"], en: ["SoonVooshko streams"], zh: ["SoonVooshko 直播"] },
+            result: { ru: ["Более 138 тыс. просмотров"], en: ["Over 138k views"], zh: ["超过13.8万次观看"] }
+        },
+        { 
+            img: "photo_2026-02-19_18-06-00.webp", tag: "Special Project",
+            title: { ru: "PUBGm Это не игра", en: "PUBGm: Not a Game", zh: "和平精英：不仅是游戏" },
+            mini: { ru: "280к+ просмотров", en: "280k+ views", zh: "28万+ 观看" },
+            task: { ru: "Просмотр мини-сериала.", en: "Mini-series reaction.", zh: "短剧观看互动。" },
+            doing: { ru: ["Спецстримы пулом стримеров"], en: ["Multi-streamer reaction sessions"], zh: ["多位主播联合反应直播"] },
+            result: { ru: ["280к+ просмотров"], en: ["280k+ views"], zh: ["超过28万次观看"] }
+        },
+        { 
+            img: "Снимок экрана 2026-02-24 164720.webp", tag: "Tournament",
+            title: { ru: "ДронКон", en: "DroneCon", zh: "无人机大会" },
+            mini: { ru: "487к+ просмотров", en: "487k+ views", zh: "48.7万+ 观看" },
+            task: { ru: "Освещение турнира.", en: "Tournament coverage.", zh: "锦标赛报导。" },
+            doing: { ru: ["Интеграции на 8 каналах"], en: ["Integrations across 8 channels"], zh: ["8个频道的联合内容植入"] },
+            result: { ru: ["487к+ просмотров"], en: ["487k+ views"], zh: ["超过48.7万次观看"] }
+        },
+        { 
+            img: "Снимок экрана 2026-04-23 123235.webp", tag: "Special Project",
+            title: { ru: "Алабуга политех", en: "Alabuga Polytech", zh: "阿拉布加理工学院" },
+            mini: { ru: "53к+ просмотров", en: "53k+ views", zh: "5.3万+ 观看" },
+            task: { ru: "Просмотр роликов Алабуги.", en: "Alabuga content reactions.", zh: "阿拉布加内容观看互动。" },
+            doing: { ru: ["Интеграции у RedPandaSH и Tupa_chil"], en: ["RedPandaSH & Tupa_chil integrations"], zh: ["RedPandaSH 和 Tupa_chil 内容植入"] },
+            result: { ru: ["53к+ просмотров"], en: ["53k+ views"], zh: ["超过5.3万次观看"] }
+        },
+        { 
+            img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games",
+            title: { ru: "Crimson Desert", en: "Crimson Desert", zh: "赤色沙漠" },
+            mini: { ru: "53к+ просмотров", en: "53k+ views", zh: "5.3万+ 观看" },
+            task: { ru: "Демонстрация новой игры.", en: "New game showcase.", zh: "新游戏展示。" },
+            doing: { ru: ["Пул из 8 стримеров"], en: ["8-streamer campaign"], zh: ["8位主播联动活动"] },
+            result: { ru: ["Высокая вовлеченность"], en: ["High engagement"], zh: ["极高互动率"] }
+        },
+        { 
+            img: "photo_2026-04-22_19-56-15.webp", tag: "Games",
+            title: { ru: "NTE (Launch)", en: "NTE (Launch)", zh: "NTE (上线)" },
+            mini: { ru: "57к+ просмотров", en: "57k+ views", zh: "5.7万+ 观看" },
+            task: { ru: "Просмотр трейлера к запуску.", en: "Launch trailer reaction.", zh: "上线预告片观看反应。" },
+            doing: { ru: ["Стримы и реферальные ссылки"], en: ["Streams and referral links"], zh: ["直播及推荐链接"] },
+            result: { ru: ["57к+ просмотров"], en: ["57k+ views"], zh: ["超过5.7万次观看"] }
+        },
+        { 
+            img: "_________________", tag: "Special Project",
+            title: { ru: "DXracer", en: "DXracer", zh: "DXracer" },
+            mini: { ru: "Интеграция", en: "Integration", zh: "内容植入" },
+            task: { ru: "Интеграция в стрим с креслом.", en: "Gaming chair integration.", zh: "电竞椅直播植入。" },
+            doing: { ru: ["Реферальная программа TpaBoMaH"], en: ["TpaBoMaH referral campaign"], zh: ["TpaBoMaH 推荐活动"] },
+            result: { ru: ["Нативная демонстрация"], en: ["Native product display"], zh: ["原生产品展示"] }
         }
+    ];
 
-        function filterCases(tag) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.getAttribute('onclick').includes("'"+tag+"'")) btn.classList.add('active');
-            });
-            renderCases(tag);
-        }
+    const container = document.getElementById('cases-container');
 
-        function openModal(c) {
-            const resultData = Array.isArray(c.result) ? c.result : [c.result];
-            const imgHtml = c.img && c.img !== "_________________" ? `<img src="${c.img}" class="modal-main-img" loading="lazy">` : `<div class="modal-img-box" style="height:200px; background:#051a0d; border-radius:15px; display:flex; align-items:center; justify-content:center; margin-bottom:25px;">Изображение ожидается</div>`;
-            document.getElementById('modal-body').innerHTML = `${imgHtml}<h2 style="color: var(--accent-light); margin-bottom: 20px;">${c.title}</h2><h4>Описание:</h4><p>${linkify(c.task)}</p><h4>Что сделано:</h4><ul>${c.doing.map(d => `<li>${linkify(d)}</li>`).join('')}</ul><h4>Результат:</h4><ul>${resultData.map(r => `<li>${linkify(r)}</li>`).join('')}</ul>`;
-            document.getElementById('projectModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
+    function renderCases(filter = 'all') {
+        container.innerHTML = '';
+        allCases.forEach((c) => {
+            const titleText = c.title[currentLang];
+            const miniText = c.mini[currentLang];
+            
+            if (filter !== 'all' && c.tag !== filter) return;
+            
+            const card = document.createElement('div');
+            card.className = 'case-card';
+            card.setAttribute('data-aos', 'zoom-in');
+            card.onclick = () => openModal(c);
+            card.innerHTML = `<div class="case-tag">${c.tag}</div><h3>${titleText}</h3><div class="case-result-mini">${miniText}</div>`;
+            container.appendChild(card);
+        });
+    }
 
-        function closeModal() { document.getElementById('projectModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    function filterCases(tag) {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        renderCases(tag);
+    }
 
-        /* ИНТЕРАКТИВНЫЙ ФОН */
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, particles;
-        const mouse = { x: null, y: null };
-        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
-        window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+    function changeLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
+        });
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (i18n[lang][key]) el.innerText = i18n[lang][key];
+        });
+        renderCases();
+    }
 
-        function initBg() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            particles = [];
-            for (let i = 0; i < 60; i++) particles.push(new Particle());
-        }
+    function openModal(c) {
+        const title = c.title[currentLang];
+        const task = c.task[currentLang];
+        const doing = c.doing[currentLang];
+        const result = c.result[currentLang];
+        
+        const imgHtml = c.img && c.img !== "_________________" ? `<img src="${c.img}" class="modal-main-img">` : `<div style="height:150px;background:#051a0d;border-radius:15px;margin-bottom:15px;display:flex;align-items:center;justify-content:center;color:#555;">No Image</div>`;
+        
+        document.getElementById('modal-body').innerHTML = `
+            ${imgHtml}
+            <h2 style="color: var(--accent-light); margin-bottom: 15px; font-size: 1.5rem;">${title}</h2>
+            <h4>${i18n[currentLang].desc}</h4><p>${linkify(task)}</p>
+            <h4>${i18n[currentLang].tasks}</h4><ul>${doing.map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
+            <h4>${i18n[currentLang].results}</h4><ul>${result.map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
+        `;
+        document.getElementById('projectModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
 
-        class Particle {
-            constructor() { this.reset(); }
-            reset() { this.x = Math.random() * width; this.y = Math.random() * height; this.size = Math.random() * 3 + 2; this.speedX = (Math.random() - 0.5) * 0.8; this.speedY = (Math.random() - 0.5) * 0.8; this.alpha = Math.random() * 0.5 + 0.2; this.fade = Math.random() * 0.005 + 0.002; }
-            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > width) this.speedX *= -1; if (this.y < 0 || this.y > height) this.speedY *= -1; this.alpha += this.fade; if (this.alpha > 0.8 || this.alpha < 0.2) this.fade *= -1; }
-            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.shadowBlur = 10; ctx.shadowColor = `rgba(181, 242, 161, ${this.alpha})`; ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; ctx.fill(); ctx.shadowBlur = 0; }
-        }
+    function closeModal() { document.getElementById('projectModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
-        function connect() {
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    let distance = Math.sqrt((particles[a].x - particles[b].x)**2 + (particles[a].y - particles[b].y)**2);
-                    if (distance < 150) { ctx.strokeStyle = `rgba(46, 204, 113, ${(1 - distance/150) * 0.2})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke(); }
-                }
-                if (mouse.x !== null) {
-                    let mDistance = Math.sqrt((particles[a].x - mouse.x)**2 + (particles[a].y - mouse.y)**2);
-                    if (mDistance < 200) { ctx.strokeStyle = `rgba(181, 242, 161, ${(1 - mDistance/200) * 0.4})`; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
-                }
+    /* ИНТЕРАКТИВНЫЙ ФОН */
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, particles;
+    const mouse = { x: null, y: null };
+    window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+    window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+
+    function initBg() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        particles = [];
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+    }
+
+    class Particle {
+        constructor() { this.reset(); }
+        reset() { this.x = Math.random() * width; this.y = Math.random() * height; this.size = Math.random() * 3 + 2; this.speedX = (Math.random() - 0.5) * 0.8; this.speedY = (Math.random() - 0.5) * 0.8; this.alpha = Math.random() * 0.5 + 0.2; this.fade = Math.random() * 0.005 + 0.002; }
+        update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > width) this.speedX *= -1; if (this.y < 0 || this.y > height) this.speedY *= -1; this.alpha += this.fade; if (this.alpha > 0.8 || this.alpha < 0.2) this.fade *= -1; }
+        draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.shadowBlur = 10; ctx.shadowColor = `rgba(181, 242, 161, ${this.alpha})`; ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; ctx.fill(); ctx.shadowBlur = 0; }
+    }
+
+    function connect() {
+        for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+                let dist = Math.sqrt((particles[a].x - particles[b].x)**2 + (particles[a].y - particles[b].y)**2);
+                if (dist < 150) { ctx.strokeStyle = `rgba(46, 204, 113, ${(1 - dist/150) * 0.2})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke(); }
+            }
+            if (mouse.x !== null) {
+                let mDist = Math.sqrt((particles[a].x - mouse.x)**2 + (particles[a].y - mouse.y)**2);
+                if (mDist < 200) { ctx.strokeStyle = `rgba(181, 242, 161, ${(1 - mDist/200) * 0.4})`; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
             }
         }
+    }
 
-        function animate() { ctx.clearRect(0, 0, width, height); particles.forEach(p => { p.update(); p.draw(); }); connect(); requestAnimationFrame(animate); }
+    function animate() { ctx.clearRect(0, 0, width, height); particles.forEach(p => { p.update(); p.draw(); }); connect(); requestAnimationFrame(animate); }
 
-        initBg(); renderCases(); animate(); window.addEventListener('resize', initBg);
-    </script>
+    initBg(); renderCases(); animate(); window.addEventListener('resize', initBg);
+</script>
 </body>
 </html>

@@ -35,11 +35,88 @@
 
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-        header { position: fixed; top: 0; width: 100%; background: rgba(2, 13, 6, 0.95); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(181, 242, 161, 0.1); }
-        nav { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; color: var(--accent-light); text-transform: uppercase; letter-spacing: 2px; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; }
-        .nav-links a:hover { color: var(--btn-green); }
+       /* --- Обновленные стили для адаптивности --- */
+
+header { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background: rgba(2, 13, 6, 0.95); 
+    backdrop-filter: blur(15px); 
+    z-index: 1000; 
+    border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
+}
+
+nav { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 12px 20px; /* Немного уменьшили отступы */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Ссылки теперь более гибкие */
+.nav-links {
+    display: flex;
+    gap: 15px; /* Вместо жесткого margin-left используем gap */
+}
+
+.nav-links a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 0.75rem; /* Чуть меньше шрифт для мобилок */
+    transition: 0.3s; 
+    text-transform: uppercase; 
+    white-space: nowrap; /* Чтобы ссылки не переносились по словам */
+}
+
+/* Адаптация под планшеты и телефоны */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Логотип сверху, ссылки снизу */
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .nav-links {
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+
+    .hero {
+        margin-top: 80px; /* Увеличили отступ, так как хедер стал выше из-за двух строк */
+        min-height: 35vh;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Уменьшаем размер имени на мобильных */
+    }
+    
+    .info-card {
+        padding: 20px; /* Меньше пустого места внутри плашки */
+    }
+    
+    h2 {
+        font-size: 1.8rem; /* Уменьшаем заголовки секций */
+    }
+}
+
+/* Совсем маленькие экраны (iPhone SE и т.д.) */
+@media (max-width: 380px) {
+    .nav-links {
+        gap: 8px;
+    }
+    .nav-links a {
+        font-size: 0.65rem;
+    }
+}
 
         .hero { 
             height: 40vh; 

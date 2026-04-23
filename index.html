@@ -41,11 +41,15 @@
             background: rgba(2, 13, 6, 0.98); backdrop-filter: blur(15px); 
             z-index: 1000; border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
         }
-        nav { 
-            max-width: 1300px; margin: 0 auto; 
-            padding: 20px 25px; 
-            display: flex; justify-content: space-between; align-items: center; 
-        }
+       /* Увеличиваем общую ширину для больших экранов */
+nav { 
+    max-width: 1600px; /* Было 1200-1300 */
+    margin: 0 auto; 
+    padding: 20px 4%; /* Отступы в процентах для плавности */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
         
         .logo { 
             font-weight: 800; background: linear-gradient(90deg, var(--accent-light), #2ecc71);
@@ -66,7 +70,17 @@
         .lang-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); }
 
         /* HERO */
-        .hero { min-height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; margin-top: 100px; }
+        .hero { 
+    min-height: 45vh; 
+    max-width: 1000px; /* Ограничим чуть меньше, чем остальное, чтобы текст не растягивался в одну длинную строку */
+    margin: 120px auto 60px auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+}
         .hero h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); font-weight: 800; margin-bottom: 5px; text-transform: uppercase; }
         .hero p { font-size: 1.25rem; color: var(--accent-light); margin-bottom: 25px; }
 
@@ -78,11 +92,20 @@
         .brand-item { font-weight: 700; color: white; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.35; white-space: nowrap; }
 
         /* СЕКЦИИ */
-        .section { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+        .section { 
+    max-width: 1600px; /* Было 1200 */
+    margin: 0 auto; 
+    padding: 60px 4%; /* 4% по бокам вместо жестких пикселей */
+}
         h2 { font-size: 2.5rem; margin-bottom: 35px; color: var(--accent-light); text-transform: uppercase; font-weight: 800; }
         
         /* КОМПАКТНЫЙ БЛОК ОБО МНЕ */
-        .about-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: stretch; }
+        .about-layout { 
+    display: grid; 
+    grid-template-columns: 1.3fr 0.7fr; /* Даем тексту еще больше места */
+    gap: 60px; 
+    align-items: center; 
+}
         .info-card { background: var(--bg-card); padding: 35px; border-radius: 30px; border: 1px solid rgba(181, 242, 161, 0.1); height: 100%; backdrop-filter: blur(10px); }
         .info-card p, .info-card li { font-size: 1rem; margin-bottom: 15px; line-height: 1.6; color: #f0f0f0; }
 
@@ -104,7 +127,12 @@
         .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(181, 242, 161, 0.15); color: white; padding: 10px 22px; border-radius: 50px; cursor: pointer; font-size: 0.9rem; font-weight: 700; transition: 0.3s; }
         .filter-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); }
 
-        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+        .cases-grid { 
+    display: grid; 
+    /* minmax(350px) позволяет карточкам быть крупнее, а 1fr заполняет остаток */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    gap: 30px; 
+}
         .case-card { background: var(--bg-card); padding: 30px; border-radius: 25px; border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; }
         .case-card:hover { transform: translateY(-10px); border-color: var(--btn-green); box-shadow: 0 0 50px rgba(46, 204, 113, 0.25); background: rgba(15, 55, 30, 0.95); }
         
@@ -112,15 +140,27 @@
         .case-card h3 { font-size: 1.25rem; font-weight: 800; }
         .case-result-mini { margin-top: auto; padding-top: 15px; font-weight: 800; color: var(--accent-light); font-size: 0.95rem; }
 
-        @media (max-width: 900px) {
-            nav { flex-direction: column; gap: 15px; padding: 20px; }
-            .hero { margin-top: 160px; }
-            .about-layout { grid-template-columns: 1fr; }
-            .cases-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-            .case-card { padding: 20px 15px; }
-            .case-card h3 { font-size: 1rem; }
-            h2 { font-size: 2rem; text-align: center; }
-        }
+        /* Адаптация для очень больших мониторов (Ultrawide) */
+@media (min-width: 2000px) {
+    .cases-grid {
+        grid-template-columns: repeat(5, 1fr); /* 5 колонок на огромных экранах */
+    }
+}
+
+/* Адаптация для ноутбуков и средних экранов */
+@media (max-width: 1400px) {
+    .cases-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+/* Оставляем твои мобильные настройки, но чуть подправим отступы */
+@media (max-width: 900px) {
+    nav { padding: 15px 20px; }
+    .hero { margin-top: 180px; }
+    .about-layout { grid-template-columns: 1fr; gap: 30px; }
+    .cases-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+}
 
         /* МОДАЛКА */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }

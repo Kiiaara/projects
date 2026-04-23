@@ -137,7 +137,40 @@
         /* МОДАЛКА И НАВИГАЦИЯ */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
         .modal-content { background: #071a0f; padding: 45px; border-radius: 35px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
-        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 3rem; color: white; cursor: pointer; transition: 0.3s; z-index: 100; }
+        .close-modal { 
+    position: sticky; /* Заставляет крестик "липнуть" */
+    top: 0;           /* Прилипает к самому верху видимой области модалки */
+    float: right;     /* Сдвигаем вправо */
+    margin-right: -10px; 
+    margin-top: -10px;
+    margin-bottom: -50px; /* Чтобы не занимал место в потоке контента */
+    font-size: 3.5rem; 
+    color: var(--accent-light); 
+    cursor: pointer; 
+    transition: 0.3s; 
+    z-index: 2100;    /* Выше всех элементов внутри модалки */
+    line-height: 1;
+    display: block;
+    text-shadow: 0 0 15px rgba(181, 242, 161, 0.5);
+}
+
+.close-modal:hover { 
+    color: var(--btn-green); 
+    transform: rotate(90deg); /* Добавим немного стиля при наведении */
+}
+
+/* Убедись, что у .modal-content НЕТ свойства overflow: hidden */
+.modal-content { 
+    background: #071a0f; 
+    padding: 45px; 
+    border-radius: 35px; 
+    max-width: 900px; 
+    width: 100%; 
+    max-height: 90vh; 
+    overflow-y: auto; /* Оставляем только тут */
+    position: relative; 
+    border: 1px solid var(--btn-green); 
+}
         
         .modal-nav { display: flex; justify-content: space-between; margin-top: 40px; border-top: 1px solid rgba(181, 242, 161, 0.1); padding-top: 25px; }
         .nav-btn { background: none; border: 1px solid var(--btn-green); color: var(--btn-green); padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
@@ -256,8 +289,8 @@
     </section>
 
     <div id="projectModal" class="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="closeModal()">&times;</span> <div id="modal-body" class="modal-body"></div>
             <div id="modal-body" class="modal-body"></div>
             <div class="modal-nav">
                 <button class="nav-btn" onclick="prevCase()" data-i18n="btn_prev">← Назад</button>
@@ -460,20 +493,22 @@
     }
 
     function openModal(index) {
-        currentModalIndex = index;
-        const c = allCases[index];
-        const imgHtml = c.img && c.img !== "_________________" ? `<img src="${c.img}" class="modal-main-img">` : `<div style="height:250px;background:#051a0d;border-radius:25px;margin-bottom:30px;display:flex;align-items:center;justify-content:center;color:#555;border:1px dashed #2ecc71;">No Image</div>`;
-        
-        document.getElementById('modal-body').innerHTML = `
-            ${imgHtml}
-            <h2>${c.title[currentLang]}</h2>
-            <h4>${i18n[currentLang].desc}</h4><p>${linkify(c.task[currentLang])}</p>
-            <h4>${i18n[currentLang].tasks}</h4><ul>${c.doing[currentLang].map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
-            <h4>${i18n[currentLang].results}</h4><ul>${c.result[currentLang].map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
-        `;
-        document.getElementById('projectModal').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
+    currentModalIndex = index;
+    const c = allCases[index];
+    const imgHtml = c.img && c.img !== "_________________" ? `<img src="${c.img}" class="modal-main-img">` : `<div style="height:250px;background:#051a0d;border-radius:25px;margin-bottom:30px;display:flex;align-items:center;justify-content:center;color:#555;border:1px dashed #2ecc71;">No Image</div>`;
+    
+    // Выносим крестик прямо в функцию отрисовки содержимого
+    document.getElementById('modal-body').innerHTML = `
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        ${imgHtml}
+        <h2>${c.title[currentLang]}</h2>
+        <h4>${i18n[currentLang].desc}</h4><p>${linkify(c.task[currentLang])}</p>
+        <h4>${i18n[currentLang].tasks}</h4><ul>${c.doing[currentLang].map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
+        <h4>${i18n[currentLang].results}</h4><ul>${c.result[currentLang].map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
+    `;
+    document.getElementById('projectModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
 
     function nextCase() {
         currentModalIndex = (currentModalIndex + 1) % allCases.length;

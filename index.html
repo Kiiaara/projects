@@ -35,7 +35,6 @@
 
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-        /* ХЕДЕР */
         header { 
             position: fixed; top: 0; width: 100%; 
             background: rgba(2, 13, 6, 0.98); backdrop-filter: blur(15px); 
@@ -54,46 +53,35 @@
             filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.3));
         }
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 800; font-size: 1rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--btn-green); }
 
-        .lang-switch { display: flex; gap: 8px; margin-left: 20px; }
+        .lang-switch { display: flex; gap: 10px; margin-left: 30px; }
         .lang-btn {
-            background: none; border: 1px solid rgba(181, 242, 161, 0.2);
-            color: white; cursor: pointer; font-size: 0.75rem; font-weight: 800; 
-            padding: 6px 10px; border-radius: 5px; transition: 0.3s;
+            background: none; border: 1px solid rgba(181, 242, 161, 0.3);
+            color: white; cursor: pointer; font-size: 0.8rem; font-weight: 800; 
+            padding: 6px 12px; border-radius: 6px; transition: 0.3s;
         }
         .lang-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); }
 
-        /* HERO */
         .hero { 
-            min-height: 40vh; 
-            max-width: 1000px; 
-            margin: 120px auto 40px auto; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 20px; 
-            width: 100%;
+            min-height: 40vh; max-width: 1200px; margin: 120px auto 40px auto; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 20px; 
         }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 5px; text-transform: uppercase; }
-        .hero p { font-size: 1.3rem; color: var(--accent-light); margin-bottom: 25px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { font-size: 1.3rem; color: var(--accent-light); margin-bottom: 30px; }
 
-        /* БЕГУЩАЯ СТРОКА */
         .brands-section { padding: 25px 0; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(181, 242, 161, 0.1); border-bottom: 1px solid rgba(181, 242, 161, 0.1); overflow: hidden; display: flex; }
         .brands-track { display: flex; width: max-content; animation: scroll 60s linear infinite; }
         .brands-container { display: flex; align-items: center; gap: 80px; padding-right: 80px; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .brand-item { font-weight: 700; color: white; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.35; white-space: nowrap; }
+        .brand-item { font-weight: 800; color: white; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.35; white-space: nowrap; }
 
-        /* СЕКЦИИ */
-        .section { max-width: 1600px; margin: 0 auto; padding: 60px 4%; width: 100%; }
-        h2 { font-size: 2.5rem; margin-bottom: 35px; color: var(--accent-light); text-transform: uppercase; font-weight: 800; }
+        .section { max-width: 1600px; margin: 0 auto; padding: 50px 4%; display: flex; flex-direction: column; align-items: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 35px; color: var(--accent-light); text-transform: uppercase; font-weight: 800; text-align: center; width: 100%; }
         
-        /* БЛОК ОБО МНЕ */
-        .about-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: stretch; }
+        .about-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: stretch; width: 100%; }
         .info-card { background: var(--bg-card); padding: 35px; border-radius: 30px; border: 1px solid rgba(181, 242, 161, 0.1); height: 100%; backdrop-filter: blur(15px); }
         .info-card p, .info-card li { font-size: 1.1rem !important; margin-bottom: 15px; line-height: 1.6; color: #f0f0f0; }
 
@@ -107,41 +95,38 @@
         .vm-item h3 { color: var(--btn-green); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
         .vm-item p { font-size: 1.1rem !important; margin-bottom: 0 !important; line-height: 1.5 !important; }
 
-        .profile-card { height: 100%; }
+        .profile-card { height: 100%; width: 100%; }
         .profile-img { width: 100%; height: 100%; border-radius: 35px; border: 1px solid var(--btn-green); object-fit: cover; display: block; }
 
-        /* КЕЙСЫ - КРУПНЫЕ ФИЛЬТРЫ */
         .filter-container { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; justify-content: center; width: 100%; }
         .filter-btn { background: rgba(255,255,255,0.05); border: 2px solid rgba(181, 242, 161, 0.2); color: white; padding: 12px 26px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 800; transition: 0.3s; }
         .filter-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); box-shadow: 0 0 20px rgba(46, 204, 113, 0.4); }
 
-        /* СЕТКА КЕЙСОВ */
-        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; width: 100%; }
-        .case-card { background: var(--bg-card); padding: 30px; border-radius: 30px; border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; }
+        .cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; width: 100%; }
+        .case-card { background: var(--bg-card); padding: 35px; border-radius: 30px; border: 1px solid rgba(181, 242, 161, 0.05); transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; }
         .case-card:hover { transform: translateY(-12px); border-color: var(--btn-green); box-shadow: 0 0 60px rgba(46, 204, 113, 0.3); background: rgba(15, 55, 30, 0.98); }
         
         .case-tag { color: var(--btn-green); font-weight: 900; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1.5px; }
-        .case-card h3 { font-size: 1.3rem; font-weight: 800; }
+        .case-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
         .case-result-mini { margin-top: auto; padding-top: 20px; font-weight: 800; color: var(--accent-light); font-size: 1rem; }
 
-        /* АДАПТИВНОСТЬ СЕТКИ */
         @media (min-width: 1400px) { .cases-grid { grid-template-columns: repeat(4, 1fr); } }
         @media (min-width: 950px) and (max-width: 1399px) { .cases-grid { grid-template-columns: repeat(3, 1fr); } }
 
-        /* МОБИЛЬНАЯ ВЕРСИЯ - ИСПРАВЛЕНИЕ СДВИГА */
+        /* ИСПРАВЛЕНИЕ МОБИЛЬНОГО СДВИГА */
         @media (max-width: 900px) {
             nav { flex-direction: column; gap: 15px; padding: 20px; width: 100%; align-items: center; }
-            .nav-links { justify-content: center; width: 100%; }
+            .nav-links { justify-content: center; flex-wrap: wrap; width: 100%; }
             .lang-switch { margin-left: 0; margin-top: 10px; }
             .hero { margin-top: 180px; width: 100%; align-items: center; }
-            .section { padding: 40px 20px; width: 100%; }
-            h2 { font-size: 2rem; text-align: center; width: 100%; }
+            .section { padding: 40px 20px; width: 100%; align-items: center; }
+            h2 { font-size: 2rem; text-align: center; }
             .about-layout { grid-template-columns: 1fr; gap: 30px; width: 100%; }
-            .info-card { width: 100%; }
-            .profile-img { height: 400px; width: 100%; }
+            .profile-img { height: 450px; width: 100%; }
             .cases-grid { grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
             .case-card { padding: 20px 15px; width: 100%; }
             .case-card h3 { font-size: 0.95rem; }
+            .quote-box { width: 95% !important; padding: 20px !important; font-size: 1.2rem !important; }
         }
 
         /* МОДАЛКА */
@@ -160,7 +145,7 @@
         .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 18px 45px; border-radius: 100px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 1.05rem; transition: 0.3s; cursor: pointer; border: none; }
         .btn:hover { background: var(--accent-light); transform: scale(1.05); }
         
-        .quote-box { max-width: 1000px; margin: 60px auto 40px auto; font-style: italic; color: var(--accent-light); font-size: 1.6rem; border-left: 5px solid var(--btn-green); padding: 30px 50px; text-align: center; background: rgba(255,255,255,0.01); line-height: 1.6; width: 92%; margin-left: auto; margin-right: auto; }
+        .quote-box { max-width: 1000px; margin: 60px auto 40px auto; font-style: italic; color: var(--accent-light); font-size: 1.6rem; border-left: 5px solid var(--btn-green); padding: 30px 50px; text-align: center; background: rgba(255,255,255,0.015); line-height: 1.6; }
 
         footer { text-align: center; padding: 60px; background: #010803; border-top: 1px solid rgba(181, 242, 161, 0.1); font-size: 1rem; font-weight: 700; opacity: 0.6; }
     </style>
@@ -324,7 +309,7 @@
                 v_title: "愿景", v_text: "每个品牌都能找到自己独特故事的世界",
                 m_title: "使命", m_text: "将博主合作转化为有效的营销工具",
                 quote: "品牌的真正成功始于打破对传统社交媒体的依赖",
-                desc: "项目描述:", tasks: "执行内容:", results: "项目成果:",
+                desc: "描述:", tasks: "执行内容:", results: "结果:",
                 tag_Tournament: "锦标赛", tag_Games: "游戏", tag_Special_Project: "特别项目", tag_Esports: "电竞", tag_AI_Tech: "人工智能技术", tag_Shooter: "射击游戏", tag_Action: "动作游戏", tag_Mobile: "手游", tag_MMORPG: "大型多人在线角色扮演游戏", tag_Show: "综艺节目", tag_EdTech: "教育技术", tag_Service: "服务", tag_PC: "个人电脑", tag_Job: "职位"
             }
         };
@@ -365,7 +350,7 @@
             { img: "Рисунок7 (2).webp", tag: "Tournament", title: {ru:"Игры Будущего",en:"Games of the Future",zh:"Games of the Future"}, mini:{ru:"23,5 млн+ просмотров",en:"23.5M+ views",zh:"2350万+ 观看次数"}, task:{ru:"Международный мультиспортивный турнир нового формата, объединивший технологии виртуальной реальности и традиционные виды спорта. Турнир прошел в феврале 2023 года в Казани и стал крупнейшим событием подобного масштаба в мире",en:"International multi-sport tournament of a new format, combining virtual reality technologies and traditional sports. The tournament took place in February 2023 in Kazan and became the largest event of such scale in the world",zh:"International multi-sport tournament of a new format, combining virtual reality technologies and traditional sports. The tournament took place in February 2023 in Kazan and became the largest event of such scale in the world"}, doing:{ru:["Разработка стратегии привлечения лидеров мнений для участия в проекте","Организация сотрудничества с более чем 400 инфлюенсерами, включая стримеров, блогеров и спортивных деятелей","Создание уникального контента и спецпроектов, направленных на привлечение внимания к турниру"],en:["Developing a strategy to attract opinion leaders to the project","Organizing collaboration with more than 400 influencers, including streamers, bloggers, and sports figures","Creating unique content and special projects aimed at attracting attention to the tournament"],zh:["制定吸引意见领袖参与项目的战略","组织与 400 多名博主的合作，包括主播、博主和体育界人士","创建独特的内空和特别项目，旨在吸引对锦标赛的关注"]}, result:{ru:["Повышение уровня осведомленности общественности о фестивале","Значительное увеличение охвата и количества подписчиков официальных аккаунтов фестиваля","Активное вовлечение целевой аудитории в события мероприятия","Более 23,5 млн. просмотров турнира через инфлюенс-каналы"],en:["Increased level of public awareness about the festival","Significant increase in reach and number of followers of the official festival accounts","Active engagement of the target audience in the events of the program","More than 23.5 million views of the tournament through influencer channels"],zh:["提高公众对节日的认知度","官方账号的覆盖范围和关注者数量大幅增加","目标受众积极参与活动项目","通过博主渠道获得超过 2350 万次锦标赛观看"]} },
             { img: "photo_2026-01-24_20-50-19.webp", tag: "Special Project", title: {ru:"неСКУФный лагерь",en:"Non-SKUF Camp",zh:"Non-SKUF Camp"}, mini:{ru:"6,8 млн+ просмотров",en:"6.8M+ views",zh:"680万+ 观看次数"}, task:{ru:"Проведение офлайн-проекта со стримерами, который погружает инфлюенсеров в ностальгический вайб пионерии: проведение 3-х дневного спецпроекта в действующем лагере",en:"Conducting an offline project with streamers that immerses influencers in a nostalgic pioneer vibe: holding a 3-day special project in an active camp",zh:"Conducting an offline project with streamers that immerses influencers in a nostalgic pioneer vibe: holding a 3-day special project in an active camp"}, doing:{ru:["Проведены трансляции стримеров и агентства","Получены органичные посевы нарезок со стримеров на YT и в TG","Проведены анонсы в СМИ, тематических сообществах и на каналах стримеров"],en:["Broadcasts by streamers and the agency were conducted","Organic seeding of streamer highlights on YT and TG was achieved","Announcements were made in the media, themed communities, and on streamer channels"],zh:["主播和机构进行了直播","在 YT 和 TG 上获得了主播精彩片段 of the natural spread","在媒体、主题社区和主播频道进行了预告"]}, result:{ru:["Проведено успешное оффлайн-мероприятие с участием крупных стримеров","Мероприятие собрало много положительных отзывов от участников и зрителей","Успешное вовлечение партнеров через уникальные механики и застройки + создание эксклюзивного контента","Более 6,8 млн. просмотров мероприятия"],en:["Successful offline event with major streamers was held","The event collected many positive reviews from participants and viewers","Successful engagement of partners through unique mechanics and installations + creation of exclusive content","More than 6.8 million views of the event"],zh:["成功举办了有大型主播参与的线下活动","活动获得了参与者和观众的大量好评","通过独特的机制和搭建成功吸引合作伙伴 + 创建独家内容","活动观看次数超过 680 万次"]} },
             { img: "photo_2025-12-14_01-22-28.webp", tag: "Tournament", title: {ru:"СберСеллер и SMP",en:"SberSeller & SMP",zh:"SberSeller & SMP"}, mini:{ru:"371к+ просмотров",en:"371k+ views",zh:"37.1万+ 观看次数"}, task:{ru:"Популяризация кибер- и фиджитал-дисциплин в регионе. Рост вовлеченности в ключевых дисциплинах: CS2 и Dota 2. Привлечение целевой аудитории. KPI — минимум 3 тыс. посетителей",en:"Popularizing cyber and phygital disciplines in the region. Increasing engagement in key disciplines: CS2 and Dota 2. Attracting target audience. KPI - minimum 3,000 visitors",zh:"Popularizing cyber and phygital disciplines in the region. Increasing engagement in key disciplines: CS2 and Dota 2. Attracting target audience. KPI - minimum 3,000 visitors"}, doing:{ru:["Организация присутствия инфлюенсеров","Координация трансляций фестиваля"],en:["Organizing influencer attendance","Coordinating festival broadcasts"],zh:["组织博主出席","协调节日直播"]}, result:{ru:["Фестиваль посетили около 3,2 тыс. человек","Трансляции с участием mixazver собрали более 371 тыс. просмотров","Выросло количество участников турниров по CS2 и Dota 2"],en:["About 3,200 people visited the festival","Broadcasts featuring mixazver gathered more than 371,000 views","The number of participants in CS2 and Dota 2 tournaments has grown"],zh:["约 3200 人参加了节日","由 mixazver 参与的直播获得了超过 37.1 万次观看","CS2 和 Dota 2 锦标赛的参与人数有所增加"]} },
-            { img: "photo_2024-12-20_19-14-28.webp", tag: "Special Project", title: {ru:"Гигачат",en:"GigaChat",zh:"GigaChat"}, mini:{ru:"1,9 млн+ просмотров",en:"1.9M+ views",zh:"190万+ 观看次数"}, task:{ru:"Задача 1: Рассказывать на стримах про приложение GIGA, призывать аудиторию создавать персонажей и добавлять их в виртуальный город в приложении Telegram. Задача 2: Проведение спецстрима с нейросетью GigaChat",en:"Task 1: Tell the audience about the GIGA application during streams, calling on them to create characters and add them to a virtual city in the Telegram app. Task 2: Conducting a special stream with the GigaChat neural network",zh:"Task 1: Tell the audience about the GIGA application during streams, calling on them to create characters and add them to a virtual city in the Telegram app. Task 2: Conducting a special stream with the GigaChat neural network"}, doing:{ru:["Интеграция механики: зрители присылали открытки в телеграм-бота, созданные в нейросети GigaChat","Каждые 5-10 минут одна открытка выбиралась случайным образом и автоматически распечатывалась на принтере у стримера во время трансляции"],en:["Integration of mechanics: viewers sent postcards to a Telegram bot, created in the GigaChat neural network","Every 5-10 minutes, one postcard was randomly selected and automatically printed on a printer at the streamer's location during the broadcast"],zh:["机制整合：观众将 GigaChat 神经网络生成的明信片发送至 Telegram 机器人","每 5-10 分钟随机抽取一张明信片，并在直播期间由主播处的打印机自动打印"]}, result:{ru:["Проведены интерактивные стримы с участием стримера и чата","На рандомайзер поступило более 80 открыток, распечатано более 30","Более 1,9 млн. просмотров рекламной кампании на канале soonvooshko","Более 350 участников чата вовлечено в Страну Стримеров"],en:["Interactive streams were held with the participation of the streamer and the chat","More than 80 cards were submitted to the randomizer, and more than 30 were printed","More than 1.9 million views of the advertising campaign on the soonvooshko channel","More than 350 chat participants were involved in the Streamers' Country"],zh:["举办了主播与聊天室互动的直播","随机抽取系统收到超过 80 张明信片，打印超过 30 张","soonvooshko 频道的广告活动观看次数超过 190 万","超过 350 名观众参与了“主播之国”活动"]} },
+            { img: "photo_2024-12-20_19-14-28.webp", tag: "Special Project", title: {ru:"Гигачат",en:"GigaChat",zh:"GigaChat"}, mini:{ru:"1,9 млн+ просмотров",en:"1.9M+ views",zh:"190万+ 观看次数"}, task:{ru:"Задача 1: Рассказывать на стримах про приложение GIGA, призывать аудиторию создавать персонажей и добавлять их в виртуальный город в приложении Telegram. Задача 2: Проведение спецстрима с нейросетью GigaChat",en:"Task 1: Tell the audience about the GIGA application during streams, calling on them to create characters and add them to a virtual city in the Telegram app. Task 2: Conducting a special stream with the GigaChat neural network",zh:"Task 1: Tell the audience about the GIGA application during streams, calling on them to create characters and add them to a virtual city in the Telegram app. Task 2: Conducting a special stream with the GigaChat neural network"}, doing:{ru:["Интеграция механики: зрители присылали открытки в телеграм-бота, созданные в нейросети GigaChat","Каждые 5-10 минут одна открытка выбиралась случайным образом и автоматически распечатывалась на принтере у стримера во время трансляции"],en:["Integration of mechanics: viewers sent postcards to a Telegram bot, created in the GigaChat neural network","Every 5-10 minutes, one postcard was randomly selected and automatically printed on a printer at the streamer's location during the broadcast"],zh:["机制整合：观众将 GigaChat 神经网络生成的明信片发送至 Telegram 机器人","每 5-10 分钟随机抽取一张明信片，并在直播期间由主播处的打印机自动打印"]}, result:{ru:["Проведены интерактивные стримы с участием стримера и чата","На рандомайзер поступило более 80 открыток, распечатано более 30","Более 1,9 млн. просмотров рекламной кампании на канале soonvooshko","Более 350 участников чата вовлечено в Страну Стримеров"],en:["Interactive streams were held with the participation of the streamer and the chat","More than 80 cards were submitted to the randomizer, and more than 30 were printed","More than 1.9 million views of the advertising campaign on the soonvooshko channel","More than 350 chat participants were involved in the Streamers' Country"],zh:["举办了主播与聊天室互动的直播","随机抽取系统收到超过 80 张明信片，打印超过 30 张","soonvooshko 频дой 广告活动观看次数超过 190 万","超过 350 名观众参与了“主播之国”活动"]} },
             { img: "Рисунок9.webp", tag: "Games", title: {ru:"Arena Breakout",en:"Arena Breakout",zh:"Arena Breakout"}, mini:{ru:"20 млн+ просмотров",en:"20M+ views",zh:"2000万+ 观看次数"}, task:{ru:"Демонстрация запуска нового шутера. Популяризация игры среди комьюнити. Участие во внутриигровых турнирах. Участие в реферальной программе пополнения баланса Buff-Buff",en:"Demonstration of the launch of a new shooter. Popularizing the game among the community. Participation in in-game tournaments. Participation in the Buff-Buff balance top-up referral program",zh:"Demonstration of the launch of a new shooter. Popularizing the game among the community. Participation in in-game tournaments. Participation in the Buff-Buff balance top-up referral program"}, doing:{ru:["Организация стримов на запуске","Контроль KPI по просмотрам и рефералам"],en:["Organizing streams at launch","Controlling KPIs for views and referrals"],zh:["组织首发直播","监控观看量和推荐注册的 KPI"]}, result:{ru:["Почти 13 млн. просмотров трансляции soonvooshko","Более 7 млн. просмотров трансляции mixazver"],en:["Nearly 13 million views on the soonvooshko broadcast","More than 7 million views on the mixazver broadcast"],zh:["soonvooshko 的直播观看次数近 1300 万","mixazver 的直播观看次数超过 700 万"]} },
             { img: "photo_2024-10-18_20-08-15.webp", tag: "Games", title: {ru:"Zenless Zone Zero",en:"Zenless Zone Zero",zh:"Zenless Zone Zero"}, mini:{ru:"Top Nimo.tv",en:"Top Nimo.tv",zh:"Nimo.tv 热榜"}, task:{ru:"Проведение спецстрима. Прохождение челленджа внутри игры с другими стримерами",en:"Conducting a special stream. Passing a challenge inside the game with other streamers",zh:"Conducting a special stream. Passing a challenge inside the game with other streamers"}, doing:{ru:["Координация стримов: soonvooshko, chopo_kaify, Didishkatv, dinicetea, tennkamlg, pudgaero, jenova"],en:["Coordination of streams: soonvooshko, chopo_kaify, Didishkatv, dinicetea, tennkamlg, pudgaero, jenova"],zh:["主播协调：soonvooshko, chopo_kaify, Didishkatv, dinicetea, tennkamlg, pudgaero, jenova"]}, result:{ru:["Более 60к просмотров трансляции soonvooshko","Более 23к просмотров трансляции chopo_kaify","Более 22к просмотров трансляции Didishka","Трансляция soonvooshko попала на главную Nimo.tv"],en:["More than 60k views on the soonvooshko stream","More than 23k views on the chopo_kaify stream","More than 22k views on the Didishka stream","The soonvooshko broadcast hit the main Nimo.tv page"],zh:["soonvooshko 的直播观看次数超过 6 万","chopo_kaify 的直播观看次数超过 2.3 万","soonvooshko 的直播登上了 Nimo.tv 首页"]} },
             { img: "Рисунок11.webp", tag: "Games", title: {ru:"Total Football",en:"Total Football",zh:"Total Football"}, mini:{ru:"450к+ просмотров",en:"450k+ views",zh:"45万+ 观看次数"}, task:{ru:"Демонстрация выхода нового футбольного симулятора. Проведение спецстримов на каналах стримеров. Выпуск роликов на YT у профильных блогеров",en:"Demonstration of the release of a new football simulator. Conducting special streams on streamer channels. Releasing videos on YT with niche bloggers",zh:"Demonstration of the release of a new football simulator. Conducting special streams on streamer channels. Releasing videos on YT with niche bloggers"}, doing:{ru:["Координация стримов: telkastrimera, tpabomah, di_rubens, off_kuka358","Работа с блогерами: Shermans, abdujabborov_7, Babatumba"],en:["Coordination of streams: telkastrimera, tpabomah, di_rubens, off_kuka358","Working with bloggers: Shermans, abdujabborov_7, Babatumba"],zh:["主播协调：telkastrimera, tpabomah, di_rubens, off_kuka358","博主合作：Shermans, abdujabborov_7, Babatumba"]}, result:{ru:["Более 60к просмотров (telkastrimera и tpabomah)","112к просмотров (di_rubens и off_kuka358)","243к+ просмотров ролика блогера abdujabborov_7"],en:["More than 60k views (telkastrimera and tpabomah)","112k views (di_rubens and off_kuka358)","243k+ views of the video by blogger abdujabborov_7"],zh:["超过 6 万次观看 (telkastrimera 和 tpabomah)","11.2 万次观看 (di_rubens 和 off_kuka358)","abdujabborov_7 的视频观看量超过 24.3 万"]} },
@@ -385,7 +370,7 @@
             { img: "Снимок экрана 2026-02-24 164720.webp", tag: "Tournament", title: {ru:"ДронКон",en:"DroneCon",zh:"DroneCon"}, mini:{ru:"487к+ просмотров",en:"487k+ views",zh:"48.7万+ 观看次数"}, task:{ru:"Проведение интеграций на каналах с целью освещения турнира",en:"Conducting integrations on channels to cover the tournament",zh:"Conducting integrations on channels to cover the tournament"}, doing:{ru:["Интеграции про турнир на каналах tpabomah, soonvooshko, mixazver, redpandash, vsevkusno, tupa_chil, vikiblade, mr_jijik"],en:["Integrations about the tournament on the tpabomah, soonvooshko, mixazver, redpandash, vsevkusno, tupa_chil, vikiblade, and mr_jijik channels"],zh:["在 tpabomah, soonvooshko, mixazver, redpandash, vsevkusno, tupa_chil, vikiblade, mr_jijik 频道进行锦标赛内容植入"]}, result:{ru:["Более 160 тыс. просмотров трансляции tpabomah","Более 99 тыс. просмотров трансляции mixazver","Более 68 тыс. просмотров трансляции soonvooshko","Более 46 тыс. просмотров трансляции redpandash","Более 45 тыс. просмотров трансляции tupa_chil","Более 34 тыс. просмотров трансляции vsevkusno","Более 23 тыс. просмотров трансляции mr_jijik","Более 12 тыс. просмотров трансляции vikiblade"],en:["More than 160k views (tpabomah)","More than 99k views (mixazver)","More than 68k views (soonvooshko)","More than 46k views (redpandash)","More than 45k views (tupa_chil)","More than 34k views (vsevkusno)","More than 23k views (mr_jijik)","More than 12k views (vikiblade)"],zh:["超过 16 万次观看 (tpabomah)","超过 9.9 万次观看 (mixazver)","超过 6.8 万次观看 (soonvooshko)","超过 4.6 万次观看 (redpandash)","超过 4.5 万次观看 (tupa_chil)","超过 3.4 万次观看 (vsevkusno)","超过 2.3 万次观看 (mr_jijik)","超过 1.2 万次观看 (vikiblade)"]} },
             { img: "Снимок экрана 2026-04-23 123235.webp", tag: "Special Project", title: {ru:"Алабуга политех",en:"Alabuga Polytech",zh:"Alabuga Polytech"}, mini:{ru:"53к+ просмотров",en:"53k+ views",zh:"5.3万+ 观看次数"}, task:{ru:"Проведение интеграций с просмотром роликов Алабуги",en:"Conducting integrations with watching Alabuga videos",zh:"Conducting integrations with watching Alabuga videos"}, doing:{ru:["Интеграция Алабуги на каналах redpandash","Интеграция Алабуги на канале tupa_chil"],en:["Alabuga integration on redpandash channels","Alabuga integration on the tupa_chil channel"],zh:["在 redpandash 频道植入阿拉布加内容","在 tupa_chil 频道植入阿拉布加内容"]}, result:{ru:["Более 16 тыс. просмотров трансляции redpandash","Более 37 тыс. просмотров трансляции tupa_chil"],en:["More than 16k views (redpandash)","More than 37k views (tupa_chil)"],zh:["超过 1.6 万次观看 (redpandash)","超过 3.7 万次观看 (tupa_chil)"]} },
             { img: "Снимок экрана 2026-04-22 200115.webp", tag: "Games", title: {ru:"Crimson Desert",en:"Crimson Desert",zh:"Crimson Desert"}, mini:{ru:"53к+ просмотров",en:"53k+ views",zh:"5.3万+ 观看次数"}, task:{ru:"Демонстрация новой игры",en:"Demonstration of a new game",zh:"Demonstration of a new game"}, doing:{ru:["Проведение спецстримов по игре на каналах mixazver, 404t4ga, bezbash, redpandash, adm1tr1pow, vsevkusno, lubricum, mad6996_"],en:["Conducting special streams for the game on the mixazver, 404t4ga, bezbash, redpandash, adm1tr1pow, vsevkusno, lubricum, and mad6996_ channels"],zh:["在 mixazver, 404t4ga, bezbash, redpandash, adm1tr1pow, vsevkusno, lubricum, mad6996_ 频道进行专题直播"]}, result:{ru:["Более 16 тыс. просмотров трансляции mixazver","Более 33 тыс. просмотров трансляции 404t4ga","Более 40 тыс. просмотров трансляции bezbash","Более 53 тыс. просмотров трансляции redpandash","Более 30 тыс. просмотров трансляции adm1tr1pow","Более 28 тыс. просмотров трансляции vsevkusno"],en:["More than 16k views (mixazver)","More than 33k views (404t4ga)","More than 40k views (bezbash)","More than 53k views (redpandash)","More than 30k views (adm1tr1pow)","More than 28k views (vsevkusno)"],zh:["超过 1.6 万次观看 (mixazver)","超过 3.3 万次观看 (404t4ga)","超过 4 万次观看 (bezbash)","超过 5.3 万次观看 (redpandash)","超过 3 万次观看 (adm1tr1pow)","超过 2.8 万次观看 (vsevkusno)"]} },
-            { img: "photo_2026-04-22_19-56-15.webp", tag: "Games", title: {ru:"NTE",en:"NTE",zh:"NTE"}, mini:{ru:"57к+ просмотров",en:"57k+ views",zh:"5.7万+ 观看次数"}, task:{ru:"Просмотр официального трейлера к запуску игры",en:"Watching the official trailer for the game launch",zh:"Watching the official trailer for the game launch"}, doing:{ru:["Реферальные ссылки и проведение спецстримов на каналах soonvooshko, tupa_chil, redpandash, mixazver, vikiblade, Didishka, 404t4ga"],en:["Referral links and special streams on the soonvooshko, tupa_chil, redpandash, mixazver, vikiblade, Didishka, and 404t4ga channels"],zh:["在 soonvooshko, tupa_chil, redpandash, mixazver, vikiblade, Didishka, 404t4ga 频道放置推荐链接并举办专题直播"]}, result:{ru:["Более 22 тыс. просмотров трансляции soonvooshko","Более 16 тыс. просмотров трансляции tupa_chil","Более 14 тыс. просмотров трансляции mixazver"],en:["More than 22k views (soonvooshko)","More than 16k views (tupa_chil)","More than 14k views (mixazver)"],zh:["超过 2.2 万次观看 (soonvooshko)","超过 1.6 万次观看 (tupa_chil)","超过 1.4 万次观看 (mixazver)"]} },
+            { img: "photo_2026-04-22_19-56-15.webp", tag: "Games", title: {ru:"NTE",en:"NTE",zh:"NTE"}, mini:{ru:"57к+ просмотров",en:"57k+ views",zh:"5.7万+ 观看次数"}, task:{ru:"Просмотр официального трейлера к запуску игры",en:"Official launch trailer reaction",zh:"Official launch trailer reaction"}, doing:{ru:["Реферальные ссылки и проведение спецстримов на каналах soonvooshko, tupa_chil, redpandash, mixazver, vikiblade, Didishka, 404t4ga"],en:["Referral links and special streams on the soonvooshko, tupa_chil, redpandash, mixazver, vikiblade, Didishka, and 404t4ga channels"],zh:["在 soonvooshko, tupa_chil, redpandash, mixazver, vikiblade, Didishka, 404t4ga 频道放置推荐链接并举办专题直播"]}, result:{ru:["Более 22 тыс. просмотров трансляции soonvooshko","Более 16 тыс. просмотров трансляции tupa_chil","Более 14 тыс. просмотров трансляции mixazver"],en:["More than 22k views (soonvooshko)","More than 16k views (tupa_chil)","More than 14k views (mixazver)"],zh:["超过 2.2 万次观看 (soonvooshko)","超过 1.6 万次观看 (tupa_chil)","超过 1.4 万次观看 (mixazver)"]} },
             { img: "_________________", tag: "Special Project", title: {ru:"DXracer",en:"DXracer",zh:"DXracer"}, mini:{ru:"Интеграция",en:"Integration",zh:"内容植入"}, task:{ru:"Интеграция в стрим с игровым креслом",en:"Integration into a stream with a gaming chair",zh:"Integration into a stream with a gaming chair"}, doing:{ru:["Размещение реферальных ссылок","Интеграция на канале tpabomah"],en:["Placement of referral links","Integration on the tpabomah channel"],zh:["放置推荐链接","tpabomah 频道内容植入"]}, result:{ru:["Данные по просмотрам уточняются"],en:["View data is being clarified"],zh:["观看数据正在确认中"]} }
         ];
 

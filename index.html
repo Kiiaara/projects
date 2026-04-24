@@ -200,6 +200,10 @@
         .nav-btn:hover { background: var(--btn-green); color: var(--bg-dark); }
 
         .modal-main-img { width: 100%; border-radius: 25px; margin-bottom: 35px; border: 1px solid rgba(181, 242, 161, 0.2); }
+        .modal-body {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1; /* Чтобы по умолчанию текст был виден */
+}
         .modal-body h2 { font-size: 2.5rem; margin-bottom: 25px; font-weight: 800; color: var(--accent-light); }
         .modal-body h4 { color: var(--btn-green); margin: 35px 0 15px 0; text-transform: uppercase; font-size: 1.1rem; font-weight: 900; letter-spacing: 1px; }
         .modal-body p, .modal-body li { font-size: 1.2rem; line-height: 1.8; color: #f5f5f5; }
@@ -513,28 +517,13 @@
         renderCases(tag);
     }
 
- function openModal(index) {
+function openModal(index) {
     currentModalIndex = index;
-    const c = allCases[index];
-    
-    const imgHtml = c.img && c.img !== "_________________" 
-        ? `<img src="${c.img}" class="modal-main-img">` 
-        : `<div style="height:250px;background:#051a0d;border-radius:25px;margin-bottom:30px;display:flex;align-items:center;justify-content:center;color:#555;border:1px dashed #2ecc71;">No Image</div>`;
-    
-    // Вставляем контент и крестик
-    document.getElementById('modal-body').innerHTML = `
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        ${imgHtml}
-        <h2>${c.title[currentLang]}</h2>
-        <h4>${i18n[currentLang].desc}</h4><p>${linkify(c.task[currentLang])}</p>
-        <h4>${i18n[currentLang].tasks}</h4><ul>${c.doing[currentLang].map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
-        <h4>${i18n[currentLang].results}</h4><ul>${c.result[currentLang].map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
-    `;
+    updateModalContent(index);
 
     const modal = document.getElementById('projectModal');
-    modal.style.display = 'flex'; // Сначала включаем блок
+    modal.style.display = 'flex';
     
-    // Задержка 10мс, чтобы браузер успел применить display:flex перед началом анимации opacity
     setTimeout(() => {
         modal.classList.add('active');
     }, 10);
@@ -542,15 +531,41 @@
     document.body.style.overflow = 'hidden';
 }
 
-    function nextCase() {
-        currentModalIndex = (currentModalIndex + 1) % allCases.length;
-        openModal(currentModalIndex);
-    }
+   function nextCase() {
+    currentModalIndex = (currentModalIndex + 1) % allCases.length;
+    updateModalContent(currentModalIndex); // Обновляем только текст и фото
+}
 
-    function prevCase() {
-        currentModalIndex = (currentModalIndex - 1 + allCases.length) % allCases.length;
-        openModal(currentModalIndex);
-    }
+function prevCase() {
+    currentModalIndex = (currentModalIndex - 1 + allCases.length) % allCases.length;
+    updateModalContent(currentModalIndex); // Обновляем только текст и фото
+}
+        // Новая вспомогательная функция, чтобы не дублировать код
+function updateModalContent(index) {
+    const c = allCases[index];
+    const imgHtml = c.img && c.img !== "_________________" 
+        ? `<img src="${c.img}" class="modal-main-img">` 
+        : `<div style="height:250px;background:#051a0d;border-radius:25px;margin-bottom:30px;display:flex;align-items:center;justify-content:center;color:#555;border:1px dashed #2ecc71;">No Image</div>`;
+    
+    const modalBody = document.getElementById('modal-body');
+    
+    // Добавляем микро-анимацию исчезновения текста для красоты
+    modalBody.style.opacity = '0';
+    
+    setTimeout(() => {
+        modalBody.innerHTML = `
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            ${imgHtml}
+            <h2>${c.title[currentLang]}</h2>
+            <h4>${i18n[currentLang].desc}</h4><p>${linkify(c.task[currentLang])}</p>
+            <h4>${i18n[currentLang].tasks}</h4><ul>${c.doing[currentLang].map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
+            <h4>${i18n[currentLang].results}</h4><ul>${c.result[currentLang].map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
+        `;
+        modalBody.style.opacity = '1';
+        // Сбрасываем скролл модалки наверх при переключении кейса
+        document.querySelector('.modal-content').scrollTop = 0;
+    }, 150);
+}
 
     function closeModal() { 
     const modal = document.getElementById('projectModal');

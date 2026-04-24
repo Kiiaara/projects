@@ -152,7 +152,25 @@
         .profile-card { height: 100%; width: 100%; }
         .profile-img { width: 100%; height: 100%; border-radius: 35px; border: 1px solid var(--btn-green); object-fit: cover; display: block; }
 
-        .filter-container { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; justify-content: center; width: 100%; }
+       .filter-container { 
+    display: flex; 
+    gap: 12px; 
+    flex-wrap: wrap; 
+    margin-bottom: 40px; 
+    justify-content: center; 
+    width: 100%;
+
+    /* Делаем блок липким */
+    position: sticky; 
+    top: 80px; /* Высота должна быть чуть больше высоты твоего хедера */
+    z-index: 900; /* Чуть ниже, чем у хедера (1000), но выше контента */
+    
+    /* Добавляем фон и отступы, чтобы контент под фильтрами не просвечивал при скролле */
+    background: rgba(2, 13, 6, 0.8); 
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    border-radius: 0 0 20px 20px;
+}
         .filter-btn { background: rgba(255,255,255,0.05); border: 2px solid rgba(181, 242, 161, 0.2); color: white; padding: 12px 26px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 800; transition: 0.3s; }
         .filter-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); box-shadow: 0 0 20px rgba(46, 204, 113, 0.4); }
 
@@ -181,6 +199,10 @@
             .case-card { padding: 15px 10px; }
             .case-card h3 { font-size: 0.9rem; }
             .quote-box { width: 100%; margin: 30px 0; padding: 20px; font-size: 1.1rem; }
+            .filter-container {
+        top: 130px; /* На мобилках хедер обычно выше из-за вертикального меню, увеличиваем отступ */
+        padding: 10px;
+    }
         }
 
         /* МОДАЛКА */

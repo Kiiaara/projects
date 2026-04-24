@@ -318,17 +318,20 @@
         .quote-box { max-width: 1000px; margin: 60px auto; font-style: italic; color: var(--accent-light); font-size: 1.6rem; border-left: 5px solid var(--btn-green); padding: 30px 50px; text-align: center; background: rgba(255,255,255,0.01); line-height: 1.6; }
 
         /* ФУТЕР: прижимаем к низу */
-        footer { 
-            text-align: center; 
-            padding: 60px; 
-            background: #010803; 
-            border-top: 1px solid rgba(181, 242, 161, 0.1); 
-            font-size: 1rem; 
-            font-weight: 700; 
-            opacity: 0.6; 
-            margin-top: auto; 
-            width: 100%;
-        }
+       footer { 
+    text-align: center; 
+    padding: 30px 20px; /* Уменьшили верхний/нижний отступ с 60 до 30 */
+    background: #010803; 
+    border-top: 1px solid rgba(181, 242, 161, 0.1); 
+    font-size: 0.9rem; /* Чуть уменьшили шрифт для аккуратности */
+    font-weight: 700; 
+    opacity: 0.6; 
+    margin: auto auto 0 auto; /* Центрируем сам блок */
+    
+    max-width: 1200px; /* Ограничиваем ширину (футер станет уже) */
+    width: 90%; /* Оставляем небольшие зазоры по бокам на маленьких экранах */
+    border-radius: 20px 20px 0 0; /* Опционально: можно чуть скруглить верхние углы */
+}
     </style>
 </head>
 <body>

@@ -220,7 +220,12 @@
             transition: 0.3s; 
             backdrop-filter: blur(5px);
         }
-
+.stat-number, .stat-suffix {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--btn-green);
+    line-height: 1.2;
+}
         .nav-btn:hover { background: var(--btn-green); color: var(--bg-dark); box-shadow: 0 0 20px var(--btn-green); }
 
         @media (max-width: 1000px) {
@@ -316,12 +321,24 @@
                 <h2 data-i18n="nav_about">Обо мне</h2>
                 <p data-i18n="about_text_1">Специалист по работе с популярными стримерами и блогерами. Уже более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организации масштабных мероприятий</p>
 
-                <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-number">70М+</span><span class="stat-desc" data-i18n="stats_views">Просмотров</span></div>
-                    <div class="stat-card"><span class="stat-number">400+</span><span class="stat-desc" data-i18n="stats_bloggers">Блогеров</span></div>
-                    <div class="stat-card"><span class="stat-number">25+</span><span class="stat-desc" data-i18n="stats_cases">Кейсов</span></div>
-                    <div class="stat-card"><span class="stat-number">100%</span><span class="stat-desc" data-i18n="stats_kpi">KPI выполнен</span></div>
-                </div>
+               <div class="stats-grid">
+    <div class="stat-card">
+        <span class="stat-number" data-target="70">0</span><span class="stat-suffix">M+</span>
+        <span class="stat-desc" data-i18n="stats_views">Просмотров</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-number" data-target="400">0</span><span class="stat-suffix">+</span>
+        <span class="stat-desc" data-i18n="stats_bloggers">Блогеров</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
+        <span class="stat-desc" data-i18n="stats_cases">Кейсов</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+        <span class="stat-desc" data-i18n="stats_kpi">KPI выполнен</span>
+    </div>
+</div>
 
                 <ul style="list-style: none; margin: 30px 0;">
                     <li style="padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">-</span> <span data-i18n="about_li_1">Реализация комплексных рекламных кампаний</span></li>
@@ -522,25 +539,41 @@
 
         const container = document.getElementById('cases-container');
         function renderCases(filter = 'all') {
-            container.innerHTML = '';
-            activeFilter = filter;
-            const filteredCases = allCases.filter(c => filter === 'all' || c.tag === filter);
-            filteredCases.forEach((c, index) => {
-                const tagKey = `tag_${c.tag.replace(/ /g, '_')}`;
-                const translatedTag = i18n[currentLang][tagKey] || c.tag;
-                const card = document.createElement('div');
-                card.className = 'case-card';
-                card.setAttribute('data-aos', 'zoom-in');
-                const originalIndex = allCases.indexOf(c);
-                card.onclick = () => openModal(originalIndex);
-                card.innerHTML = `
-                    <div class="case-tag">${translatedTag}</div>
-                    <h3>${c.title[currentLang]}</h3>
-                    <div class="case-result-mini">${c.mini[currentLang]}</div>
-                `;
-                container.appendChild(card);
-            });
-        }
+    container.innerHTML = '';
+    activeFilter = filter;
+    
+    const filteredCases = allCases.filter(c => filter === 'all' || c.tag === filter);
+    
+    filteredCases.forEach((c, index) => {
+        const tagKey = `tag_${c.tag.replace(/ /g, '_')}`;
+        const translatedTag = i18n[currentLang][tagKey] || c.tag;
+        
+        const card = document.createElement('div');
+        card.className = 'case-card';
+        card.setAttribute('data-aos', 'zoom-in');
+        
+        const originalIndex = allCases.indexOf(c);
+        card.onclick = () => openModal(originalIndex);
+
+        // --- ВОТ ТУТ ПРАВКА ДЛЯ КАРТИНКИ В СЕТКЕ ---
+        const gridImgHtml = c.img && c.img !== "_________________" 
+            ? `<div style="width:100%; height:180px; border-radius:20px; margin-bottom:15px; overflow:hidden; border: 1px solid rgba(181, 242, 161, 0.1);">
+                <img src="${c.img}" style="width:100%; height:100%; object-fit:cover;">
+               </div>`
+            : `<div style="width:100%; height:180px; background:rgba(255,255,255,0.02); border-radius:20px; margin-bottom:15px; display:flex; align-items:center; justify-content:center; border: 1px dashed rgba(181, 242, 161, 0.2); color: #666; font-size: 0.8rem; text-transform: uppercase; text-align: center; padding: 20px;">
+                Изображение ожидается
+               </div>`;
+        // ------------------------------------------
+
+        card.innerHTML = `
+            ${gridImgHtml}
+            <div class="case-tag">${translatedTag}</div>
+            <h3>${c.title[currentLang]}</h3>
+            <div class="case-result-mini">${c.mini[currentLang]}</div>
+        `;
+        container.appendChild(card);
+    });
+}
 
         function filterCases(tag) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -555,8 +588,8 @@
             const c = allCases[index];
             
             const imgHtml = c.img && c.img !== "_________________" 
-                ? `<img src="${c.img}" class="modal-main-img">` 
-                : `<div style="height:250px;background:#051a0d;border-radius:25px;margin-bottom:30px;display:flex;align-items:center;justify-content:center;color:#555;border:1px dashed #2ecc71;">No Image</div>`;
+    ? `<img src="${c.img}" class="modal-main-img">` 
+    : `<div style="height:250px; background: rgba(255,255,255,0.03); border-radius:25px; margin-bottom:35px; display:flex; align-items:center; justify-content:center; color: var(--accent-light); border: 1px dashed rgba(46, 204, 113, 0.3); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Изображение ожидается</div>`;
             
             // Заполнение только контента (без кнопок переключения внизу)
             document.getElementById('modal-body').innerHTML = `
@@ -616,6 +649,42 @@
         }
         function animate() { ctx.clearRect(0, 0, width, height); particles.forEach(p => { p.update(); p.draw(); }); connect(); requestAnimationFrame(animate); }
         initBg(); renderCases(); animate(); window.addEventListener('resize', initBg);
+
+        function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const countTo = parseInt(target.getAttribute('data-target'));
+                let current = 0;
+                
+                // Длительность анимации в мс (2000 = 2 секунды)
+                const duration = 2000; 
+                const increment = countTo / (duration / 16); // 16мс ~ 60fps
+
+                const updateCount = () => {
+                    current += increment;
+                    if (current < countTo) {
+                        target.innerText = Math.floor(current);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        target.innerText = countTo;
+                    }
+                };
+
+                updateCount();
+                observer.unobserve(target); // Чтобы анимация сработала только один раз
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => observer.observe(stat));
+}
+
+// Запускаем функцию после загрузки страницы
+document.addEventListener('DOMContentLoaded', animateStats);
     </script>
 </body>
 </html>

@@ -383,20 +383,16 @@
 }
 
         /* ФУТЕР: прижимаем к низу */
-       footer { 
-    text-align: center; 
-    padding: 30px 20px; /* Уменьшили верхний/нижний отступ с 60 до 30 */
-    background: #010803; 
-    border-top: 1px solid rgba(181, 242, 161, 0.1); 
-    font-size: 0.9rem; /* Чуть уменьшили шрифт для аккуратности */
-    font-weight: 700; 
-    opacity: 0.6; 
-    margin: auto auto 0 auto; /* Центрируем сам блок */
-    
-    max-width: 1200px; /* Ограничиваем ширину (футер станет уже) */
-    width: 90%; /* Оставляем небольшие зазоры по бокам на маленьких экранах */
-    border-radius: 20px 20px 0 0; /* Опционально: можно чуть скруглить верхние углы */
-}
+       /* Исправляем футер на мобилках */
+    footer {
+        width: 100% !important; /* На мобилках возвращаем полную ширину */
+        max-width: none !important;
+        padding: 20px 10px !important; /* Уменьшаем отступы */
+        font-size: 0.8rem !important; /* Делаем шрифт чуть меньше, чтобы влез */
+        line-height: 1.4;
+        white-space: normal; /* Разрешаем перенос текста на новую строку */
+        border-radius: 0; /* Убираем скругления, если они были */
+    }
     </style>
 </head>
 <body>

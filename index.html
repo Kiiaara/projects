@@ -389,14 +389,25 @@
         /* ФУТЕР: прижимаем к низу */
        /* Исправляем футер на мобилках */
     footer {
-        width: 100% !important; /* На мобилках возвращаем полную ширину */
-        max-width: none !important;
-        padding: 20px 10px !important; /* Уменьшаем отступы */
-        font-size: 0.8rem !important; /* Делаем шрифт чуть меньше, чтобы влез */
-        line-height: 1.4;
-        white-space: normal; /* Разрешаем перенос текста на новую строку */
-        border-radius: 0; /* Убираем скругления, если они были */
-    }
+    width: 100% !important;
+    background: #020d06 !important; /* Тот самый глубокий черный/зеленый фон */
+    padding: 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(181, 242, 161, 0.1); /* Тонкая линия сверху для отделения */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Стили для текста копирайта внутри футера */
+footer p {
+    color: rgba(181, 242, 161, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
+}
     </style>
 </head>
 <body>

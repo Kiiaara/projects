@@ -135,24 +135,24 @@
         }
 
         /* МОДАЛКА */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(2, 13, 6, 0.7); 
-            backdrop-filter: blur(4px); 
-            -webkit-backdrop-filter: blur(4px); 
-            z-index: 2000; 
-            justify-content: center; 
-            align-items: center; 
-            padding: 20px; 
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
+       .modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(2, 13, 6, 0.7); 
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px); 
+    z-index: 3000; /* Поднимаем выше всех */
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px; 
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: auto; /* Разрешаем события сразу */
+}
 
         .modal.active {
             display: flex;
@@ -523,7 +523,11 @@
                 card.setAttribute('data-aos', 'zoom-in');
                 
                 const originalIndex = allCases.indexOf(c);
-                card.onclick = () => openModal(originalIndex);
+               card.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openModal(originalIndex);
+});
                 card.innerHTML = `
                     <div class="case-tag">${translatedTag}</div>
                     <h3>${c.title[currentLang]}</h3>
@@ -540,20 +544,30 @@
             renderCases(tag);
         }
 
-        function openModal(index) {
-            currentModalIndex = index;
-            const modal = document.getElementById('projectModal');
-            const modalContent = document.querySelector('.modal-content');
-            
-            fillModalData(index);
-            if (modalContent) modalContent.scrollTop = 0;
+       function openModal(index) {
+    // 1. Блокируем стандартное поведение, если нужно
+    currentModalIndex = index;
+    const modal = document.getElementById('projectModal');
+    const modalContent = document.querySelector('.modal-content');
+    
+    // 2. Сначала заполняем данные
+    fillModalData(index);
+    
+    // 3. Убеждаемся, что скролл сброшен
+    if (modalContent) modalContent.scrollTop = 0;
 
-            modal.style.display = 'flex';
-            requestAnimationFrame(() => {
-                modal.classList.add('active');
-            });
-            document.body.style.overflow = 'hidden';
-        }
+    // 4. Показываем окно мгновенно в плане верстки
+    modal.style.display = 'flex';
+    
+    // 5. Используем двойной requestAnimationFrame для 100% плавности в любом браузере
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            modal.classList.add('active');
+        });
+    });
+    
+    document.body.style.overflow = 'hidden';
+}
 
         function fillModalData(index) {
             const c = allCases[index];

@@ -23,7 +23,28 @@
             --btn-green: #2ecc71;
             --text-white: #ffffff;
         }
+/* Возвращаем стиль кнопке */
+.btn {
+    display: inline-block;
+    background: var(--btn-green) !important; /* Твой ярко-зеленый */
+    color: var(--bg-dark) !important;        /* Темный текст на кнопке */
+    padding: 18px 45px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
 
+.btn:hover {
+    background: var(--accent-light) !important; /* Светлеет при наведении */
+    transform: scale(1.05);
+    color: var(--bg-dark) !important;
+}
         @keyframes pulse-glow {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
             70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); }

@@ -163,27 +163,13 @@
         }
 
         .filter-container { 
-    display: flex; 
-    gap: 12px; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    width: 100%;
-    
-    /* СТИКЕР (липкость) */
-    position: -webkit-sticky;
-    position: sticky !important; 
-    top: 70px; 
-    z-index: 2000; 
+            display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; width: 100%;
+            position: -webkit-sticky; position: sticky !important; top: 79px; 
+            z-index: 2000; background: rgba(2, 13, 6, 0.4) !important; 
+            backdrop-filter: blur(5px) saturate(120%); -webkit-backdrop-filter: blur(5px) saturate(120%);
+            padding: 15px 10px; margin-bottom: 30px; border-bottom: 1px solid rgba(181, 242, 161, 0.1);
+        }
 
-    /* ПРОЗРАЧНОСТЬ И СТЕКЛО */
-    background: rgba(2, 13, 6, 0.4) !important; 
-    backdrop-filter: blur(5px) saturate(120%); 
-    -webkit-backdrop-filter: blur(5px) saturate(120%);
-    
-    padding: 15px 10px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid rgba(181, 242, 161, 0.1); /* Тонкая линия снизу */
-}
         .filter-btn { background: rgba(255,255,255,0.05); border: 2px solid rgba(181, 242, 161, 0.2); color: white; padding: 12px 26px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 800; transition: 0.3s; }
         .filter-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); box-shadow: 0 0 20px rgba(46, 204, 113, 0.4); }
 
@@ -210,71 +196,20 @@
             .cases-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%; }
             .case-card { padding: 15px 10px; }
             .case-card h3 { font-size: 0.9rem; }
-            .quote-box { width: 100%; margin: 30px 0; padding: 20px; font-size: 1.1rem; }
-            .filter-container { 
-    top: 155px !important; 
-    padding: 10px; 
-    z-index: 1900; 
-    background: rgba(2, 13, 6, 0.4) !important;
-        backdrop-filter: blur(5px) saturate(120%);
-        -webkit-backdrop-filter: blur(5px) saturate(120%);
-    }
-}
-            .filter-btn { padding: 8px 16px !important; font-size: 0.9rem !important; }
+            .filter-container { top: 155px !important; padding: 10px; background: rgba(2, 13, 6, 0.4) !important; }
             .logo { font-size: 1.2rem !important; letter-spacing: 1px; }
-            footer { padding: 40px 20px !important; }
+            footer { padding: 15px 10px !important; }
         }
 
         .modal { 
-    display: none; /* По умолчанию СТРОГО скрыта */
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(2, 13, 6, 0.8); 
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px); 
-    z-index: 3000; /* Поднимаем выше всего */
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px; 
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none; /* Чтобы не блокировала клики, когда невидима */
-}
-        .modal[style*="display: flex"] {
-    pointer-events: auto;
-}
-        .modal-content { 
-            background: #071a0f; padding: 45px; border-radius: 35px; max-width: 900px; width: 100%; 
-            max-height: 90vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(2, 13, 6, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); 
+            z-index: 5000; justify-content: center; align-items: center; padding: 20px; 
         }
-        .close-modal { 
-            position: sticky; top: 0; float: right; margin-right: -10px; margin-top: -10px;
-            margin-bottom: -50px; font-size: 3.5rem; color: var(--accent-light); cursor: pointer; 
-            transition: 0.3s; z-index: 2100; line-height: 1; display: block; text-shadow: 0 0 15px rgba(181, 242, 161, 0.5);
-        }
-        .modal-nav-overlay {
-    position: fixed; 
-    top: 50%; 
-    left: 0; 
-    right: 0; 
-    transform: translateY(-50%);
-    display: flex; 
-    justify-content: space-between; 
-    padding: 0 40px; 
-    pointer-events: none; 
-    z-index: 3100; 
-    width: 100%;
-}
-        .nav-btn { 
-            pointer-events: auto; background: rgba(7, 26, 15, 0.8); border: 1px solid var(--btn-green); 
-            color: var(--btn-green); width: 60px; height: 60px; border-radius: 50%; cursor: pointer; 
-            font-weight: 800; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: 0.3s; backdrop-filter: blur(5px);
-        }
-        .nav-btn:hover { background: var(--btn-green); color: var(--bg-dark); box-shadow: 0 0 20px var(--btn-green); }
-
+        .modal-content { background: #071a0f; padding: 45px; border-radius: 35px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); }
+        .close-modal { position: sticky; top: 0; float: right; margin-right: -10px; margin-top: -10px; font-size: 3.5rem; color: var(--accent-light); cursor: pointer; line-height: 1; text-shadow: 0 0 15px rgba(181, 242, 161, 0.5); }
+        .modal-nav-overlay { position: fixed; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; justify-content: space-between; padding: 0 40px; pointer-events: none; z-index: 5100; width: 100%; }
+        .nav-btn { pointer-events: auto; background: rgba(7, 26, 15, 0.8); border: 1px solid var(--btn-green); color: var(--btn-green); width: 60px; height: 60px; border-radius: 50%; cursor: pointer; font-weight: 800; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
         .modal-main-img { width: 100%; border-radius: 25px; margin-bottom: 35px; border: 1px solid rgba(181, 242, 161, 0.2); }
         .modal-body h2 { font-size: 2.5rem; margin-bottom: 25px; font-weight: 800; color: var(--accent-light); }
         .modal-body h4 { color: var(--btn-green); margin: 35px 0 15px 0; text-transform: uppercase; font-size: 1.1rem; font-weight: 900; letter-spacing: 1px; }
@@ -282,35 +217,18 @@
         .modal-body li { position: relative; padding-left: 30px; margin-bottom: 12px; list-style: none; }
         .modal-body li::before { content: '-'; position: absolute; left: 0; color: var(--btn-green); font-weight: 900; }
 
-        .feedback-widget { position: fixed; bottom: 30px; right: 30px; z-index: 1000; animation: pulse-glow 2s infinite; border-radius: 50%; }
-        .feedback-btn { background: #24A1DE; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.8rem; }
-
-        .btn { display: inline-block; background: var(--btn-green); color: var(--bg-dark); padding: 18px 45px; border-radius: 100px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 1.05rem; transition: 0.3s; cursor: pointer; border: none; }
-        .btn:hover { background: var(--accent-light); transform: scale(1.05); }
-
-        .quote-box { max-width: 1000px; margin: 60px auto; font-style: italic; color: var(--accent-light); font-size: 1.6rem; border-left: 5px solid var(--btn-green); padding: 30px 50px; text-align: center; background: rgba(255,255,255,0.01); line-height: 1.6; }
-
-        /* ИСПРАВЛЕННЫЙ ФУТЕР: теперь он на всю ширину с черной плашкой */
         footer {
-    width: 100% !important;
-    background: #010503 !important; /* Экстремально темный зеленый */
-    padding: 20px 0 !important;    /* Уменьшили высоту в 3 раза (было 60) */
-    margin-top: 60px;
-    border-top: 1px solid rgba(181, 242, 161, 0.1);
-    display: block;
-    text-align: center;
-    position: relative;
-    z-index: 10;
-    clear: both;
-}
-
-footer p {
-    color: rgba(181, 242, 161, 0.5); /* Сделали текст чуть тусклее, чтобы не отвлекал */
-    font-size: 0.8rem;               /* Уменьшили шрифт, так выглядит аккуратнее */
-    margin: 0;
-    text-align: center;
-    letter-spacing: 1px;
-}
+            width: 100% !important;
+            background: #010503 !important; /* Экстремально темный зеленый */
+            padding: 15px 0 !important;    /* Тонкая полоска */
+            margin-top: 60px;
+            border-top: 1px solid rgba(181, 242, 161, 0.05);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            clear: both;
+        }
+        footer p { color: rgba(181, 242, 161, 0.4); font-size: 0.8rem; margin: 0; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -639,31 +557,25 @@ footer p {
         }
 
         /* ОБНОВЛЕННАЯ ФУНКЦИЯ: удалены стрелки изнутри и крестик оставлен один */
-        function openModal(index) {
-            currentModalIndex = index;
-            const c = allCases[index];
-            
-            const imgHtml = c.img && c.img !== "_________________" 
-    ? `<img src="${c.img}" class="modal-main-img">` 
-    : `<div style="height:250px; background: rgba(255,255,255,0.03); border-radius:25px; margin-bottom:35px; display:flex; align-items:center; justify-content:center; color: var(--accent-light); border: 1px dashed rgba(46, 204, 113, 0.3); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Изображение ожидается</div>`;
-            
-            // Заполнение только контента (без кнопок переключения внизу)
-            document.getElementById('modal-body').innerHTML = `
-                <span class="close-modal" onclick="closeModal()">&times;</span>
-                ${imgHtml}
-                <h2>${c.title[currentLang]}</h2>
-                <h4>${i18n[currentLang].desc}</h4><p>${linkify(c.task[currentLang])}</p>
-                <h4>${i18n[currentLang].tasks}</h4><ul>${c.doing[currentLang].map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
-                <h4>${i18n[currentLang].results}</h4><ul>${c.result[currentLang].map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
-            `;
-
-            const modal = document.getElementById('projectModal');
-            modal.style.display = 'flex';
-            modal.style.opacity = '0';
-            setTimeout(() => { modal.style.opacity = '1'; }, 10);
-            document.body.style.overflow = 'hidden';
-        }
-
+       function openModal(index) {
+    currentModalIndex = index;
+    const c = allCases[index];
+    const imgHtml = c.img && c.img !== "_________________" 
+        ? `<img src="${c.img}" class="modal-main-img">` 
+        : `<div style="height:250px; background: rgba(255,255,255,0.03); border-radius:25px; margin-bottom:35px; display:flex; align-items:center; justify-content:center; color: var(--accent-light); border: 1px dashed rgba(46, 204, 113, 0.3); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Изображение ожидается</div>`;
+    
+    document.getElementById('modal-body').innerHTML = `
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        ${imgHtml}
+        <h2>${c.title[currentLang]}</h2>
+        <h4>${i18n[currentLang].desc}</h4><p>${linkify(c.task[currentLang])}</p>
+        <h4>${i18n[currentLang].tasks}</h4><ul>${c.doing[currentLang].map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
+        <h4>${i18n[currentLang].results}</h4><ul>${c.result[currentLang].map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
+    `;
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'flex'; // Показываем
+    document.body.style.overflow = 'hidden';
+}
         function nextCase() {
             currentModalIndex = (currentModalIndex + 1) % allCases.length;
             openModal(currentModalIndex);
@@ -676,11 +588,8 @@ footer p {
 
         function closeModal() { 
     const modal = document.getElementById('projectModal');
-    modal.style.opacity = '0';
-    setTimeout(() => {
-        modal.style.display = 'none'; // Полностью убираем с экрана через 0.3 сек
-    }, 300);
-    document.body.style.overflow = 'auto'; // Возвращаем прокрутку сайта
+    modal.style.display = 'none'; // Скрываем полностью
+    document.body.style.overflow = 'auto';
 }
 
         const canvas = document.getElementById('bg-canvas');

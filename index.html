@@ -794,8 +794,7 @@ body {
             draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.shadowBlur = 10; ctx.shadowColor = `rgba(181, 242, 161, ${this.alpha})`; ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; ctx.fill(); ctx.shadowBlur = 0; }
         }
         function connect() {
-            if (isMobile) return;
-            for (let a = 0; a < particles.length; a++) {
+                for (let a = 0; a < particles.length; a++) {
                 for (let b = a; b < particles.length; b++) {
                     let d = Math.sqrt((particles[a].x - particles[b].x)**2 + (particles[a].y - particles[b].y)**2);
                     if (d < 150) { ctx.strokeStyle = `rgba(46, 204, 113, ${(1 - d/150) * 0.2})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke(); }

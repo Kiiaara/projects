@@ -68,7 +68,6 @@ body {
     display: block; 
     min-height: 100vh;
 }
-        }
 
       #bg-canvas { 
     position: fixed; 
@@ -795,29 +794,27 @@ body {
     statNumbers.forEach(num => observer.observe(num));
 }
 
-// Запускаем инициализацию анимации
-// ГЛАВНЫЙ ИСПРАВИТЕЛЬ:
+// Оставляем только один этот блок в самом конце скриптов
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Сначала восстанавливаем язык
+    // 1. Восстанавливаем язык (автоматически запустит renderCases)
     const savedLang = localStorage.getItem('preferredLang') || 'ru';
     changeLang(savedLang);
 
-    // 2. Инициализируем фон ПЕРЕД всеми расчетами
+    // 2. Инициализируем фон
     initBg(); 
     animate();
-    renderCases();
 
-    // 3. Запускаем анимации статистики
+    // 3. Запускаем анимации
     initStatAnimation();
     animateStats();
 
-    // 4. ФИКС ДЛЯ ОБНОВЛЕНИЯ: форсируем перерисовку фона через 100мс
-    // Это решит проблему с исчезновением светлячков при обновлении в середине страницы
+    // 4. Фикс для обновления в середине страницы
     setTimeout(() => {
         initBg();
-    }, 100);
+    }, 150);
 });
-       window.addEventListener('resize', initBg);
+
+window.addEventListener('resize', initBg);
 
         function animateStats() {
     const stats = document.querySelectorAll('.stat-number');

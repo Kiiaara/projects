@@ -284,7 +284,7 @@ body {
     letter-spacing: 1px;
 }
 
-        .quote-box { 
+       .quote-box { 
     max-width: 1000px; 
     margin: 80px auto 40px auto; 
     font-style: italic; 
@@ -294,46 +294,39 @@ body {
     border-left: 5px solid var(--btn-green); 
     padding: 40px 60px; 
     text-align: center; 
-    background: rgba(13, 45, 27, 0.8); 
+    background: rgba(13, 45, 27, 0.85); 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 30px; 
     line-height: 1.8; 
     position: relative;
-    transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: 0.6s ease-out;
     
-    /* Тонкая аккуратная обводка */
-    outline: 1px solid rgba(255, 255, 255, 0.5); 
-    outline-offset: -1px;
+    /* Убираем outline, он тоже может давать лишний контур */
+    border: 1px solid rgba(181, 242, 161, 0.2); 
 
-    /* ОПТИМИЗИРОВАННОЕ СВЕЧЕНИЕ БЕЗ ПЯТЕН */
+    /* ФИНАЛЬНОЕ РЕШЕНИЕ ОТ ОРЕОЛОВ: */
+    /* Оставляем только ОДНУ внешнюю тень, но с огромным размытием (blur) и нулевым растяжением (spread) */
     box-shadow: 
-        0 0 10px 1px rgba(255, 255, 255, 0.2),         /* Едва заметный белый блик */
-        inset 0 0 15px 1px rgba(255, 255, 255, 0.15),   /* Мягкий внутренний свет */
-        0 0 30px 2px rgba(46, 204, 113, 0.4),          /* Плотное свечение у краев */
-        0 0 60px 10px rgba(46, 204, 113, 0.2);         /* Рассеянный туман (радиус уменьшен) */
+        inset 0 0 20px 2px rgba(255, 255, 255, 0.1), /* Мягкий свет внутри */
+        0 0 60px 0px rgba(46, 204, 113, 0.4);         /* Один мощный и плавный ореол */
 }
 
 .quote-box:hover {
-    transform: translateY(-5px);
+    background: rgba(13, 45, 27, 0.95);
+    /* На ховере просто чуть увеличиваем яркость того же единственного ореола */
     box-shadow: 
-        0 0 15px 2px rgba(255, 255, 255, 0.3), 
-        inset 0 0 20px 2px rgba(255, 255, 255, 0.2), 
-        0 0 40px 5px rgba(46, 204, 113, 0.5), 
-        0 0 80px 15px rgba(46, 204, 113, 0.25);
+        inset 0 0 25px 2px rgba(255, 255, 255, 0.15),
+        0 0 90px 0px rgba(46, 204, 113, 0.5);
 }
 
-/* Мобильная версия: еще чище */
+/* Мобильные правки: гасим яркость, чтобы на маленьком экране не было засвета */
 @media (max-width: 768px) {
     .quote-box {
         margin: 40px 15px;
-        padding: 30px 20px;
-        font-size: 1.1rem;
-        /* На мобилках пятна видны сильнее всего, поэтому тут радиусы минимальны */
-        box-shadow: 
-            0 0 8px 1px rgba(255, 255, 255, 0.1), 
-            0 0 20px 2px rgba(46, 204, 113, 0.3), 
-            0 0 40px 5px rgba(46, 204, 113, 0.1);
+        padding: 25px 20px;
+        font-size: 1.15rem;
+        box-shadow: 0 0 40px 0px rgba(46, 204, 113, 0.3);
     }
 }
 /* 2. Возвращаем цвета кнопкам контактов */

@@ -39,15 +39,14 @@
 }
 
         /* Фикс для футера: растягиваем body на всю высоту */
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-white); 
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+       body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-dark); 
+    color: var(--text-white); 
+    line-height: 1.6;
+    display: block; /* Меняем flex на block, так надежнее для твоей верстки */
+    width: 100%;
+}
 
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
@@ -386,28 +385,62 @@
     }
 }
 
-        /* ФУТЕР: прижимаем к низу */
-       /* Исправляем футер на мобилках */
-    footer {
-    width: 100% !important;
-    background: #020d06 !important; /* Тот самый глубокий черный/зеленый фон */
-    padding: 40px 0;
-    margin-top: 60px;
-    border-top: 1px solid rgba(181, 242, 161, 0.1); /* Тонкая линия сверху для отделения */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-}
+        /* --- ФУТЕР (ОСНОВНОЙ СТИЛЬ) --- */
+        footer {
+            width: 100% !important;
+            background-color: #020d06 !important;
+            padding: 60px 0;
+            margin-top: 100px;
+            border-top: 1px solid rgba(181, 242, 161, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            clear: both;
+        }
 
-/* Стили для текста копирайта внутри футера */
-footer p {
-    color: rgba(181, 242, 161, 0.6);
-    font-size: 0.9rem;
-    margin: 0;
-    text-align: center;
-}
+        footer p {
+            color: rgba(181, 242, 161, 0.6);
+            font-size: 0.9rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* --- МОБИЛЬНЫЕ ПРАВКИ (ВКЛЮЧАЯ ФУТЕР) --- */
+        @media (max-width: 900px) {
+            nav { flex-direction: column; gap: 8px; padding: 10px 20px; width: 100%; align-items: center; }
+            .nav-links { justify-content: center; width: 100%; gap: 15px; }
+            .lang-switch { margin-left: 0; margin-top: 5px; }
+            .hero { margin-top: 160px; width: 100%; align-items: center; text-align: center; }
+            .section { padding: 40px 20px; width: 100%; align-items: center; text-align: center; }
+            h2 { font-size: 2rem; text-align: center; }
+            .about-layout { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 30px; }
+            .info-card { width: 100%; padding: 25px; }
+            .vm-grid { grid-template-columns: 1fr; width: 100%; }
+            .profile-card { width: 100%; }
+            .profile-img { height: 400px; width: 100%; }
+            .cases-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%; }
+            .case-card { padding: 15px 10px; }
+            .case-card h3 { font-size: 0.9rem; }
+            
+            .filter-container {
+                position: -webkit-sticky !important;
+                position: sticky !important;
+                top: 140px !important; 
+                padding: 10px;
+                z-index: 1900;
+                background: #020d06;
+            }
+
+            .logo {
+                font-size: 1.2rem !important;
+                letter-spacing: 1px;
+            }
+
+            footer {
+                margin-top: 50px;
+                padding: 40px 20px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -416,7 +449,7 @@ footer p {
 
     <header>
         <nav>
-            <div class="logo" data-i18n="logo">TKACHEVA MEDIA</div>
+            <div class="logo">TKACHEVA MEDIA</div>
             <div class="nav-links">
                 <a href="#about" data-i18n="nav_about">Обо мне</a>
                 <a href="#cases" data-i18n="nav_cases">Кейсы</a>
@@ -430,128 +463,9 @@ footer p {
         </nav>
     </header>
 
-    <section class="hero">
-        <h1 data-aos="fade-down" data-i18n="name">TKACHEVA MEDIA</h1>
-        <p data-aos="fade-up" data-i18n="hero_p">Influence Marketing</p>
-        <a href="#cases" class="btn" data-aos="zoom-in" data-i18n="hero_btn">Смотреть все проекты</a>
-    </section>
-
-    <div class="brands-section" data-aos="fade-up">
-        <div class="brands-track">
-            <div class="brands-container">
-                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР и SMP</span><span class="brand-item">PUBG MOBILE</span>
-                <span class="brand-item">SKILLFACTORY</span><span class="brand-item">ИГРЫ БУДУЩЕГО</span><span class="brand-item">NIMO.TV</span>
-                <span class="brand-item">SIRUS WOW</span><span class="brand-item">TOTAL FOOTBALL</span><span class="brand-item">ARENA BREAKOUT</span>
-                <span class="brand-item">ZENLESS ZONE ZERO</span><span class="brand-item">ARKNIGHTS</span><span class="brand-item">TARISLAND</span>
-                <span class="brand-item">GRAN SAGA</span><span class="brand-item">STALCRAFT: X</span><span class="brand-item">LDSHOP</span>
-                <span class="brand-item">DXRACER</span><span class="brand-item">АЛАБУГА ПОЛИТЕХ</span><span class="brand-item">ДРОНКОН</span>
-                <span class="brand-item">ARCHEAGE</span><span class="brand-item">EXOBORNE</span><span class="brand-item">NTE</span>
-                <span class="brand-item">CRIMSON DESERT</span><span class="brand-item">SMP</span>
-            </div>
-            <div class="brands-container">
-                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР и SMP</span><span class="brand-item">PUBG MOBILE</span>
-                <span class="brand-item">SKILLFACTORY</span><span class="brand-item">ИГРЫ БУДУЩЕГО</span><span class="brand-item">NIMO.TV</span>
-                <span class="brand-item">SIRUS WOW</span><span class="brand-item">TOTAL FOOTBALL</span><span class="brand-item">ARENA BREAKOUT</span>
-                <span class="brand-item">ZENLESS ZONE ZERO</span><span class="brand-item">ARKNIGHTS</span><span class="brand-item">TARISLAND</span>
-                <span class="brand-item">GRAN SAGA</span><span class="brand-item">STALCRAFT: X</span><span class="brand-item">LDSHOP</span>
-                <span class="brand-item">DXRACER</span><span class="brand-item">АЛАБУГА ПОЛИТЕХ</span><span class="brand-item">ДРОНКОН</span>
-                <span class="brand-item">ARCHEAGE</span><span class="brand-item">EXOBORNE</span><span class="brand-item">NTE</span>
-                <span class="brand-item">CRIMSON DESERT</span><span class="brand-item">SMP</span>
-            </div>
-        </div>
-    </div>
-
-    <section id="about" class="section">
-        <div class="about-layout">
-            <div class="info-card" data-aos="fade-right">
-                <h2 data-i18n="nav_about">Обо мне</h2>
-                <p data-i18n="about_text_1">Меня зовут Валерия. Я - специалист по работе с популярными стримерами и блогерами. Уже более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организации масштабных мероприятий</p>
-
-              <div class="stats-grid">
-    <div class="stat-card">
-        <div class="stat-value-container">
-            <span class="stat-number" data-target="70">0</span><span class="stat-suffix">M+</span>
-        </div>
-        <span class="stat-desc" data-i18n="stats_views">Просмотров</span>
-    </div>
-    <div class="stat-card">
-        <div class="stat-value-container">
-            <span class="stat-number" data-target="400">0</span><span class="stat-suffix">+</span>
-        </div>
-        <span class="stat-desc" data-i18n="stats_bloggers">Блогеров</span>
-    </div>
-    <div class="stat-card">
-        <div class="stat-value-container">
-            <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
-        </div>
-        <span class="stat-desc" data-i18n="stats_cases">Кейсов</span>
-    </div>
-    <div class="stat-card">
-        <div class="stat-value-container">
-            <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
-        </div>
-        <span class="stat-desc" data-i18n="stats_kpi">KPI выполнен</span>
-    </div>
-</div>
-
-                <ul style="list-style: none; margin: 30px 0;">
-                    <li style="padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">-</span> <span data-i18n="about_li_1">Реализация комплексных рекламных кампаний</span></li>
-                    <li style="padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">-</span> <span data-i18n="about_li_2">Проведение мероприятий с топовыми инфлюенсерами</span></li>
-                    <li style="padding-left: 20px; position: relative;"><span style="color: var(--btn-green); position: absolute; left: 0;">-</span> <span data-i18n="about_li_3">Тесные связи с ведущими рекламодателями</span></li>
-                </ul>
-
-                <div class="vm-grid">
-                    <div class="vm-item"><h3 data-i18n="v_title">Видение</h3><p data-i18n="v_text">Мир, где каждый бренд находит свою уникальную историю</p></div>
-                    <div class="vm-item"><h3 data-i18n="m_title">Миссия</h3><p data-i18n="m_text">Превращать сотрудничество с инфлюенсерами в эффективный инструмент маркетинга</p></div>
-                </div>
-            </div>
-            <div class="profile-card" data-aos="fade-left">
-                <img src="Рисунок1.webp" alt="Валерия Ткачева" class="profile-img">
-            </div>
-        </div>
-    </section>
-
-    <section id="cases" class="section">
-        <h2 data-i18n="nav_cases">Кейсы</h2>
-        <div class="filter-container">
-            <button class="filter-btn active" onclick="filterCases('all')" data-i18n="filter_all">Все</button>
-            <button class="filter-btn" onclick="filterCases('Games')" data-i18n="filter_games">Игры</button>
-            <button class="filter-btn" onclick="filterCases('Tournament')" data-i18n="filter_tour">Турниры</button>
-            <button class="filter-btn" onclick="filterCases('Special Project')" data-i18n="filter_spec">Спецпроекты</button>
-        </div>
-        <div class="cases-grid" id="cases-container"></div>
-    </section>
-
-    <div id="projectModal" class="modal" onclick="closeModal()">
-        <div class="modal-nav-overlay">
-            <button class="nav-btn" onclick="event.stopPropagation(); prevCase()">‹</button>
-            <button class="nav-btn" onclick="event.stopPropagation(); nextCase()">›</button>
-        </div>
-        
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div id="modal-body" class="modal-body"></div>
-        </div>
-    </div>
-
-    <div class="feedback-widget">
-        <a href="https://t.me/Ki1aragg" target="_blank" class="feedback-btn">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.445c-.149.659-.539.822-1.091.511l-3.051-2.25-1.47 1.415c-.163.163-.299.299-.614.299l.219-3.105 5.651-5.107c.246-.219-.054-.341-.381-.123l-6.984 4.398-3.009-.942c-.654-.204-.667-.654.137-.967l11.758-4.529c.544-.204 1.021.124.838.649z"/></svg>
-        </a>
-    </div>
-
-    <section id="contact" class="section" style="text-align: center; align-items: center; display: flex; flex-direction: column;">
-        <div class="quote-box" data-aos="fade-up" data-i18n="quote">
-            "Настоящий успех бренда начинается там, где заканчивается боязнь выйти за рамки привычных соцсетей"
-        </div>
-        <h2 data-aos="zoom-in" data-i18n="nav_contact" style="margin-top: 30px; width: 100%;">Связаться</h2>
-        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; width: 100%;">
-            <a href="https://t.me/Ki1aragg" target="_blank" class="btn" style="background: #24A1DE; color: white;">Telegram</a>
-            <a href="https://vk.com/kiiarabg" target="_blank" class="btn" style="background: #0077FF; color: white;">VK</a>
-            <a href="https://discordapp.com/users/307205951503728661" target="_blank" class="btn" style="background: #7289DA; color: white;">Discord</a>
-        </div>
-    </section>
-
-    <footer>© 2026 TKACHEVA MEDIA. All Rights Reserved.</footer>
+    <footer>
+        <p>© 2026 TKACHEVA MEDIA. All Rights Reserved.</p>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

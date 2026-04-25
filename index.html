@@ -269,6 +269,46 @@
             clear: both;
         }
         footer p { color: rgba(181, 242, 161, 0.4); font-size: 0.8rem; margin: 0; letter-spacing: 1px; }
+
+        /* 1. Возвращаем плашку цитаты */
+.quote-box { 
+    max-width: 1000px; 
+    margin: 60px auto; 
+    font-style: italic; 
+    color: var(--accent-light); 
+    font-size: 1.6rem; 
+    border-left: 5px solid var(--btn-green); /* Та самая зеленая полоска слева */
+    padding: 30px 50px; 
+    text-align: center; 
+    background: rgba(255,255,255,0.01); 
+    line-height: 1.6; 
+}
+
+/* 2. Возвращаем цвета кнопкам контактов */
+#contact .btn {
+    color: white !important;
+}
+
+/* Телеграм */
+#contact a[href*="t.me"] { 
+    background: #24A1DE !important; 
+}
+
+/* ВК */
+#contact a[href*="vk.com"] { 
+    background: #0077FF !important; 
+}
+
+/* Дискорд */
+#contact a[href*="discord"] { 
+    background: #7289DA !important; 
+}
+
+/* Эффект при наведении на кнопки контактов */
+#contact .btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
     </style>
 </head>
 <body>

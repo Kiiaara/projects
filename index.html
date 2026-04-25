@@ -309,6 +309,42 @@
     transform: scale(1.05);
     filter: brightness(1.1);
 }
+
+        /* ВОЗВРАЩАЕМ ВИДЖЕТ ТЕЛЕГРАМА В ПРАВЫЙ УГОЛ */
+.feedback-widget { 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; /* Прижимаем вправо */
+    z-index: 9999; /* Чтобы был поверх всех элементов */
+    animation: pulse-glow 2s infinite; /* Та самая пульсация */
+    border-radius: 50%; 
+}
+
+.feedback-btn { 
+    background: #24A1DE !important; /* Цвет Телеграма */
+    color: white !important; 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-decoration: none; 
+    box-shadow: 0 10px 25px rgba(36, 161, 222, 0.4);
+    transition: 0.3s;
+}
+
+.feedback-btn:hover {
+    transform: scale(1.1);
+    background: #28b1f7 !important;
+}
+
+/* На всякий случай дублируем анимацию пульсации, если она тоже слетела */
+@keyframes pulse-glow {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(36, 161, 222, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(36, 161, 222, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(36, 161, 222, 0); }
+}
     </style>
 </head>
 <body>

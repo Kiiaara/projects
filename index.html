@@ -258,17 +258,22 @@
 }
 
         footer {
-            width: 100% !important;
-            background: #010503 !important; /* Экстремально темный зеленый */
-            padding: 15px 0 !important;    /* Тонкая полоска */
-            margin-top: 60px;
-            border-top: 1px solid rgba(181, 242, 161, 0.05);
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            clear: both;
-        }
-        footer p { color: #b5f2a1 !important; font-size: 0.8rem; margin: 0; letter-spacing: 1px; }
+    width: 100% !important;
+    background: #010503 !important;
+    padding: 20px 0 !important;
+    margin-top: 60px;
+    border-top: 1px solid rgba(181, 242, 161, 0.1);
+    display: block;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    clear: both;
+    
+    /* ПЕРЕНОСИМ ЦВЕТ СЮДА И УБИРАЕМ ЛИШНЮЮ ТОЧКУ С ЗАПЯТОЙ */
+    color: #b5f2a1 !important; 
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
 
         /* 1. Возвращаем плашку цитаты */
 .quote-box { 

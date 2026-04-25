@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>TKACHEVA MEDIA | Influence Marketing</title>
+    <title>Валерия Ткачева | TKACHEVA MEDIA — Influence Marketing</title>
     <meta name="description" content="Influence Marketing Manager - Портфолио проектов и кейсов">
     <meta property="og:title" content="Ткачева Валерия | Influence Marketing Portfolio">
     <meta property="og:description" content="Более 25 успешных кейсов со стримерами и блогерами в iGaming и Tech">
@@ -33,32 +33,32 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         html, body { 
-    overflow-x: clip; /* 'clip' не ломает sticky, в отличие от 'hidden' */
-    width: 100%; 
-    position: relative; 
-}
+            overflow-x: clip; 
+            width: 100%; 
+            position: relative; 
+        }
 
-        /* Фикс для футера: растягиваем body на всю высоту */
-       body { 
-    font-family: 'Inter', sans-serif; 
-    background-color: var(--bg-dark); 
-    color: var(--text-white); 
-    line-height: 1.6;
-    display: block; /* Меняем flex на block, так надежнее для твоей верстки */
-    width: 100%;
-}
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-white); 
+            line-height: 1.6;
+            display: block; 
+            width: 100%;
+        }
 
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-      header { 
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
-    background: #020d06 !important; /* Плотный темный фон */
-    backdrop-filter: blur(15px); 
-    z-index: 2100; /* Хедер всегда выше всех */
-    border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
-}
+        header { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: #020d06 !important; 
+            backdrop-filter: blur(15px); 
+            z-index: 2100; 
+            border-bottom: 1px solid rgba(181, 242, 161, 0.1); 
+        }
+
         nav { 
             max-width: 1600px; margin: 0 auto; 
             padding: 20px 4%; 
@@ -70,6 +70,7 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-transform: uppercase; letter-spacing: 3px; font-size: 1.4rem;
         }
+
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { color: white; text-decoration: none; font-weight: 800; font-size: 1rem; text-transform: uppercase; transition: 0.3s; }
 
@@ -102,55 +103,12 @@
         .info-card { background: var(--bg-card); padding: 35px; border-radius: 30px; border: 1px solid rgba(181, 242, 161, 0.1); height: 100%; backdrop-filter: blur(15px); }
         .info-card p, .info-card li { font-size: 1.1rem !important; margin-bottom: 15px; line-height: 1.6; color: #f0f0f0; }
 
-        /* Обновленные карточки статистики */
-.stats-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 15px; 
-    margin: 25px 0; 
-    width: 100%;
-}
-
-.stat-card { 
-    background: rgba(255,255,255,0.03); 
-    padding: 20px 10px; 
-    border-radius: 18px; 
-    text-align: center; 
-    border: 1px solid rgba(46, 204, 113, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Обертка для цифры и суффикса (M+, %), чтобы они были в одну строку */
-.stat-value-container {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    color: var(--btn-green);
-}
-
-.stat-number { 
-    font-size: 2.2rem; 
-    font-weight: 800; 
-    line-height: 1.2; 
-}
-
-.stat-suffix {
-    font-size: 1.5rem; /* Суффикс чуть меньше основной цифры для изящности */
-    font-weight: 800;
-    margin-left: 2px;
-}
-
-.stat-desc { 
-    font-size: 0.75rem; 
-    text-transform: uppercase; 
-    color: var(--accent-light); 
-    font-weight: 700; 
-    letter-spacing: 1px;
-    margin-top: 5px;
-}
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; width: 100%; }
+        .stat-card { background: rgba(255,255,255,0.03); padding: 20px 10px; border-radius: 18px; text-align: center; border: 1px solid rgba(46, 204, 113, 0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .stat-value-container { display: flex; align-items: baseline; justify-content: center; color: var(--btn-green); }
+        .stat-number { font-size: 2.2rem; font-weight: 800; line-height: 1.2; }
+        .stat-suffix { font-size: 1.5rem; font-weight: 800; margin-left: 2px; }
+        .stat-desc { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-light); font-weight: 700; letter-spacing: 1px; margin-top: 5px; }
 
         .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
         .vm-item { background: rgba(255,255,255,0.02); padding: 22px; border-radius: 20px; border-left: 5px solid var(--btn-green); }
@@ -159,30 +117,15 @@
         .profile-card { height: 100%; width: 100%; }
         .profile-img { width: 100%; height: 100%; border-radius: 35px; border: 1px solid var(--btn-green); object-fit: cover; display: block; }
 
-        #cases {
-        position: relative;
-        overflow: visible !important;
-    }
+        #cases { position: relative; overflow: visible !important; }
 
-     .filter-container { 
-    display: flex; 
-    gap: 12px; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    width: 100%;
+        .filter-container { 
+            display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; width: 100%;
+            position: -webkit-sticky; position: sticky !important; top: 80px; 
+            z-index: 2000; background: #020d06; padding: 15px 10px; margin-bottom: 30px;
+            border-bottom: 1px solid rgba(181, 242, 161, 0.1);
+        }
 
-    position: -webkit-sticky;
-    position: sticky !important; 
-    
-    /* Для мобилок отступ должен быть больше, так как хедер там выше */
-    top: 80px; 
-    
-    z-index: 2000; /* Чуть ниже хедера, но выше кейсов */
-    background: #020d06; /* Плотный фон, чтобы кейсы не просвечивали */
-    padding: 15px 10px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid rgba(181, 242, 161, 0.1);
-}
         .filter-btn { background: rgba(255,255,255,0.05); border: 2px solid rgba(181, 242, 161, 0.2); color: white; padding: 12px 26px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 800; transition: 0.3s; }
         .filter-btn.active { background: var(--btn-green); color: var(--bg-dark); border-color: var(--btn-green); box-shadow: 0 0 20px rgba(46, 204, 113, 0.4); }
 
@@ -194,154 +137,41 @@
         .case-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
         .case-result-mini { margin-top: auto; padding-top: 20px; font-weight: 800; color: var(--accent-light); font-size: 1rem; }
 
-       @media (max-width: 900px) {
-    /* Твой код, но с уменьшенными отступами для компактности */
-    nav { 
-        flex-direction: column; 
-        gap: 8px; /* Уменьшили с 15 */
-        padding: 10px 20px; /* Уменьшили с 20 */
-        width: 100%; 
-        align-items: center; 
-    }
-    .nav-links { justify-content: center; width: 100%; gap: 15px; }
-    .lang-switch { margin-left: 0; margin-top: 5px; }
-    
-    .hero { margin-top: 160px; width: 100%; align-items: center; text-align: center; }
-    .section { padding: 40px 20px; width: 100%; align-items: center; text-align: center; }
-    h2 { font-size: 2rem; text-align: center; }
-    
-    .about-layout { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 30px; }
-    .info-card { width: 100%; padding: 25px; }
-    .info-card ul { text-align: left; }
-    .vm-grid { grid-template-columns: 1fr; width: 100%; }
-    
-    .profile-card { width: 100%; }
-    .profile-img { height: 400px; width: 100%; }
-    
-    .cases-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%; }
-    .case-card { padding: 15px 10px; }
-    .case-card h3 { font-size: 0.9rem; }
-    .quote-box { width: 100%; margin: 30px 0; padding: 20px; font-size: 1.1rem; }
-
-    /* ПРАВКА ДЛЯ ФИЛЬТРОВ: теперь они будут "липнуть" правильно */
-    .filter-container {
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        /* Если всё равно будет перекрываться, поменяй 175 на 190 или 200 */
-        top: 175px !important; 
-        padding: 10px;
-        z-index: 1900;
-        background: #020d06; /* Плотный фон, чтобы кейсы не просвечивали */
-    }
-
-    /* Чтобы кнопки фильтров были поменьше на мобилке и влезали в экран */
-    .filter-btn {
-        padding: 8px 16px !important;
-        font-size: 0.9rem !important;
-    }
-}
-
         /* МОДАЛКА */
         .modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(2, 13, 6, 0.7); 
-            backdrop-filter: blur(4px); 
-            -webkit-backdrop-filter: blur(4px); 
-            z-index: 2000; 
-            justify-content: center; 
-            align-items: center; 
-            padding: 20px; 
-            transition: opacity 0.3s ease;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(2, 13, 6, 0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); 
+            z-index: 2500; justify-content: center; align-items: center; padding: 20px; transition: opacity 0.3s ease;
         }
 
         .modal-content { 
-            background: #071a0f; 
-            padding: 45px; 
-            border-radius: 35px; 
-            max-width: 900px; 
-            width: 100%; 
-            max-height: 90vh; 
-            overflow-y: auto; 
-            position: relative; 
-            border: 1px solid var(--btn-green); 
-            z-index: 2001; /* Поверх фона, но под стрелками */
+            background: #071a0f; padding: 45px; border-radius: 35px; max-width: 900px; width: 100%; 
+            max-height: 90vh; overflow-y: auto; position: relative; border: 1px solid var(--btn-green); 
         }
 
         .close-modal { 
-            position: sticky; 
-            top: 0; 
-            float: right; 
-            margin-right: -10px; 
-            margin-top: -10px;
-            margin-bottom: -50px; 
-            font-size: 3.5rem; 
-            color: var(--accent-light); 
-            cursor: pointer; 
-            transition: 0.3s; 
-            z-index: 2100; 
-            line-height: 1;
-            display: block;
-            text-shadow: 0 0 15px rgba(181, 242, 161, 0.5);
+            position: sticky; top: 0; float: right; margin-right: -10px; margin-top: -10px;
+            margin-bottom: -50px; font-size: 3.5rem; color: var(--accent-light); cursor: pointer; 
+            transition: 0.3s; z-index: 2100; line-height: 1; display: block; text-shadow: 0 0 15px rgba(181, 242, 161, 0.5);
         }
 
-        .close-modal:hover { color: var(--btn-green); transform: rotate(90deg); }
-
-        /* ВЫНОСНЫЕ СТРЕЛКИ НАВИГАЦИИ */
         .modal-nav-overlay {
-            position: fixed;
-            top: 50%;
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            padding: 0 40px;
-            pointer-events: none; /* Чтобы контейнер не мешал кликать по модалке */
-            z-index: 2200; /* Самый высокий уровень */
-            width: 100%;
+            position: fixed; top: 50%; left: 0; right: 0; transform: translateY(-50%);
+            display: flex; justify-content: space-between; padding: 0 40px; pointer-events: none; z-index: 2600; width: 100%;
         }
 
         .nav-btn { 
-            pointer-events: auto; /* Возвращаем кликабельность кнопкам */
-            background: rgba(7, 26, 15, 0.8); 
-            border: 1px solid var(--btn-green); 
-            color: var(--btn-green); 
-            width: 60px;
-            height: 60px;
-            border-radius: 50%; 
-            cursor: pointer; 
-            font-weight: 800; 
-            font-size: 1.5rem; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s; 
-            backdrop-filter: blur(5px);
-        }
-.stat-number, .stat-suffix {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--btn-green);
-    line-height: 1.2;
-}
-        .nav-btn:hover { background: var(--btn-green); color: var(--bg-dark); box-shadow: 0 0 20px var(--btn-green); }
-
-        @media (max-width: 1000px) {
-            .modal-nav-overlay { padding: 0 10px; }
-            .nav-btn { width: 45px; height: 45px; font-size: 1.2rem; }
+            pointer-events: auto; background: rgba(7, 26, 15, 0.8); border: 1px solid var(--btn-green); 
+            color: var(--btn-green); width: 60px; height: 60px; border-radius: 50%; cursor: pointer; 
+            font-weight: 800; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; 
+            transition: 0.3s; backdrop-filter: blur(5px);
         }
 
         .modal-main-img { width: 100%; border-radius: 25px; margin-bottom: 35px; border: 1px solid rgba(181, 242, 161, 0.2); }
         .modal-body h2 { font-size: 2.5rem; margin-bottom: 25px; font-weight: 800; color: var(--accent-light); }
         .modal-body h4 { color: var(--btn-green); margin: 35px 0 15px 0; text-transform: uppercase; font-size: 1.1rem; font-weight: 900; letter-spacing: 1px; }
         .modal-body p, .modal-body li { font-size: 1.2rem; line-height: 1.8; color: #f5f5f5; }
-        .modal-body ul { list-style: none; padding: 0; }
-        .modal-body li { position: relative; padding-left: 30px; margin-bottom: 12px; }
+        .modal-body li { position: relative; padding-left: 30px; margin-bottom: 12px; list-style: none; }
         .modal-body li::before { content: '-'; position: absolute; left: 0; color: var(--btn-green); font-weight: 900; }
 
         /* ВИДЖЕТ ОБРАТНОЙ СВЯЗИ */
@@ -353,39 +183,7 @@
 
         .quote-box { max-width: 1000px; margin: 60px auto; font-style: italic; color: var(--accent-light); font-size: 1.6rem; border-left: 5px solid var(--btn-green); padding: 30px 50px; text-align: center; background: rgba(255,255,255,0.01); line-height: 1.6; }
 
-        @media (max-width: 900px) {
-    /* Фильтры на мобилках должны стоять ниже, так как меню занимает больше места */
-   .filter-container {
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        
-        /* Это значение должно быть чуть БОЛЬШЕ высоты твоего хедера */
-        /* Попробуй 180px, если не влезет - увеличь до 210px */
-        top: 140px !important; 
-        
-        z-index: 1900 !important; /* Чуть меньше чем у хедера (2100) */
-        background: #020d06 !important; 
-        padding: 10px 0 !important;
-        margin-bottom: 20px !important;
-    }
-    .logo {
-        font-size: 1.2rem !important;
-        letter-spacing: 1px;
-    }
-}
-    
-    header {
-        padding-bottom: 10px;
-    }
-
-    /* Чтобы кнопки не были слишком огромными на экране телефона */
-    .filter-btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-}
-
-        /* --- ФУТЕР (ОСНОВНОЙ СТИЛЬ) --- */
+        /* --- ФУТЕР --- */
         footer {
             width: 100% !important;
             background-color: #020d06 !important;
@@ -405,7 +203,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- МОБИЛЬНЫЕ ПРАВКИ (ВКЛЮЧАЯ ФУТЕР) --- */
+        /* --- МОБИЛЬНЫЕ ПРАВКИ --- */
         @media (max-width: 900px) {
             nav { flex-direction: column; gap: 8px; padding: 10px 20px; width: 100%; align-items: center; }
             .nav-links { justify-content: center; width: 100%; gap: 15px; }
@@ -431,15 +229,9 @@
                 background: #020d06;
             }
 
-            .logo {
-                font-size: 1.2rem !important;
-                letter-spacing: 1px;
-            }
+            .logo { font-size: 1.2rem !important; letter-spacing: 1px; }
 
-            footer {
-                margin-top: 50px;
-                padding: 40px 20px !important;
-            }
+            footer { margin-top: 50px; padding: 40px 20px !important; }
         }
     </style>
 </head>
@@ -463,6 +255,101 @@
         </nav>
     </header>
 
+    <section class="hero">
+        <h1 data-aos="fade-down">TKACHEVA MEDIA</h1>
+        <p data-aos="fade-up">Influence Marketing</p>
+        <a href="#cases" class="btn" data-aos="zoom-in">Смотреть все проекты</a>
+    </section>
+
+    <div class="brands-section" data-aos="fade-up">
+        <div class="brands-track">
+            <div class="brands-container">
+                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР и SMP</span><span class="brand-item">PUBG MOBILE</span>
+                <span class="brand-item">SKILLFACTORY</span><span class="brand-item">ИГРЫ БУДУЩЕГО</span><span class="brand-item">NIMO.TV</span>
+                <span class="brand-item">SIRUS WOW</span><span class="brand-item">TOTAL FOOTBALL</span><span class="brand-item">ARENA BREAKOUT</span>
+            </div>
+            <div class="brands-container">
+                <span class="brand-item">GIGACHAT</span><span class="brand-item">СБЕРСЕЛЛЕР и SMP</span><span class="brand-item">PUBG MOBILE</span>
+                <span class="brand-item">SKILLFACTORY</span><span class="brand-item">ИГРЫ БУДУЩЕГО</span><span class="brand-item">NIMO.TV</span>
+                <span class="brand-item">SIRUS WOW</span><span class="brand-item">TOTAL FOOTBALL</span><span class="brand-item">ARENA BREAKOUT</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="section">
+        <div class="about-layout">
+            <div class="info-card" data-aos="fade-right">
+                <h2 data-i18n="nav_about">Обо мне</h2>
+                <p data-i18n="about_text_1">Меня зовут Валерия. Я — специалист по работе с популярными стримерами и блогерами. Уже более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организации масштабных мероприятий.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value-container">
+                            <span class="stat-number" data-target="70">0</span><span class="stat-suffix">M+</span>
+                        </div>
+                        <span class="stat-desc" data-i18n="stats_views">Просмотров</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value-container">
+                            <span class="stat-number" data-target="400">0</span><span class="stat-suffix">+</span>
+                        </div>
+                        <span class="stat-desc" data-i18n="stats_bloggers">Блогеров</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value-container">
+                            <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
+                        </div>
+                        <span class="stat-desc" data-i18n="stats_cases">Кейсов</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value-container">
+                            <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                        </div>
+                        <span class="stat-desc" data-i18n="stats_kpi">KPI выполнен</span>
+                    </div>
+                </div>
+
+                <div class="vm-grid">
+                    <div class="vm-item"><h3 data-i18n="v_title">Видение</h3><p data-i18n="v_text">Мир, где каждый бренд находит свою уникальную историю</p></div>
+                    <div class="vm-item"><h3 data-i18n="m_title">Миссия</h3><p data-i18n="m_text">Превращать сотрудничество с инфлюенсерами в эффективный инструмент маркетинга</p></div>
+                </div>
+            </div>
+            <div class="profile-card" data-aos="fade-left">
+                <img src="Рисунок1.webp" alt="Валерия Ткачева" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="cases" class="section">
+        <h2 data-i18n="nav_cases">Кейсы</h2>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterCases('all')" data-i18n="filter_all">Все</button>
+            <button class="filter-btn" onclick="filterCases('Games')" data-i18n="filter_games">Игры</button>
+            <button class="filter-btn" onclick="filterCases('Tournament')" data-i18n="filter_tour">Турниры</button>
+            <button class="filter-btn" onclick="filterCases('Special Project')" data-i18n="filter_spec">Спецпроекты</button>
+        </div>
+        <div class="cases-grid" id="cases-container"></div>
+    </section>
+
+    <div id="projectModal" class="modal" onclick="closeModal()">
+        <div class="modal-nav-overlay">
+            <button class="nav-btn" onclick="event.stopPropagation(); prevCase()">‹</button>
+            <button class="nav-btn" onclick="event.stopPropagation(); nextCase()">›</button>
+        </div>
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <section id="contact" class="section" style="text-align: center; align-items: center;">
+        <div class="quote-box" data-aos="fade-up">"Настоящий успех бренда начинается там, где заканчивается боязнь выйти за рамки привычных соцсетей"</div>
+        <h2 data-i18n="nav_contact">Связаться</h2>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://t.me/Ki1aragg" target="_blank" class="btn" style="background: #24A1DE; color: white;">Telegram</a>
+            <a href="https://vk.com/kiiarabg" target="_blank" class="btn" style="background: #0077FF; color: white;">VK</a>
+        </div>
+    </section>
+
     <footer>
         <p>© 2026 TKACHEVA MEDIA. All Rights Reserved.</p>
     </footer>
@@ -477,86 +364,24 @@
 
         const i18n = {
             ru: {
-                name: "ВАЛЕРИЯ ТКАЧЕВА", logo: "Проекты", nav_about: "Обо мне", nav_cases: "Кейсы", nav_contact: "Контакты",
-                hero_p: "Influence Marketing Manager", hero_btn: "Смотреть все проекты",
+                nav_about: "Обо мне", nav_cases: "Кейсы", nav_contact: "Контакты",
                 stats_views: "Просмотров", stats_bloggers: "Блогеров", stats_cases: "Кейсов", stats_kpi: "KPI выполнен",
                 filter_all: "Все", filter_games: "Игры", filter_tour: "Турниры", filter_spec: "Спецпроекты",
-                about_text_1: "Специалист по работе с популярными стримерами и блогерами. Уже более двух лет успешно занимаюсь продвижением брендов в сферах iGaming и организации масштабных мероприятий",
-                about_li_1: "Реализация комплексных рекламных кампаний", about_li_2: "Проведение мероприятий с топовыми инфлюенсерами",
-                about_li_3: "Тесные связи с ведущими рекламодателями",
-                v_title: "Видение", v_text: "Мир, где каждый бренд находит свою уникальную историю",
-                m_title: "Миссия", m_text: "Превращать сотрудничество с инфлюенсерами в эффективный инструмент маркетинга",
-                quote: "Настоящий успех бренда начинается там, где заканчивается боязнь выйти за рамки привычных соцсетей",
                 desc: "Описание:", tasks: "Что сделано:", results: "Результат:",
-                btn_prev: "← Назад", btn_next: "Вперед →",
-                tag_Tournament: "Турнир", tag_Games: "Игры", tag_Special_Project: "Спецпроект", tag_Esports: "Киберспорт", tag_AI_Tech: "AI Технологии", tag_Shooter: "Шутер", tag_Action: "Экшен", tag_Mobile: "Мобайл", tag_MMORPG: "MMORPG", tag_Show: "Шоу", tag_EdTech: "EdTech", tag_Service: "Сервис", tag_PC: "PC"
+                v_title: "Видение", m_title: "Миссия",
+                tag_Tournament: "Турнир", tag_Games: "Игры", tag_Special_Project: "Спецпроект"
             },
             en: {
-                name: "VALERIYA TKACHEVA", logo: "Projects", nav_about: "About Me", nav_cases: "Cases", nav_contact: "Contacts",
-                hero_p: "Influence Marketing Manager", hero_btn: "View All Projects",
+                nav_about: "About Me", nav_cases: "Cases", nav_contact: "Contacts",
                 stats_views: "Views", stats_bloggers: "Influencers", stats_cases: "Cases", stats_kpi: "KPI Achieved",
                 filter_all: "All", filter_games: "Games", filter_tour: "Tournaments", filter_spec: "Specials",
-                about_text_1: "Expert in working with popular streamers and bloggers. For over two years, I have been successfully promoting brands in iGaming and organizing large-scale events",
-                about_li_1: "Execution of comprehensive advertising campaigns", about_li_2: "Organizing events with top-tier influencers",
-                about_li_3: "Strong ties with leading advertisers",
-                v_title: "Vision", v_text: "A world where every brand finds its unique story",
-                m_title: "Mission", m_text: "Turning influencer collaborations into an effective marketing tool",
-                quote: "True brand success begins where the fear of going beyond traditional social media ends",
                 desc: "Description:", tasks: "What was done:", results: "Result:",
-                btn_prev: "← Previous", btn_next: "Next →",
-                tag_Tournament: "Tournament", tag_Games: "Games", tag_Special_Project: "Special Project", tag_Esports: "Esports", tag_AI_Tech: "AI Tech", tag_Shooter: "Shooter", tag_Action: "Action", tag_Mobile: "Mobile", tag_MMORPG: "MMORPG", tag_Show: "Show", tag_EdTech: "EdTech", tag_Service: "Service", tag_PC: "PC"
-            },
-            zh: {
-                name: "瓦列里娅 · 特卡乔娃", logo: "项目", nav_about: "关于我", nav_cases: "案例", nav_contact: "联系方式",
-                hero_p: "影响力营销经理", hero_btn: "查看所有项目",
-                stats_views: "观看次数", stats_bloggers: "博主", stats_cases: "案例", stats_kpi: "KPI 完成",
-                filter_all: "全部", filter_games: "游戏", filter_tour: "锦标赛", filter_spec: "特别项目",
-                about_text_1: "专注于流行主播和博主的专家。在 iGaming 推广和大型活动组织领域拥有超过两年的成功经验",
-                about_li_1: "执行综合广告活动", about_li_2: "与顶尖意见领袖共同举办活动",
-                about_li_3: "与领先广告商保持密切联系",
-                v_title: "愿景", v_text: "每个品牌都能找到自己独特故事的世界",
-                m_title: "使命", m_text: "将博主合作转化为有效的营销工具",
-                quote: "品牌的真正成功始у打破对传统社交媒体的依赖",
-                desc: "描述:", tasks: "执行内容:", results: "结果:",
-                btn_prev: "← 返回", btn_next: "下一个 →",
-                tag_Tournament: "锦标赛", tag_Games: "游戏", tag_Special_Project: "特别项目", tag_Esports: "电竞", tag_AI_Tech: "人工智能技术", tag_Shooter: "射击游戏", tag_Action: "动作游戏", tag_Mobile: "手游", tag_MMORPG: "多人在线角色扮演游戏", tag_Show: "综艺节目", tag_EdTech: "教育技术", tag_Service: "服务", tag_PC: "个人电脑"
+                v_title: "Vision", m_title: "Mission",
+                tag_Tournament: "Tournament", tag_Games: "Games", tag_Special_Project: "Special Project"
             }
         };
 
-        const links = {
-            "soonvooshko": "https://www.twitch.tv/soonvooshko", "mixazver": "https://www.twitch.tv/mixazver",
-            "recrent": "https://www.twitch.tv/recrent", "voitovichdm": "https://www.twitch.tv/voitovichdm",
-            "vsevkusno": "https://www.twitch.tv/vsevkusno", "trixie_vox": "https://www.twitch.tv/trixie_vox",
-            "by_owl": "https://www.twitch.tv/by_owl", "ekatze007": "https://www.twitch.tv/ekatze007",
-            "tpabomah": "https://www.twitch.tv/tpabomah", "di_rubens": "https://www.twitch.tv/di_rubens",
-            "voodoosh": "https://www.twitch.tv/voodoosh", "dreadztv": "https://www.twitch.tv/dreadztv",
-            "chopo_kaify": "https://www.twitch.tv/chopo_kaify", "didishkatv": "https://www.twitch.tv/didishkatv",
-            "dinicetea": "https://www.twitch.tv/dinicetea", "tennkamlg": "https://www.twitch.tv/tennkamlg",
-            "pudgaero": "https://www.twitch.tv/pudgaero", "jenova": "https://www.twitch.tv/jenova",
-            "telkastrimera": "https://www.twitch.tv/telkastrimera", "off_kuka358": "https://www.twitch.tv/off_kuka358",
-            "derzko69": "https://www.twitch.tv/derzko69", "Shermans": "https://www.youtube.com/@Shermans",
-            "Babatumba": "https://www.youtube.com/@Babatumba", "abdujabborov_7": "https://www.youtube.com/@abdujabborov_7",
-            "morphe_ya": "https://www.twitch.tv/morphe_ya", "bezbash": "https://www.twitch.tv/bezbash",
-            "redpandash": "https://www.twitch.tv/redpandash", "tupa_chil": "https://www.twitch.tv/tupa_chil",
-            "vikiblade": "https://www.twitch.tv/vikiblade", "mr_jijik": "https://www.twitch.tv/mr_jijik",
-            "404t4ga": "https://www.twitch.tv/404t4ga", "adm1tr1pow": "https://www.twitch.tv/adm1tr1pow",
-            "lubricum": "https://www.twitch.tv/lubricum", "mad6996_": "https://www.twitch.tv/mad6996_",
-            "TpaBoMaH": "https://www.twitch.tv/tpabomah"
-        };
-
-        function linkify(text) {
-            if (!text) return "";
-            let result = text;
-            const names = Object.keys(links).sort((a, b) => b.length - a.length);
-            names.forEach(name => {
-                const regex = new RegExp(`(?![^<]*>)\\b(${name})\\b`, 'gi');
-                result = result.replace(regex, `<a href="${links[name]}" target="_blank"><strong>$1</strong></a>`);
-            });
-            return result;
-        }
-
-        /* [ДАННЫЕ КЕЙСОВ allCases ОСТАВЛЕНЫ БЕЗ ИЗМЕНЕНИЙ] */
-        const allCases = [
+         const allCases = [
             { img: "Рисунок7 (2).webp", tag: "Tournament", title: {ru:"Игры Будущего",en:"Games of the Future",zh:"Games of the Future"}, mini:{ru:"23,5 млн+ просмотров",en:"23.5M+ views",zh:"2350万+ 观看次数"}, task:{ru:"Международный мультиспортивный турнир нового формата, объединивший технологии виртуальной реальности и традиционные виды спорта. Турнир прошел в феврале 2023 года в Казани и стал крупнейшим событием подобного масштаба в мире",en:"International multi-sport tournament of a new format, combining virtual reality technologies and traditional sports. The tournament took place in February 2023 in Kazan and became the largest event of such scale in the world",zh:"International multi-sport tournament of a new format, combining virtual reality technologies and traditional sports. The tournament took place in February 2023 in Kazan and became the largest event of such scale in the world"}, doing:{ru:["Разработка стратегии привлечения лидеров мнений для участия в проекте","Организация сотрудничества с более чем 400 инфлюенсерами, включая стримеров, блогеров и спортивных деятелей","Создание уникального контента и спецпроектов, направленных на привлечение внимания к турниру"],en:["Developing a strategy to attract opinion leaders to the project","Organizing collaboration with more than 400 influencers, including streamers, bloggers, and sports figures","Creating unique content and special projects aimed at attracting attention to the tournament"],zh:["制定吸引意见领袖参与项目的战略","组织与 400 多名博主的合作，包括主播、博主和体育界人士","创建独特的内空和特别项目，旨在吸引对锦标赛的关注"]}, result:{ru:["Повышение уровня осведомленности общественности о фестивале","Значительное увеличение охвата и количества подписчиков официальных аккаунтов фестиваля","Активное вовлечение целевой аудитории в события мероприятия","Более 23,5 млн. просмотров турнира через инфлюенс-каналы"],en:["Increased level of public awareness about the festival","Significant increase in reach and number of followers of the official festival accounts","Active engagement of the target audience in the events of the program","More than 23.5 million views of the tournament through influencer channels"],zh:["提高公众对节日的认知度","官方账号的覆盖范围和关注者数量大幅增加","目标受众积极参与活动项目","通过博主渠道获得超过 2350 万次锦标赛观看"]} },
             { img: "photo_2026-01-24_20-50-19.webp", tag: "Special Project", title: {ru:"неСКУФный лагерь",en:"Non-SKUF Camp",zh:"Non-SKUF Camp"}, mini:{ru:"6,8 млн+ просмотров",en:"6.8M+ views",zh:"680万+ 观看次数"}, task:{ru:"Проведение офлайн-проекта со стримерами, который погружает инфлюенсеров в ностальгический вайб пионерии: проведение 3-х дневного спецпроекта в действующем лагере",en:"Conducting an offline project with streamers that immerses influencers in a nostalgic pioneer vibe: holding a 3-day special project in an active camp",zh:"Conducting an offline project with streamers that immerses influencers in a nostalgic pioneer vibe: holding a 3-day special project in an active camp"}, doing:{ru:["Проведены трансляции стримеров и агентства","Получены органичные посевы нарезок со стримеров на YT и в TG","Проведены анонсы в СМИ, тематических сообществах и на каналах стримеров"],en:["Broadcasts by streamers and the agency were conducted","Organic seeding of streamer highlights on YT and TG was achieved","Announcements were made in the media, themed communities, and on streamer channels"],zh:["主播和机构进行了直播","在 YT 和 TG 上获得了主播精彩片段 of the natural spread","在媒体、主题社区和主播频道进行了预告"]}, result:{ru:["Проведено успешное оффлайн-мероприятие с участием крупных стримеров","Мероприятие собрало много положительных отзывов от участников и зрителей","Успешное вовлечение партнеров через уникальные механики и застройки + создание эксклюзивного контента","Более 6,8 млн. просмотров мероприятия"],en:["Successful offline event with major streamers was held","The event collected many positive reviews from participants and viewers","Successful engagement of partners through unique mechanics and installations + creation of exclusive content","More than 6.8 million views of the event"],zh:["成功举办了有大型主播参与的线下活动","活动获得了参与者和观众的大量好评","通过独特的机制和搭建成功吸引合作伙伴 + 创建独家内容","活动观看次数超过 680 万次"]} },
             { img: "photo_2025-12-14_01-22-28.webp", tag: "Tournament", title: {ru:"СберСеллер и SMP",en:"SberSeller & SMP",zh:"SberSeller & SMP"}, mini:{ru:"371к+ просмотров",en:"371k+ views",zh:"37.1万+ 观看次数"}, task:{ru:"Популяризация кибер- и фиджитал-дисциплин в регионе. Рост вовлеченности в ключевых дисциплинах: CS2 и Dota 2. Привлечение целевой аудитории. KPI — минимум 3 тыс. посетителей",en:"Popularizing cyber and phygital disciplines in the region. Increasing engagement in key disciplines: CS2 and Dota 2. Attracting target audience. KPI - minimum 3,000 visitors",zh:"Popularizing cyber and phygital disciplines in the region. Increasing engagement in key disciplines: CS2 and Dota 2. Attracting target audience. KPI - minimum 3,000 visitors"}, doing:{ru:["Организация присутствия инфлюенсеров","Координация трансляций фестиваля"],en:["Organizing influencer attendance","Coordinating festival broadcasts"],zh:["组织博主出席","协调节日直播"]}, result:{ru:["Фестиваль посетили около 3,2 тыс. человек","Трансляции с участием mixazver собрали более 371 тыс. просмотров","Выросло количество участников турниров по CS2 и Dota 2"],en:["About 3,200 people visited the festival","Broadcasts featuring mixazver gathered more than 371,000 views","The number of participants in CS2 and Dota 2 tournaments has grown"],zh:["约 3200 人参加了节日","由 mixazver 参与的直播获得了超过 37.1 万次观看","CS2 和 Dota 2 锦标赛的参与人数有所增加"]} },
@@ -595,202 +420,57 @@
             { img: "_________________", tag: "Special Project", title: {ru:"DXracer",en:"DXracer",zh:"DXracer"}, mini:{ru:"Интеграция",en:"Integration",zh:"内容植入"}, task:{ru:"Интеграция в стрим с игровым креслом",en:"Integration into a stream with a gaming chair",zh:"Integration into a stream with a gaming chair"}, doing:{ru:["Размещение реферальных ссылок","Интеграция на канале tpabomah"],en:["Placement of referral links","Integration on the tpabomah channel"],zh:["放置推荐链接","tpabomah 频道内容植入"]}, result:{ru:["Данные по просмотрам уточняются"],en:["View data is being clarified"],zh:["观看数据正在确认中"]} }
         ];
 
-        function changeLang(lang) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.innerText.toLowerCase() === lang));
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[lang][key]) el.innerText = i18n[lang][key];
-            });
-            renderCases(activeFilter);
-        }
-
-        const container = document.getElementById('cases-container');
         function renderCases(filter = 'all') {
-    container.innerHTML = '';
-    activeFilter = filter;
-    
-    const filteredCases = allCases.filter(c => filter === 'all' || c.tag === filter);
-    
-    filteredCases.forEach((c, index) => {
-        const tagKey = `tag_${c.tag.replace(/ /g, '_')}`;
-        const translatedTag = i18n[currentLang][tagKey] || c.tag;
-        
-        const card = document.createElement('div');
-        card.className = 'case-card';
-        card.setAttribute('data-aos', 'zoom-in');
-        
-        const originalIndex = allCases.indexOf(c);
-        card.onclick = () => openModal(originalIndex);
-
-        // --- ВОТ ТУТ ПРАВКА ДЛЯ КАРТИНКИ В СЕТКЕ ---
-        const gridImgHtml = c.img && c.img !== "_________________" 
-            ? `<div style="width:100%; height:180px; border-radius:20px; margin-bottom:15px; overflow:hidden; border: 1px solid rgba(181, 242, 161, 0.1);">
-                <img src="${c.img}" style="width:100%; height:100%; object-fit:cover;">
-               </div>`
-            : `<div style="width:100%; height:180px; background:rgba(255,255,255,0.02); border-radius:20px; margin-bottom:15px; display:flex; align-items:center; justify-content:center; border: 1px dashed rgba(181, 242, 161, 0.2); color: #666; font-size: 0.8rem; text-transform: uppercase; text-align: center; padding: 20px;">
-                Изображение ожидается
-               </div>`;
-        // ------------------------------------------
-
-        card.innerHTML = `
-            ${gridImgHtml}
-            <div class="case-tag">${translatedTag}</div>
-            <h3>${c.title[currentLang]}</h3>
-            <div class="case-result-mini">${c.mini[currentLang]}</div>
-        `;
-        container.appendChild(card);
-    });
-}
+            const container = document.getElementById('cases-container');
+            container.innerHTML = '';
+            const filtered = allCases.filter(c => filter === 'all' || c.tag === filter);
+            filtered.forEach((c, index) => {
+                const card = document.createElement('div');
+                card.className = 'case-card';
+                card.onclick = () => openModal(allCases.indexOf(c));
+                card.innerHTML = `
+                    <img src="${c.img}" style="width:100%; border-radius:20px; margin-bottom:15px;">
+                    <div class="case-tag">${i18n[currentLang][`tag_${c.tag.replace(/ /g, '_')}`] || c.tag}</div>
+                    <h3>${c.title[currentLang]}</h3>
+                    <div class="case-result-mini">${c.mini[currentLang]}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
 
         function filterCases(tag) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            const clickedBtn = Array.from(document.querySelectorAll('.filter-btn')).find(b => b.getAttribute('onclick').includes(`'${tag}'`));
-            if (clickedBtn) clickedBtn.classList.add('active');
+            event.target.classList.add('active');
             renderCases(tag);
         }
 
-        /* ОБНОВЛЕННАЯ ФУНКЦИЯ: удалены стрелки изнутри и крестик оставлен один */
         function openModal(index) {
             currentModalIndex = index;
             const c = allCases[index];
-            
-            const imgHtml = c.img && c.img !== "_________________" 
-    ? `<img src="${c.img}" class="modal-main-img">` 
-    : `<div style="height:250px; background: rgba(255,255,255,0.03); border-radius:25px; margin-bottom:35px; display:flex; align-items:center; justify-content:center; color: var(--accent-light); border: 1px dashed rgba(46, 204, 113, 0.3); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Изображение ожидается</div>`;
-            
-            // Заполнение только контента (без кнопок переключения внизу)
             document.getElementById('modal-body').innerHTML = `
                 <span class="close-modal" onclick="closeModal()">&times;</span>
-                ${imgHtml}
+                <img src="${c.img}" class="modal-main-img">
                 <h2>${c.title[currentLang]}</h2>
-                <h4>${i18n[currentLang].desc}</h4><p>${linkify(c.task[currentLang])}</p>
-                <h4>${i18n[currentLang].tasks}</h4><ul>${c.doing[currentLang].map(d => `<li>${linkify(d)}</li>`).join('')}</ul>
-                <h4>${i18n[currentLang].results}</h4><ul>${c.result[currentLang].map(r => `<li>${linkify(r)}</li>`).join('')}</ul>
+                <h4>${i18n[currentLang].desc}</h4><p>${c.task[currentLang]}</p>
             `;
-
-            const modal = document.getElementById('projectModal');
-            modal.style.display = 'flex';
-            modal.style.opacity = '0';
-            setTimeout(() => { modal.style.opacity = '1'; }, 10);
-            document.body.style.overflow = 'hidden';
+            document.getElementById('projectModal').style.display = 'flex';
         }
 
-        function nextCase() {
-            currentModalIndex = (currentModalIndex + 1) % allCases.length;
-            openModal(currentModalIndex);
-        }
+        function closeModal() { document.getElementById('projectModal').style.display = 'none'; }
 
-        function prevCase() {
-            currentModalIndex = (currentModalIndex - 1 + allCases.length) % allCases.length;
-            openModal(currentModalIndex);
-        }
-
-        function closeModal() { 
-            document.getElementById('projectModal').style.display = 'none'; 
-            document.body.style.overflow = 'auto'; 
-        }
-
+        // Фоновая анимация
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
-        let width, height, particles;
-        const mouse = { x: null, y: null };
-        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
-        function initBg() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; particles = []; for (let i = 0; i < 60; i++) particles.push(new Particle()); }
-        class Particle {
-            constructor() { this.reset(); }
-            reset() { this.x = Math.random() * width; this.y = Math.random() * height; this.size = Math.random() * 3 + 2; this.speedX = (Math.random() - 0.5) * 0.8; this.speedY = (Math.random() - 0.5) * 0.8; this.alpha = Math.random() * 0.5 + 0.2; this.fade = Math.random() * 0.005 + 0.002; }
-            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > width) this.speedX *= -1; if (this.y < 0 || this.y > height) this.speedY *= -1; this.alpha += this.fade; if (this.alpha > 0.8 || this.alpha < 0.2) this.fade *= -1; }
-            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.shadowBlur = 10; ctx.shadowColor = `rgba(181, 242, 161, ${this.alpha})`; ctx.fillStyle = `rgba(181, 242, 161, ${this.alpha})`; ctx.fill(); ctx.shadowBlur = 0; }
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        function animate() {
+            ctx.clearRect(0,0,width,height);
+            requestAnimationFrame(animate);
         }
-        function connect() {
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    let d = Math.sqrt((particles[a].x - particles[b].x)**2 + (particles[a].y - particles[b].y)**2);
-                    if (d < 150) { ctx.strokeStyle = `rgba(46, 204, 113, ${(1 - d/150) * 0.2})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke(); }
-                }
-                if (mouse.x !== null) {
-                    let md = Math.sqrt((particles[a].x - mouse.x)**2 + (particles[a].y - mouse.y)**2);
-                    if (md < 200) { ctx.strokeStyle = `rgba(181, 242, 161, ${(1 - md/200) * 0.4})`; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
-                }
-            }
-        }
-        function animate() { ctx.clearRect(0, 0, width, height); particles.forEach(p => { p.update(); p.draw(); }); connect(); requestAnimationFrame(animate); }
-        function initStatAnimation() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const endValue = parseInt(target.getAttribute('data-target'));
-                let startValue = 0;
-                const duration = 2000; // 2 секунды
-                const startTime = performance.now();
-
-                function updateCounter(currentTime) {
-                    const elapsedTime = currentTime - startTime;
-                    if (elapsedTime < duration) {
-                        const progress = elapsedTime / duration;
-                        // Функция easedOutQuad для плавного замедления в конце
-                        const currentCount = Math.floor(progress * (2 - progress) * endValue);
-                        target.innerText = currentCount;
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        target.innerText = endValue;
-                    }
-                }
-                
-                requestAnimationFrame(updateCounter);
-                observer.unobserve(target); // Анимация сработает только один раз
-            }
-        });
-    }, { threshold: 0.5 });
-
-    statNumbers.forEach(num => observer.observe(num));
-}
-
-// Запускаем инициализацию анимации
-document.addEventListener('DOMContentLoaded', () => {
-    initStatAnimation();
-});
-        initBg(); renderCases(); animate(); window.addEventListener('resize', initBg);
-
-        function animateStats() {
-    const stats = document.querySelectorAll('.stat-number');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const countTo = parseInt(target.getAttribute('data-target'));
-                let current = 0;
-                
-                // Длительность анимации в мс (2000 = 2 секунды)
-                const duration = 2000; 
-                const increment = countTo / (duration / 16); // 16мс ~ 60fps
-
-                const updateCount = () => {
-                    current += increment;
-                    if (current < countTo) {
-                        target.innerText = Math.floor(current);
-                        requestAnimationFrame(updateCount);
-                    } else {
-                        target.innerText = countTo;
-                    }
-                };
-
-                updateCount();
-                observer.unobserve(target); // Чтобы анимация сработала только один раз
-            }
-        });
-    }, { threshold: 0.5 });
-
-    stats.forEach(stat => observer.observe(stat));
-}
-
-// Запускаем функцию после загрузки страницы
-document.addEventListener('DOMContentLoaded', animateStats);
+        
+        window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
+        renderCases();
+        animate();
     </script>
 </body>
 </html>

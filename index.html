@@ -291,39 +291,47 @@ body {
     margin: 80px auto 40px auto; 
     font-style: italic; 
     color: var(--accent-light); 
-    font-size: 1.2rem; 
+    font-size: 1.5rem; 
     font-weight: 700; 
+    /* Оставляем полоску, она теперь будет красиво скруглена вместе с краем */
     border-left: 5px solid var(--btn-green); 
     padding: 40px 60px; 
     text-align: center; 
-    
-    /* Используем тот же фон и размытие, что и в кейсах */
-    background: rgba(15, 55, 30, 0.9); 
+    background: rgba(13, 45, 27, 0.6); 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-radius: 0 30px 30px 0;
-    line-height: 1.8; 
+    
+    /* ИЗМЕНЕНО: Скругляем все углы равномерно */
+    border-radius: 30px; 
 
-    /* Копируем эффект свечения из .case-card:hover */
-    border: 1px solid rgba(181, 242, 161, 0.1); /* Тонкая рамка */
-    box-shadow: 0 0 60px rgba(46, 204, 113, 0.25); /* Тот самый красивый эффект */
-    transition: 0.4s ease;
+    /* Логика из Таро */
+    outline: 1px solid rgba(181, 242, 161, 0.4); 
+    outline-offset: -1px;
+
+    box-shadow: 
+        0 0 10px 2px rgba(255, 255, 255, 0.3),
+        inset 0 0 15px 1px rgba(255, 255, 255, 0.2),
+        0 0 40px 10px rgba(46, 204, 113, 0.4),
+        0 0 90px 20px rgba(46, 204, 113, 0.2);
+
+    transition: all 0.6s ease-out;
 }
 
-.quote-box:hover {
-    /* При наведении свечение чуть «вдыхает», но остается мягким */
-    border-color: var(--btn-green);
-    box-shadow: 0 0 80px rgba(46, 204, 113, 0.35);
-    background: rgba(15, 55, 30, 0.98);
-}
-    @media (max-width: 768px) {
+/* Правка для мобилки: тоже делаем углы круглыми */
+@media (max-width: 768px) {
     .quote-box {
-        margin: 40px 20px;
-        padding: 30px 25px;
-        font-size: 1.1rem;
-        box-shadow: 0 0 40px rgba(46, 204, 113, 0.2);
+        border-radius: 20px; /* На мобилках радиус поменьше смотрится аккуратнее */
+        margin: 40px 15px;
+        padding: 25px 20px;
+        font-size: 1.15rem;
+        
+        box-shadow: 
+            0 0 8px 1px rgba(255, 255, 255, 0.2), 
+            inset 0 0 10px 1px rgba(255, 255, 255, 0.15), 
+            0 0 25px 5px rgba(46, 204, 113, 0.3), 
+            0 0 50px 10px rgba(46, 204, 113, 0.15);
     }
-}    
+}
 
 /* 2. Возвращаем цвета кнопкам контактов */
 #contact .btn {

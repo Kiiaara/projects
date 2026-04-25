@@ -252,25 +252,25 @@
 
         /* ИСПРАВЛЕННЫЙ ФУТЕР: теперь он на всю ширину с черной плашкой */
         footer {
-            width: 100% !important;
-            background: #020d06 !important; 
-            padding: 60px 0;
-            margin-top: 60px;
-            border-top: 1px solid rgba(181, 242, 161, 0.1);
-            display: block;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            clear: both;
-        }
+    width: 100% !important;
+    background: #010503 !important; /* Экстремально темный зеленый */
+    padding: 20px 0 !important;    /* Уменьшили высоту в 3 раза (было 60) */
+    margin-top: 60px;
+    border-top: 1px solid rgba(181, 242, 161, 0.1);
+    display: block;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    clear: both;
+}
 
-        footer p {
-            color: rgba(181, 242, 161, 0.6);
-            font-size: 0.9rem;
-            margin: 0;
-            text-align: center;
-            letter-spacing: 1px;
-        }
+footer p {
+    color: rgba(181, 242, 161, 0.5); /* Сделали текст чуть тусклее, чтобы не отвлекал */
+    font-size: 0.8rem;               /* Уменьшили шрифт, так выглядит аккуратнее */
+    margin: 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
     </style>
 </head>
 <body>
@@ -414,9 +414,7 @@
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 TKACHEVA MEDIA. All Rights Reserved.</p>
-    </footer>
+    <footer>© 2026 TKACHEVA MEDIA. All Rights Reserved.</footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

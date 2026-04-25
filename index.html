@@ -285,7 +285,7 @@ body {
 }
 
         /* 1. Возвращаем плашку цитаты */
-/* 1. Возвращаем плашку цитаты */
+/* 1. Плашка цитаты с эффектом "Магия Таро" */
 .quote-box { 
     max-width: 1000px; 
     margin: 80px auto 40px auto; 
@@ -293,43 +293,49 @@ body {
     color: var(--accent-light); 
     font-size: 1.5rem; 
     font-weight: 700; 
-    /* Оставляем полоску, она теперь будет красиво скруглена вместе с краем */
-    border-left: 5px solid var(--btn-green); 
     padding: 40px 60px; 
     text-align: center; 
-    background: rgba(13, 45, 27, 0.6); 
+    background: rgba(13, 45, 27, 0.8); /* Плотный фон как на картах */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px; /* Скругление со всех сторон */
+    line-height: 1.8; 
+    position: relative;
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     
-    /* ИЗМЕНЕНО: Скругляем все углы равномерно */
-    border-radius: 30px; 
+    /* Та самая обводка из Таро */
+    outline: 2px solid rgba(255, 255, 255, 0.9); 
+    outline-offset: -2px;
 
-    /* Логика из Таро */
-    outline: 1px solid rgba(181, 242, 161, 0.4); 
-    outline-offset: -1px;
-
+    /* КОПИРУЕМ СВЕЧЕНИЕ КАРТ (адаптировано под зеленый) */
     box-shadow: 
-        0 0 10px 2px rgba(255, 255, 255, 0.3),
-        inset 0 0 15px 1px rgba(255, 255, 255, 0.2),
-        0 0 40px 10px rgba(46, 204, 113, 0.4),
-        0 0 90px 20px rgba(46, 204, 113, 0.2);
-
-    transition: all 0.6s ease-out;
+        0 0 15px 3px #fff,                         /* Белый ореол */
+        inset 0 0 20px 2px #fff,                   /* Белый внутренний свет */
+        0 0 35px 15px rgba(46, 204, 113, 0.7),      /* Зеленое плотное облако */
+        0 0 70px 25px rgba(46, 204, 113, 0.3);     /* Огромное рассеивание */
 }
 
-/* Правка для мобилки: тоже делаем углы круглыми */
+.quote-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    /* Усиливаем свечение при наведении */
+    box-shadow: 
+        0 0 20px 5px #fff, 
+        inset 0 0 25px 4px #fff, 
+        0 0 50px 20px rgba(46, 204, 113, 0.9), 
+        0 0 100px 40px rgba(46, 204, 113, 0.4);
+}
+
+/* Правки для мобилок, чтобы свечение не "съело" экран */
 @media (max-width: 768px) {
     .quote-box {
-        border-radius: 20px; /* На мобилках радиус поменьше смотрится аккуратнее */
         margin: 40px 15px;
-        padding: 25px 20px;
-        font-size: 1.15rem;
-        
+        padding: 30px 20px;
+        font-size: 1.1rem;
         box-shadow: 
-            0 0 8px 1px rgba(255, 255, 255, 0.2), 
-            inset 0 0 10px 1px rgba(255, 255, 255, 0.15), 
-            0 0 25px 5px rgba(46, 204, 113, 0.3), 
-            0 0 50px 10px rgba(46, 204, 113, 0.15);
+            0 0 10px 2px #fff, 
+            inset 0 0 10px 1px #fff, 
+            0 0 25px 8px rgba(46, 204, 113, 0.5), 
+            0 0 40px 15px rgba(46, 204, 113, 0.2);
     }
 }
 

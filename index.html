@@ -292,38 +292,36 @@ body {
     font-style: italic; 
     color: var(--accent-light); 
     font-size: 1.2rem; 
+    font-weight: 700; 
     border-left: 5px solid var(--btn-green); 
     padding: 40px 60px; 
     text-align: center; 
-    /* Делаем плашку светлее и заметнее */
-    background: rgba(181, 242, 161, 0.08); 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    
+    /* Используем тот же фон и размытие, что и в кейсах */
+    background: rgba(15, 55, 30, 0.9); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 0 30px 30px 0;
     line-height: 1.8; 
-    box-shadow: 0 0 100px rgba(46, 204, 113, 0.08), 
-                0 0 40px rgba(46, 204, 113, 0.05);
-    
-    /* Добавим тонкую границу, чтобы плашка не терялась на фоне */
-    border-top: 1px solid rgba(181, 242, 161, 0.1);
-    border-right: 1px solid rgba(181, 242, 161, 0.1);
-    border-bottom: 1px solid rgba(181, 242, 161, 0.1);
 
-    transition: all 0.5s ease;
+    /* Копируем эффект свечения из .case-card:hover */
+    border: 1px solid rgba(181, 242, 161, 0.1); /* Тонкая рамка */
+    box-shadow: 0 0 60px rgba(46, 204, 113, 0.25); /* Тот самый красивый эффект */
+    transition: 0.4s ease;
 }
 
 .quote-box:hover {
     /* При наведении свечение чуть «вдыхает», но остается мягким */
-    box-shadow: 0 0 120px rgba(46, 204, 113, 0.12), 
-                0 0 50px rgba(46, 204, 113, 0.08);
-    background: rgba(13, 45, 27, 0.4);
+    border-color: var(--btn-green);
+    box-shadow: 0 0 80px rgba(46, 204, 113, 0.35);
+    background: rgba(15, 55, 30, 0.98);
 }
     @media (max-width: 768px) {
     .quote-box {
         margin: 40px 20px;
         padding: 30px 25px;
         font-size: 1.1rem;
-        box-shadow: 0 0 60px rgba(46, 204, 113, 0.05);
+        box-shadow: 0 0 40px rgba(46, 204, 113, 0.2);
     }
 }    
 

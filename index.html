@@ -59,17 +59,27 @@
             position: relative; 
         }
 
-        /* Исправлено: заменен flex на block, чтобы футер не прижимался к левому краю */
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-white); 
-            line-height: 1.6;
-            display: block; 
-            min-height: 100vh;
+        /* Убираем фон у body, чтобы он не перекрывал canvas */
+body { 
+    font-family: 'Inter', sans-serif; 
+    background: transparent !important; /* Обязательно! */
+    color: var(--text-white); 
+    line-height: 1.6;
+    display: block; 
+    min-height: 100vh;
+}
         }
 
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+      #bg-canvas { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;   /* Используем %, чтобы не вылезал горизонтальный скролл */
+    height: 100%; 
+    z-index: -1; 
+    pointer-events: none; /* КРИТИЧЕСКИ ВАЖНО: пропускает клики сквозь фон на кнопки кейсов */
+    background: var(--bg-dark); /* Темный цвет фона теперь живет здесь */
+}
 
         header { 
             position: fixed; 
@@ -721,7 +731,17 @@
         let width, height, particles;
         const mouse = { x: null, y: null };
         window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
-        function initBg() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; particles = []; for (let i = 0; i < 60; i++) particles.push(new Particle()); }
+       function initBg() {
+    // Используем innerWidth/Height именно видимого окна
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    
+    // Пересоздаем частицы, только если их еще нет или экран сильно изменился
+    if (!particles || particles.length === 0) {
+        particles = [];
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+    }
+}
         class Particle {
             constructor() { this.reset(); }
             reset() { this.x = Math.random() * width; this.y = Math.random() * height; this.size = Math.random() * 3 + 2; this.speedX = (Math.random() - 0.5) * 0.8; this.speedY = (Math.random() - 0.5) * 0.8; this.alpha = Math.random() * 0.5 + 0.2; this.fade = Math.random() * 0.005 + 0.002; }
@@ -776,17 +796,28 @@
 }
 
 // Запускаем инициализацию анимации
+// ГЛАВНЫЙ ИСПРАВИТЕЛЬ:
 document.addEventListener('DOMContentLoaded', () => {
-    // ПРОВЕРЯЕМ, ЕСТЬ ЛИ СОХРАНЕННЫЙ ЯЗЫК
-    const savedLang = localStorage.getItem('preferredLang');
-    if (savedLang) {
-        changeLang(savedLang); // Если нашли — ставим его
-    } else {
-        changeLang('ru'); // Если нет — по умолчанию русский
-    }
+    // 1. Сначала восстанавливаем язык
+    const savedLang = localStorage.getItem('preferredLang') || 'ru';
+    changeLang(savedLang);
+
+    // 2. Инициализируем фон ПЕРЕД всеми расчетами
+    initBg(); 
+    animate();
+    renderCases();
+
+    // 3. Запускаем анимации статистики
     initStatAnimation();
+    animateStats();
+
+    // 4. ФИКС ДЛЯ ОБНОВЛЕНИЯ: форсируем перерисовку фона через 100мс
+    // Это решит проблему с исчезновением светлячков при обновлении в середине страницы
+    setTimeout(() => {
+        initBg();
+    }, 100);
 });
-        initBg(); renderCases(); animate(); window.addEventListener('resize', initBg);
+       window.addEventListener('resize', initBg);
 
         function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
